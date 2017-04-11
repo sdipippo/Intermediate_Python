@@ -97,6 +97,7 @@ print
 # We'll tell you not just WHAT to build but also
 # How to build it
 # It should not directly access the radius inside inside area methods
+
 # Area methods must infer the radius from the circumference
 # Circle instances must not store the radius
 # A circle instance must store the diameter and ONLY the the diameter

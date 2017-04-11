@@ -45,6 +45,17 @@ Classes should pretty much always inherit from "Object" if not
 inheriting from another class. It changes the "metaclass" to a newer
 method
 
+Open/Closed Principle
+    Classes should be open for extension (inherit and override)
+    and closed for modification (overrides have no side-effects
+
+name mangling           self.method()
+    prefixing your internal dependencies: __name
+    mangles the name to:        _Class__name
+    Meaning you would see it as _Class__name if you "dir" the class
+    Prevents child classes from overwriting that dependency by mistake
+    
+
 '''
 
 import math
@@ -56,7 +67,7 @@ class Circle(object):
     'advanced circle analytics toolkit'
 
     #major, minor, patch
-    version = Version(0, 5, 0)
+    version = Version(0, 6, 0)
 
     def __init__(self, radius):
         self.radius = radius
@@ -97,11 +108,18 @@ class Circle(object):
 
     def area(self):
         'Quadrature on a planar shape of uniform revolution'
-        return math.pi * self.radius ** 2
+        radius = self.__circumference() / math.pi / 2.0
+        return math.pi * radius ** 2
 
     def circumference(self):
         'permeter of a circle'
         return math.pi * self.radius * 2
+
+    # Creates a Circle-specific circumference value
+    # So Tire can overwrite it in client code
+    # and future changes could impact them
+    __circumference = circumference
+    # This creates 'name mangling' - see top documentation
 
     @staticmethod #This turns off the requirement to pass in "self"
     # Since the function doesn't need a Circle instance to run anyway
