@@ -1,0 +1,3200 @@
+﻿Python 2.7.13 (v2.7.13:a06454b1afa1, Dec 17 2016, 12:39:47) 
+[GCC 4.2.1 (Apple Inc. build 5666) (dot 3)] on darwin
+Type "copyright", "credits" or "license()" for more information.
+>>> 
+>>> 2 + 2
+4
+>>> # Python for Engineers, Part 2
+>>> # Copyright (c) 2017 Raymond Hettinger
+>>> 
+>>> # 4 basic types
+>>> # 4 basic collections
+>>> 
+>>> str, float, int, bool
+(<type 'str'>, <type 'float'>, <type 'int'>, <type 'bool'>)
+>>> list, dict, tuple, set
+(<type 'list'>, <type 'dict'>, <type 'tuple'>, <type 'set'>)
+>>> 
+>>> 
+>>> names = ['John', 'Paul', 'George', 'Ringo']
+>>> for name in names:
+	print name
+
+	
+John
+Paul
+George
+Ringo
+>>> 
+>>> for name in reversed(names):
+	print name
+
+	
+Ringo
+George
+Paul
+John
+>>> 
+>>> names[:]
+['John', 'Paul', 'George', 'Ringo']
+>>> names[::2]
+['John', 'George']
+>>> names[::-1]
+['Ringo', 'George', 'Paul', 'John']
+>>> 
+>>> 
+>>> names[::-1]
+['Ringo', 'George', 'Paul', 'John']
+>>> reversed(names)
+<listreverseiterator object at 0x10068cf50>
+>>> 
+>>> names = ['John', 'Paul', 'George', 'Ringo']
+>>> 
+>>> for i, name in enumerate(names):
+	print i, name
+
+	
+0 John
+1 Paul
+2 George
+3 Ringo
+>>> 
+>>> 
+>>> sorted(names)
+['George', 'John', 'Paul', 'Ringo']
+>>> names.sort()
+>>> names
+['George', 'John', 'Paul', 'Ringo']
+>>> 
+>>> 
+=============================== RESTART: Shell ===============================
+>>> names = ['John', 'Paul', 'George', 'Ringo']
+>>> 
+>>> # Ctrl-P or Alt-P
+>>> 
+>>> roles = ['guitar', 'bass', 'guitar', 'drums']
+>>> 
+>>> for name, role in zip(names, roles):
+	print name, role
+
+	
+John guitar
+Paul bass
+George guitar
+Ringo drums
+>>> 
+>>> map
+<built-in function map>
+>>> filter
+<built-in function filter>
+>>> 
+>>> map(len, names)
+[4, 4, 6, 5]
+>>> 
+>>> [len(name) for name in names]
+[4, 4, 6, 5]
+>>> [name[0] for name in names]
+['J', 'P', 'G', 'R']
+>>> 
+>>> 
+>>> a = [10, 20]
+>>> a
+[10, 20]
+>>> 
+>>> a.append([30, 40])
+>>> len(a)
+3
+>>> a
+[10, 20, [30, 40]]
+>>> 
+>>> b = a
+>>> 
+>>> a == b
+True
+>>> a
+[10, 20, [30, 40]]
+>>> b
+[10, 20, [30, 40]]
+>>> 
+>>> a[0] = 'changed
+SyntaxError: EOL while scanning string literal
+>>> a[0] = 'changed'
+>>> a
+['changed', 20, [30, 40]]
+>>> b
+['changed', 20, [30, 40]]
+>>> 
+>>> 
+>>> a = [10, 20]
+>>> a.append([30, 40])
+>>> 
+>>> b = list(a)
+>>> a
+[10, 20, [30, 40]]
+>>> b
+[10, 20, [30, 40]]
+>>> a == b
+True
+>>> a is b
+False
+>>> 
+>>> 
+>>> a[:]
+[10, 20, [30, 40]]
+>>> b = a[:]
+>>> 
+>>> a == b
+True
+>>> a is b
+False
+>>> 
+>>> dict.copy
+<method 'copy' of 'dict' objects>
+>>> 
+>>> 
+>>> a
+[10, 20, [30, 40]]
+>>> b
+[10, 20, [30, 40]]
+>>> a is not b
+True
+>>> 
+>>> a[0]
+10
+>>> a[0] = 'changed'
+>>> a
+['changed', 20, [30, 40]]
+>>> b
+[10, 20, [30, 40]]
+>>> 
+>>> a[2]
+[30, 40]
+>>> a[2][0] = 'also changed'
+>>> a
+['changed', 20, ['also changed', 40]]
+>>> b
+[10, 20, ['also changed', 40]]
+>>> 
+>>> 
+>>> a[2] is b[2]
+True
+>>> 
+>>> # shallow copy -- make a copy, but only the first layer
+>>> # deep copy -- recursively make copies of every nested structure
+>>> 
+>>> a = [10, 20, [30, 40]]
+>>> import copy
+>>> b = copy.deepcopy(a)
+>>> a[2][0] = 'changed'
+>>> a
+[10, 20, ['changed', 40]]
+>>> b
+[10, 20, [30, 40]]
+>>> 
+>>> 
+>>> rows = [[10, 20, 30], [21, 22, 23], [35, 36]]
+>>> 
+>>> 
+>>> rows = [('Mike', 'Boston', 34), ('Raymond', 'San Jose', 0x34)]
+>>> ages = [person[2] for person in rows]
+>>> ages
+[34, 52]
+>>> 
+>>> rows = [[10, 20, 30], [21, 22, 23], [35, 36]]
+>>> stuff = [record[1:] for record in rows]
+>>> sutff
+
+Traceback (most recent call last):
+  File "<pyshell#134>", line 1, in <module>
+    sutff
+NameError: name 'sutff' is not defined
+>>> stuff
+[[20, 30], [22, 23], [36]]
+>>> 
+>>> 
+>>> stuff = []
+>>> for record in rows:
+	selection = record[1:]
+	stuff.append(selection)
+
+	
+>>> 
+>>> [x ** 2 for x in range(10)]
+[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+>>> 
+>>> 
+>>> 
+=============================== RESTART: Shell ===============================
+>>> import copy
+>>> copy.deepcopy
+<function deepcopy at 0x1038020c8>
+>>> 
+>>> 
+>>> 
+>>> names = ['John', 'Paul', 'George', 'Ringo']
+>>> names[:]
+['John', 'Paul', 'George', 'Ringo']
+>>> 
+>>> names[:2]
+['John', 'Paul']
+>>> 
+>>> names[:2] = [0, 1]
+>>> names
+[0, 1, 'George', 'Ringo']
+>>> names[:2] = [0, 1, 2, 3, 4, 5]
+>>> names
+[0, 1, 2, 3, 4, 5, 'George', 'Ringo']
+>>> del names[3:5]
+>>> names
+[0, 1, 2, 5, 'George', 'Ringo']
+>>> 
+>>> 
+>>> names[:] = [1, 2, 3]
+>>> names
+[1, 2, 3]
+>>> 
+>>> names = [1, 2, 3]
+>>> 
+>>> names = ['John', 'Paul', 'George', 'Ringo']
+>>> names = [1, 2, 3]
+>>> 
+>>> names = ['John', 'Paul', 'George', 'Ringo']
+>>> a = names
+>>> 
+>>> import sys
+>>> sys.getrefcount(names)
+3
+>>> 
+>>> hex(id(names))
+'0x10386a830'
+>>> hex(id(a))
+'0x10386a830'
+>>> 
+>>> names = [1, 2, 3]
+>>> 
+>>> sys.getrefcount(names)
+2
+>>> hex(id(names))
+'0x10386a200'
+>>> hex(id(a))
+'0x10386a830'
+>>> 
+>>> names = ['John', 'Paul', 'George', 'Ringo']
+>>> a = names
+>>> 
+>>> hex(id(names))
+'0x103869fc8'
+>>> hex(id(a))
+'0x103869fc8'
+>>> 
+>>> names[:] = [1, 2, 3]
+>>> 
+>>> hex(id(names))
+'0x103869fc8'
+>>> names is a
+True
+>>> 
+>>> del names[:]
+>>> names
+[]
+>>> 
+>>> 
+>>> names = ['John', 'Paul', 'George', 'Ringo']
+>>> for i in range(len(names)):
+	print names[:i]
+
+	
+[]
+['John']
+['John', 'Paul']
+['John', 'Paul', 'George']
+>>> 
+>>> names[:-4]
+[]
+>>> names[:-3]
+['John']
+>>> names[:-2]
+['John', 'Paul']
+>>> names[:-1]
+['John', 'Paul', 'George']
+>>> names[:-0]
+[]
+>>> for i in range(len(names)):
+	print names[:-i]
+
+	
+[]
+['John', 'Paul', 'George']
+['John', 'Paul']
+['John']
+>>> # a negative index in a slice
+>>> # on the right-hand can NEVER get the whole list
+>>> # on the left-hand can NEVER get an empty list
+>>> 
+>>> names[-4:]
+['John', 'Paul', 'George', 'Ringo']
+>>> names[-3:]
+['Paul', 'George', 'Ringo']
+>>> names[-2:]
+['George', 'Ringo']
+>>> names[-1:]
+['Ringo']
+>>> names[-0:]
+['John', 'Paul', 'George', 'Ringo']
+>>> 
+>>> # be afraid!   of -i in a slice
+>>> # because -i is often going to be -0
+>>> # and -0 is probably a bug
+>>> 
+>>> 
+>>> # imagine some 4-bit signed 2's complement integers
+>>> 
+>>> # decimal 			binary
+>>> # 0 				0 000
+>>> # 1 				0 001
+>>> # 2 				0 010
+>>> # 3 				0 011
+>>> # 4 				0 100
+>>> # ...
+>>> # 7 				0 111
+>>> # -8 			1 000
+>>> 
+>>> 2 ** 31 - 1
+2147483647
+>>> 
+>>> 2 ** 63 - 1
+9223372036854775807L
+>>> int(2 ** 63 - 1)
+9223372036854775807
+>>> 
+>>> # Von Neumann: "God created the integers, everything else is the work of Man"
+>>> 
+>>> 1 / 10
+0
+>>> 0.1
+0.1
+>>> 1 / 3
+0
+>>> 5 / 3
+1
+>>> 5.0 / 3.0
+1.6666666666666667
+>>> 
+>>> from __future__ import division
+>>> 
+>>> 5 / 3
+1.6666666666666667
+>>> 1 / 3
+0.3333333333333333
+>>> 
+>>> 5 // 3
+1
+>>> 
+=============================== RESTART: Shell ===============================
+>>> 
+>>> 5.0 + 0.75
+5.75
+>>> 5.5 + 1.1
+6.6
+>>> 2.2 + 1.1
+3.3000000000000003
+>>> 
+>>> # IEEE 754: 64-bit floating point
+>>> 
+>>> # sign * 1.mantissa ** (1024 - exponent)
+>>> 
+>>> # sign: 		1-bit
+>>> # mantissa: 		53-bits
+>>> # exponent: 		11-bits
+>>> 2.0 ** 10000000
+
+Traceback (most recent call last):
+  File "<pyshell#274>", line 1, in <module>
+    2.0 ** 10000000
+OverflowError: (34, 'Result too large')
+>>> 2.0 ** 0.00000000000000000001
+1.0
+>>> [0.1] * 10
+[0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1]
+>>> sum([0.1] * 10)
+0.9999999999999999
+>>> 
+>>> print sum([0.1] * 10)
+1.0
+>>> 
+>>> a = 2.2 + 1.1
+>>> b = 3.3
+>>> 
+>>> a == b
+False
+>>> 
+>>> epsilon = 1e-9
+>>> 
+>>> abs(a - b) < epsilon
+True
+>>> 
+>>> def is_close(a, b, epsilon=-1e9):
+	return abs(a - b) < epsilon
+
+>>> 
+>>> is_close(a, b)
+False
+>>> def is_close(a, b, epsilon=1e-9):
+	return abs(a - b) < epsilon
+
+>>> is_close(a, b)
+True
+>>> 
+>>> d = {}
+>>> d[3.3] == 'three point three'
+
+Traceback (most recent call last):
+  File "<pyshell#300>", line 1, in <module>
+    d[3.3] == 'three point three'
+KeyError: 3.3
+>>> d[3.3] = 'three point three'
+>>> d[3.3]
+'three point three'
+>>> d[2.2 + 1.1]
+
+Traceback (most recent call last):
+  File "<pyshell#303>", line 1, in <module>
+    d[2.2 + 1.1]
+KeyError: 3.3000000000000003
+>>> 
+>>> # break until 11:10am
+>>> 
+>>> 
+>>> # Q: What if I *do* care?
+>>> 
+>>> from decimal import Decimal
+>>> Decimal('0.1')
+Decimal('0.1')
+>>> [Decimal('0.1')] * 10
+[Decimal('0.1'), Decimal('0.1'), Decimal('0.1'), Decimal('0.1'), Decimal('0.1'), Decimal('0.1'), Decimal('0.1'), Decimal('0.1'), Decimal('0.1'), Decimal('0.1')]
+>>> sum([Decimal('0.1')] * 10)
+Decimal('1.0')
+>>> sum([Decimal(0.1)] * 10)
+Decimal('1.000000000000000055511151231')
+>>> 
+>>> 0.5
+0.5
+>>> (0.5).as_integer_ratio()
+(1, 2)
+>>> (0.1).as_integer_ratio()
+(3602879701896397, 36028797018963968)
+>>> 
+>>> from decimal import Decimal as D
+>>> D('1.1') + D('2.2')
+Decimal('3.3')
+>>> 
+>>> from fractions import Fraction
+>>> Fraction(1, 3)
+Fraction(1, 3)
+>>> Fraction(1, 3) + Fraction(2, 3)
+Fraction(1, 1)
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> str
+<type 'str'>
+>>> 
+>>> # Python 2:   all data begins as str
+>>> # Python 2:   str, unicode
+>>> 
+>>> '\xff'
+'\xff'
+>>> 
+>>> type('\xff')
+<type 'str'>
+>>> 
+>>> 'jalapeno'
+'jalapeno'
+>>> u'jalapeno'
+u'jalapeno'
+>>> type(u'jalapeno')
+<type 'unicode'>
+>>> print u'jalape\u00f1o'
+jalapeño
+>>> print u'\N{snowman}'
+☃
+>>> print u'\N{snowman}\N{comet}'
+☃☄
+>>> print u'\N{snowman}\N{comet}\N{umbrella}'
+☃☄☂
+>>> print u'\N{snowman}\N{comet}\N{umbrella}\N{face}'
+SyntaxError: (unicode error) 'unicodeescape' codec can't decode bytes in position 32-39: unknown Unicode character name
+>>> print u'\N{snowman}\N{comet}\N{umbrella}\N{FACE}'
+SyntaxError: (unicode error) 'unicodeescape' codec can't decode bytes in position 32-39: unknown Unicode character name
+>>> print u'\N{snowman}\N{comet}\N{umbrella}\U205AC'
+SyntaxError: (unicode error) 'unicodeescape' codec can't decode bytes in position 32-38: truncated \UXXXXXXXX escape
+>>> print u'jalape\U0000f1'
+SyntaxError: (unicode error) 'unicodeescape' codec can't decode bytes in position 6-13: truncated \UXXXXXXXX escape
+>>> print u'jalape\U0000f1o'
+SyntaxError: (unicode error) 'unicodeescape' codec can't decode bytes in position 6-13: truncated \UXXXXXXXX escape
+>>> print u'jalape\Uf1o'
+SyntaxError: (unicode error) 'unicodeescape' codec can't decode bytes in position 6-9: truncated \UXXXXXXXX escape
+>>> 
+>>> message = 'a secret message'
+>>> storage = message.encode('rot-13')
+>>> storage
+'n frperg zrffntr'
+>>> print storage.decode('rot-13')
+a secret message
+>>> 
+>>> # useful --[encode: scheme]--> storage/transmit
+>>> # storage/transmit --[decode: scheme]--> useful
+>>> 
+>>> # data --[decode: mpeg4, qt, wmv]--> video
+>>> # data --[decode: mp3, wav]--> audio
+>>> # data --[decode: png, jpeg]--> image
+>>> # data --[decode: utf-8, utf-16, iso-8756]--> text
+>>> 
+>>> text = u'jalape\u00f1o'
+>>> print text
+jalapeño
+>>> text.encode('utf-8')
+'jalape\xc3\xb1o'
+>>> data = text.encode('utf-8')
+>>> type(data)
+<type 'str'>
+>>> type(text)
+<type 'unicode'>
+>>> 
+>>> data.decode('utf-8')
+u'jalape\xf1o'
+>>> print data.decode('utf-8')
+jalapeño
+>>> 
+>>> print data.decode('utf-16')
+
+Traceback (most recent call last):
+  File "<pyshell#377>", line 1, in <module>
+    print data.decode('utf-16')
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/encodings/utf_16.py", line 16, in decode
+    return codecs.utf_16_decode(input, errors, True)
+UnicodeDecodeError: 'utf16' codec can't decode byte 0x6f in position 8: truncated data
+>>> print data.decode('utf-32')
+
+Traceback (most recent call last):
+  File "<pyshell#378>", line 1, in <module>
+    print data.decode('utf-32')
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/encodings/utf_32.py", line 11, in decode
+    return codecs.utf_32_decode(input, errors, True)
+UnicodeDecodeError: 'utf32' codec can't decode bytes in position 0-3: code point not in range(0x110000)
+>>> 
+>>> 
+>>> text = u'jalape\u00f1o'
+>>> text.encode('utf-16')
+'\xff\xfej\x00a\x00l\x00a\x00p\x00e\x00\xf1\x00o\x00'
+>>> text.encode('utf-16').decode('utf-8')
+
+Traceback (most recent call last):
+  File "<pyshell#383>", line 1, in <module>
+    text.encode('utf-16').decode('utf-8')
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/encodings/utf_8.py", line 16, in decode
+    return codecs.utf_8_decode(input, errors, True)
+UnicodeDecodeError: 'utf8' codec can't decode byte 0xff in position 0: invalid start byte
+>>> text.encode('utf-8').decode('latin-1')
+u'jalape\xc3\xb1o'
+>>> print text.encode('utf-8').decode('latin-1')
+jalapeÃ±o
+>>> print text.encode('utf-8').decode('ascii')
+
+Traceback (most recent call last):
+  File "<pyshell#386>", line 1, in <module>
+    print text.encode('utf-8').decode('ascii')
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xc3 in position 6: ordinal not in range(128)
+>>> print text.encode('utf-8').decode('ascii', 'ignore')
+jalapeo
+>>> print text.encode('utf-8').decode('ascii', 'replace')
+jalape��o
+>>> 
+>>> # Python 2: str, unicode
+>>> # Python 3: bytes, str
+>>> 
+>>> data.decode('utf-8')
+u'jalape\xf1o'
+>>> 
+>>> # useful --[encode: scheme]--> storage/transmit
+>>> # storage/transmit --[decode: scheme]--> useful
+>>> 
+>>> data.decode('utf-8')
+u'jalape\xf1o'
+>>> 
+>>> 
+>>> data = u'abcd\xffefg'
+>>> data.decode('utf-8')
+
+Traceback (most recent call last):
+  File "<pyshell#402>", line 1, in <module>
+    data.decode('utf-8')
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/encodings/utf_8.py", line 16, in decode
+    return codecs.utf_8_decode(input, errors, True)
+UnicodeEncodeError: 'ascii' codec can't encode character u'\xff' in position 4: ordinal not in range(128)
+>>> data.decode('utf-8', 'ignore')
+
+Traceback (most recent call last):
+  File "<pyshell#403>", line 1, in <module>
+    data.decode('utf-8', 'ignore')
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/encodings/utf_8.py", line 16, in decode
+    return codecs.utf_8_decode(input, errors, True)
+UnicodeEncodeError: 'ascii' codec can't encode character u'\xff' in position 4: ordinal not in range(128)
+>>> 
+>>> 
+>>> data = 'abcd\xffefg'
+>>> type(data)
+<type 'str'>
+>>> 
+>>> data.decode('utf-8', 'ignore')
+u'abcdefg'
+>>> data.decode('utf-8', 'replace')
+u'abcd\ufffdefg'
+>>> 
+>>> text = u'abcd\xffefg'
+>>> text.encode('utf-8', 'ignore')
+'abcd\xc3\xbfefg'
+>>> 
+=============================== RESTART: Shell ===============================
+>>> 
+>>> int, float, list, str
+(<type 'int'>, <type 'float'>, <type 'list'>, <type 'str'>)
+>>> 
+>>> bool
+<type 'bool'>
+>>> 
+>>> 
+>>> str, int, float
+(<type 'str'>, <type 'int'>, <type 'float'>)
+>>> 
+>>> 
+>>> 0
+0
+>>> if 0:
+	print 'yes'
+else:
+	print 'no'
+
+	
+no
+>>> if []:
+	print 'yes'
+else:
+	print 'no'
+
+	
+no
+>>> if None:
+	print 'yes'
+else:
+	print 'no'
+
+	
+no
+>>> True = 1
+>>> False = 0
+>>> 
+>>> 
+=============================== RESTART: Shell ===============================
+>>> True
+True
+>>> False
+False
+>>> 
+>>> True + 4
+5
+>>> False * 5
+0
+>>> True == 1
+True
+>>> False == 0
+True
+>>> True is 1
+False
+>>> isinstance(True, int)
+True
+>>> 
+>>> names = ['John', 'Paul', 'George', 'Ringo']
+>>> [len(name) for name in names]
+[4, 4, 6, 5]
+>>> [len(name) == 4 for name in names]
+[True, True, False, False]
+>>> sum([len(name) == 4 for name in names])
+2
+>>> 
+>>> 
+>>> 
+>>> 
+>>> def foo():
+	print 'foo'
+	return True
+
+>>> def bar():
+	print 'bar'
+	return False
+
+>>> True and True
+True
+>>> True and False
+False
+>>> False and True
+False
+>>> False and False
+False
+>>> foo() and foo()
+foo
+foo
+True
+>>> foo() and bar()
+foo
+bar
+False
+>>> bar() and foo()
+bar
+False
+>>> # and, or are "short-cutting" "short-circuit" operators
+>>> 
+>>> 5 and True
+True
+>>> 0 and 5
+0
+>>> False and 5
+False
+>>> 0 and 5
+0
+>>> 5 and 10
+10
+>>> 
+>>> x = 5 and 10
+>>> x
+10
+>>> 
+>>> 
+>>> # ternary expression:       (<condition> ? <true> : <false>)
+>>> # ternary expression:       <true> if <condition> else <false>
+>>> 
+>>> 
+>>> sunshine = True
+>>> 'picnic' if sunshine else 'cafeteria'
+'picnic'
+>>> 
+>>> sunshine = Fasle
+
+Traceback (most recent call last):
+  File "<pyshell#488>", line 1, in <module>
+    sunshine = Fasle
+NameError: name 'Fasle' is not defined
+>>> sunshine = False
+>>> 'picnic' if sunshine else 'cafeteria'
+'cafeteria'
+>>> 
+>>> 
+>>> foo() and foo()
+foo
+foo
+True
+>>> 
+>>> bar() and foo()
+bar
+False
+>>> 
+>>> 
+>>> def bar():
+	print 'bar'
+	return False
+
+>>> 
+>>> 
+>>> '''
+Pure Function:
+	1. always returns the same output for a particular input
+	2. has no side-effects (only returns a value)
+'''
+'\nPure Function:\n\t1. always returns the same output for a particular input\n\t2. has no side-effects (only returns a value)\n'
+>>> 
+>>> import math
+>>> math.sqrt(4)
+2.0
+>>> math.sqrt(4)
+2.0
+>>> math.sqrt(4)
+2.0
+>>> 
+>>> bar()
+bar
+False
+>>> 
+>>> import random
+>>> random.random()
+0.19884626385667525
+>>> random.random()
+0.813821928031481
+>>> random.random()
+0.30972412264276816
+>>> 
+>>> random.seed(42)
+>>> random.random()
+0.6394267984578837
+>>> random.seed(42)
+>>> random.random()
+0.6394267984578837
+>>> 
+>>> import time
+>>> time.sleep(1)
+>>> time.sleep(1)
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> names = ['John', 'Paul', 'George', 'Ringo']
+>>> 
+>>> any_name_gt_5 = False
+>>> for name in names:
+	if len(name) > 5:
+		any_name_gt_5 = True
+
+		
+>>> any_name_gt_5
+True
+>>> any_len_name_gt_5 = False
+>>> for name in names:
+	if len(name) > 5:
+		any_name_gt_5 = True
+
+		
+>>> 
+=============================== RESTART: Shell ===============================
+>>> names = ['John', 'Paul', 'George', 'Ringo']
+>>> any_len_gt_5 = True
+>>> for name in names:
+	if len(name) > 5:
+		any_len_gt_5 = False
+
+		
+>>> any_len_gt_5
+False
+>>> 
+>>> 
+>>> 
+>>> # Pythonic:   don't use flag variables in a loop, they're too error-prone
+>>> 
+>>> [name for name in names]
+['John', 'Paul', 'George', 'Ringo']
+>>> [len(name) for name in names]
+[4, 4, 6, 5]
+>>> [len(name) > 5 for name in names]
+[False, False, True, False]
+>>> 
+>>> any([len(name) > 5 for name in names])
+True
+>>> 
+>>> 
+>>> names = ['John', 'Paul', 'George', 'Ringo']
+>>> all_len_name_lt_10 = False
+>>> for name in names:
+	if len(name) < 10:
+		all_len_name_lt_10 = True
+
+		
+>>> all_len_name_lt_10 = True
+>>> for name in names:
+	if len(name) < 10:
+		all_len_name_lt_10 = False
+
+		
+>>> all_len_name_lt_10
+False
+>>> for name in names:
+	if len(name) >= 10:
+		all_len_name_lt_10 = False
+
+		
+>>> all_len_name_lt_10
+False
+>>> for name in names:
+	if len(name) >= 10:
+		all_len_name_lt_10 = True
+
+		
+>>> all_len_name_lt_10
+False
+>>> all_len_name_lt_10 = True
+>>> for name in names:
+	if len(name) >= 10:
+		all_len_name_lt_10 = False
+
+		
+>>> all_len_name_lt_10
+True
+>>> 
+>>> [len(name) < 10 for name in names]
+[True, True, True, True]
+>>> all([len(name) < 10 for name in names])
+True
+>>> 
+>>> 
+>>> # NEVER use a flag-variable in a loop
+>>> # Instead, use any() and all()
+>>> 
+>>> d
+>>> 
+>>> 
+>>> sum([len(name) == 4 for name in names])
+2
+>>> [name.upper() for name in names if len(name) == 4]
+['JOHN', 'PAUL']
+>>> results = [name.upper() for name in names if len(name) == 4]
+>>> len(results)
+2
+>>> 
+>>> 
+>>> 
+>>> completed = True
+>>> for name in names:
+	if len(name) > 5:
+		break
+	print name
+
+	
+John
+Paul
+>>> 
+>>> import random
+>>> random.randrange(5)
+2
+>>> [random.randrange(5)] * 10
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+>>> [random.randrange(5)] * 10
+[2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+>>> [random.randrange(5)] * 10
+[2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+>>> 
+>>> [random.randrange(5) for i in range(10)]
+[4, 3, 2, 2, 1, 1, 1, 4, 2, 2]
+>>> 
+>>> completed = True
+>>> for n in [random.randrange(5) for i in range(10)]:
+	if n == 4:
+		break
+	print n
+
+	
+>>> for n in [random.randrange(5) for i in range(10)]:
+	if n == 4:
+		break
+	print n
+
+	
+1
+2
+>>> completed = True
+>>> for n in [random.randrange(10) for i in range(10)]:
+	print n
+	if n == 4:
+		completed = False
+		break
+
+	
+8
+2
+4
+>>> completed = True
+>>> for n in [random.randrange(10) for i in range(10)]:
+	print n
+	if n == 4:
+		completed = False
+		break
+
+	
+0
+8
+2
+2
+6
+9
+2
+1
+3
+7
+>>> completed
+True
+>>> 
+>>> '''
+
+LOOP:
+	IF break_early() THEN GOTO BREAK
+	do_stuff()
+	IF keep_looping() THEN GOTO LOOP
+	                  ELSE GOTO COMPLETED
+
+BREAK:
+	do_broken_stuff()
+	GOTO AFTER
+
+COMPLETED:
+	do_no_break_stuff()
+
+AFTER:
+	after_loop()
+'''
+'\n\nLOOP:\n\tIF break_early() THEN GOTO BREAK\n\tdo_stuff()\n\tIF keep_looping() THEN GOTO LOOP\n\t                  ELSE GOTO COMPLETED\n\nBREAK:\n\tdo_broken_stuff()\n\tGOTO AFTER\n\nCOMPLETED:\n\tdo_no_break_stuff()\n\nAFTER:\n\tafter_loop()\n'
+>>> 
+>>> 
+>>> for n in [random.randrange(10) for i in range(10)]:
+	print n
+	if n == 4:
+		break
+else:
+	print 'completed without break'
+
+	
+0
+2
+7
+1
+7
+5
+9
+9
+6
+1
+completed without break
+>>> for n in [random.randrange(10) for i in range(10)]:
+	print n
+	if n == 4:
+		break
+else:
+	print 'completed without break'
+
+	
+3
+4
+>>> for n in [random.randrange(10) for i in range(10)]:
+	print n
+	if n == 4:
+		break
+else:
+	print 'completed without break'
+
+	
+2
+0
+9
+6
+5
+6
+8
+5
+6
+5
+completed without break
+>>> 
+>>> # no flag variables!     instead:  any(), all(), else:
+>>> 
+>>> 
+>>> try:
+	'1' + 1
+except TypeError:
+	print 'an error occurred'
+
+	
+an error occurred
+>>> try:
+	1 + 1
+except TypeError:
+	print 'an error occurred'
+
+	
+2
+>>> try:
+	1 + 1
+except TypeError:
+	print 'an error occurred'
+else:
+	print 'no errors happened'
+
+	
+2
+no errors happened
+>>> 
+>>> try:
+	x = 1 + 1
+except TypeError:
+	print 'an error occurred'
+else:
+	print x + 10
+
+	
+12
+>>> 
+>>> try:
+	x = 1 + 1
+	print x + 10
+except TypeError:
+	print 'trouble!'
+
+	
+12
+>>> 
+>>> 
+>>> 
+>>> def foo():
+	if random.random() < .1:
+		return 'a'
+	return 1
+
+>>> def bar():
+	if random.random() < .5:
+		return 'b'
+	return 2
+
+>>> def foo():
+	if random.random() < .5:
+		return 'a'
+	return 1
+
+>>> 
+>>> 
+>>> foo() + bar()
+'ab'
+>>> foo() + bar()
+'ab'
+>>> foo() + bar()
+3
+>>> foo() + bar()
+
+Traceback (most recent call last):
+  File "<pyshell#698>", line 1, in <module>
+    foo() + bar()
+TypeError: cannot concatenate 'str' and 'int' objects
+>>> 
+>>> x = foo() + bar()
+>>> x = foo() + bar()
+>>> x = foo() + bar()
+>>> x = foo() + bar()
+>>> x = foo() + bar()
+
+Traceback (most recent call last):
+  File "<pyshell#704>", line 1, in <module>
+    x = foo() + bar()
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
+>>> 
+>>> try:
+	x = foo() + bar()
+except TypeError:
+	x = 0
+else:
+	print x + 10
+
+	
+>>> try:
+	x = foo() + bar()
+except TypeError:
+	x = 0
+else:
+	print x + 10
+
+	
+>>> try:
+	x = foo() + bar()
+except TypeError:
+	x = 0
+else:
+	print x + 10
+
+	
+13
+>>> try:
+	x = foo() + bar()
+except TypeError:
+	x = 0
+else:
+	print x + 10
+
+	
+>>> try:
+	x = foo() + bar()
+except TypeError:
+	x = 0
+else:
+	print x + 10
+
+	
+
+Traceback (most recent call last):
+  File "<pyshell#721>", line 6, in <module>
+    print x + 10
+TypeError: cannot concatenate 'str' and 'int' objects
+>>> try:
+	x = foo() + bar()
+except TypeError:
+	x = 0
+else:
+	print x + 10
+
+	
+13
+>>> try:
+	x = foo() + bar()
+except TypeError:
+	x = 0
+else:
+	print x + 10
+
+	
+
+Traceback (most recent call last):
+  File "<pyshell#725>", line 6, in <module>
+    print x + 10
+TypeError: cannot concatenate 'str' and 'int' objects
+>>> try:
+	x = foo() + bar()
+except TypeError:
+	x = 0
+else:
+	print x + 10
+
+	
+13
+>>> try:
+	x = foo() + bar()
+except TypeError:
+	x = 0
+else:
+	print x + 10
+
+	
+>>> try:
+	x = foo() + bar()
+except TypeError:
+	x = 0
+else:
+	print x + 10
+
+	
+
+Traceback (most recent call last):
+  File "<pyshell#731>", line 6, in <module>
+    print x + 10
+TypeError: cannot concatenate 'str' and 'int' objects
+>>> 
+>>> 
+>>> try:
+	x = foo() + bar()
+	print x + 10
+except TypeError:
+	print 'no bugs'
+
+	
+no bugs
+>>> try:
+	x = foo() + bar()
+	print x + 10
+except TypeError:
+	print 'no bugs'
+
+	
+no bugs
+>>> try:
+	x = foo() + bar()
+	print x + 10
+except TypeError:
+	print 'no bugs'
+
+	
+13
+>>> try:
+	x = foo() + bar()
+	print x + 10
+except TypeError:
+	print 'no bugs'
+
+	
+no bugs
+>>> try:
+	x = foo() + bar()
+	print x + 10
+except TypeError:
+	print 'no bugs'
+
+	
+no bugs
+>>> 
+>>> try:
+	x = foo() + bar()
+except TypeError:
+	x = 0
+else:
+	print x + 10
+
+	
+>>> try:
+	x = foo() + bar()
+	print x + 10
+except TypeError:
+	print 'no bugs'
+
+	
+no bugs
+>>> 
+>>> # don't be paranoid:   don't write try/except unless you know you MUST
+>>> 
+=============================== RESTART: Shell ===============================
+>>> 
+>>> 
+>>> tuple
+<type 'tuple'>
+>>> 
+>>> dict
+<type 'dict'>
+>>> 
+>>> # 1:35pm
+>>> # lunch until 1:35pm
+>>> 
+>>> 
+>>> 
+>>> 
+>>> names = ['John', 'Paul', 'George', 'Ringo']
+>>> [len(name) for name in names]
+[4, 4, 6, 5]
+>>> (len(name) for name in names)
+<generator object <genexpr> at 0x1025442d0>
+>>> [len(name) == 4 for name in names]
+[True, True, False, False]
+>>> any([len(name) == 4 for name in names])
+True
+>>> any(len(name) == 4 for name in names)
+True
+>>> 
+>>> 
+>>> [x ** 2 for x in range(10)]
+[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+>>> 
+>>> {x: x ** 2 for x in range(10)}
+{0: 0, 1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64, 9: 81}
+>>> 
+>>> {x ** 2 for x in range(10)}
+set([0, 1, 4, 81, 64, 9, 16, 49, 25, 36])
+>>> {str(x ** 2)[-1] for x in range(10)}
+set(['1', '0', '5', '4', '6', '9'])
+>>> 
+>>> (x ** 2 for x in range(10))
+<generator object <genexpr> at 0x102544140>
+>>> 
+>>> tuple(x ** 2 for x in range(10))
+(0, 1, 4, 9, 16, 25, 36, 49, 64, 81)
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> tuple
+<type 'tuple'>
+>>> 
+>>> 
+>>> 
+>>> a = 10
+>>> b = 5
+>>> 
+>>> tmp = a
+>>> a = b
+>>> b = tmp
+>>> 
+>>> a
+5
+>>> b
+10
+>>> 
+>>> 
+>>> tmp = a
+>>> b = a
+>>> a = b
+>>> 
+>>> tmp = a
+>>> a = b
+>>> b = tmp
+>>> 
+>>> 
+>>> 
+>>> a = 5
+>>> b = 10
+>>> 
+>>> a, b = b, a
+>>> 
+>>> a
+10
+>>> b
+5
+>>> # tuple packing
+>>> # tuple unpacking
+>>> # illusion of simultaneous assignment
+>>> 
+>>> t = 5, 10
+>>> t
+(5, 10)
+>>> 
+>>> a, b = t
+>>> a
+5
+>>> b
+10
+>>> 
+>>> 
+=============================== RESTART: Shell ===============================
+>>> 
+>>> def update_p(p, v, a):
+	return p + v
+
+>>> def update_v(p, v, a):
+	return v + a
+
+>>> def update_a(p, v, a):
+	return p
+
+>>> p = v = a = 1
+>>> p
+1
+>>> v
+1
+>>> a
+1
+>>> 
+>>> p = update_p(p, v, a)
+>>> v = update_v(p, v, a)
+>>> a = update_a(p, v, a)
+>>> 
+>>> p, v, a
+(2, 2, 2)
+>>> 
+>>> p = update_p(p, v, a)
+>>> v = update_v(p, v, a)
+>>> a = update_a(p, v, a)
+>>> 
+>>> p, v, a
+(4, 4, 4)
+>>> 
+>>> p = v = a = 1
+>>> 
+>>> a = update_a(p, v, a)
+>>> v = update_v(p, v, a)
+>>> p = update_p(p, v, a)
+>>> 
+>>> p, v, a
+(3, 2, 1)
+>>> 
+>>> a = update_a(p, v, a)
+>>> v = update_v(p, v, a)
+>>> p = update_p(p, v, a)
+>>> 
+>>> p, v, a
+(8, 5, 3)
+>>> 
+>>> 
+>>> p = v = a = 1
+>>> 
+>>> tmp_p = update_p(p, v, a)
+>>> tmp_v = update_v(p, v, a)
+>>> tmp_a = update_a(p, v, a)
+>>> 
+>>> p = tmp_p
+>>> v = tmp_v
+>>> a = tmp_a
+>>> 
+>>> p, v, a
+(2, 2, 1)
+>>> 
+>>> # Don't use temporary variables
+>>> # Instead, create the illusion of simultaneous assignment
+>>> 
+>>> p, v, a = update_p(p, v, a), update_v(p, v, a), update_a(p, v, a)
+>>> p, v, a
+(4, 3, 2)
+>>> p, v, a = update_p(p, v, a), update_v(p, v, a), update_a(p, v, a)
+>>> p, v, a
+(7, 5, 4)
+>>> p, v, a = update_p(p, v, a), update_v(p, v, a), update_a(p, v, a)
+>>> p, v, a
+(12, 9, 7)
+>>> 
+>>> 
+>>> # don't make sentence fragments
+>>> # don't make run-on sentences
+>>> 
+>>> a, b, a = 10, 20, 30
+>>> a
+30
+>>> # Don't break the illusion!
+>>> # 1. don't reuse variables on the left-hand
+>>> 
+>>> a, b = 10, 20
+>>> a = 30
+>>> 
+>>> person = ('Mike', 'Boston', 34)
+>>> name, _, _ = person
+>>> 
+>>> name
+'Mike'
+>>> 
+>>> 
+>>> # 1. don't reuse variables on the left-hand
+>>> #    assignment goes left-to-right, NOT simultaneous
+>>> 
+>>> # 2. don't use impure functions on the right-hand
+>>> 
+>>> import time
+>>> a, b, c = time.time(), time.time(), time.time()
+>>> a == b == c
+False
+>>> while not (a == b == c):
+	a, b, c = time.time(), time.time(), time.time()
+
+	
+>>> time.time()
+1491847702.87342
+>>> time.time()
+1491847703.62009
+>>> time.time()
+1491847704.463244
+>>> time.time()
+1491847705.511744
+>>> 
+>>> a
+1491847698.050901
+>>> a, b, c = time.time(), time.time(), time.time()
+>>> a
+1491847754.682477
+>>> b
+1491847754.682478
+>>> while not (a == b == c):
+	a, b, c = time.time(), time.time(), time.time()
+
+	
+>>> a
+1491847762.261222
+>>> b
+1491847762.261222
+>>> c
+1491847762.261222
+>>> 
+>>> 
+>>> a = []
+>>> def foo():
+	a.append('added')
+	return a[:]
+
+>>> x, y, z = foo(), foo(), foo()
+>>> x
+['added']
+>>> y
+['added', 'added']
+>>> z
+['added', 'added', 'added']
+>>> 
+>>> # Don't break the illusion!
+>>> # 1. no repeated variables on the left-hand
+>>> # 2. no impure functions on the right-hand
+>>> 
+>>> a = 5
+>>> b = 10
+>>> 
+>>> a, b = b, a
+>>> 
+>>> # Prof Greenlee
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> person = ('Mike', 'Boston', 34)
+>>> 
+>>> 
+>>> boston = 42.3601, 71.0589
+>>> boston
+(42.3601, 71.0589)
+>>> raleigh = 35.7796, 78.6382
+>>> 
+>>> boston
+(42.3601, 71.0589)
+>>> raleigh
+(35.7796, 78.6382)
+>>> 
+>>> 
+>>> boston[0]
+42.3601
+>>> boston[1]
+71.0589
+>>> 
+>>> from collections import namedtuple
+>>> GeoPoint = namedtuple('GeoPoint', ['latitude', 'longitude'])
+>>> GeoPoint
+<class '__main__.GeoPoint'>
+>>> boston = GeoPoint(42.3601, 71.0589)
+>>> boston[0]
+42.3601
+>>> boston.latitude
+42.3601
+>>> boston.longitude
+71.0589
+>>> boston
+GeoPoint(latitude=42.3601, longitude=71.0589)
+>>> boston._replace(latitude=5)
+GeoPoint(latitude=5, longitude=71.0589)
+>>> 
+>>> 
+>>> class GeoPoint(GeoPoint):
+	def distance(self, a, b):
+		'euclidean distance'
+		lat = a.latitude - b.latitude
+		lng = a.longitude - b.longitude
+		return math.sqrt(lat ** 2 + lng ** 2)
+
+	
+>>> import math
+>>> boston = GeoPoint(42.3601, 71.0589)
+>>> raleigh = GeoPoint(35.7796, 78.6382)
+>>> 
+>>> boston.distance(raleigh)
+
+Traceback (most recent call last):
+  File "<pyshell#1002>", line 1, in <module>
+    boston.distance(raleigh)
+TypeError: distance() takes exactly 3 arguments (2 given)
+>>> class GeoPoint(GeoPoint):
+	def distance(self, other):
+		'euclidean distance'
+		lat = self.latitude - other.latitude
+		lng = self.longitude - other.longitude
+		return math.sqrt(lat ** 2 + lng ** 2)
+
+	
+>>> boston = GeoPoint(42.3601, 71.0589)
+>>> raleigh = GeoPoint(35.7796, 78.6382)
+>>> boston.distance(raleigh)
+10.037368616325699
+>>> 
+>>> help(GeoPoint)
+Help on class GeoPoint in module __main__:
+
+class GeoPoint(GeoPoint)
+ |  Method resolution order:
+ |      GeoPoint
+ |      GeoPoint
+ |      GeoPoint
+ |      __builtin__.tuple
+ |      __builtin__.object
+ |  
+ |  Methods defined here:
+ |  
+ |  distance(self, other)
+ |      euclidean distance
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data descriptors inherited from GeoPoint:
+ |  
+ |  __dict__
+ |      dictionary for instance variables (if defined)
+ |  
+ |  ----------------------------------------------------------------------
+ |  Methods inherited from GeoPoint:
+ |  
+ |  __getnewargs__(self)
+ |      Return self as a plain tuple.  Used by copy and pickle.
+ |  
+ |  __getstate__(self)
+ |      Exclude the OrderedDict from pickling
+ |  
+ |  __repr__(self)
+ |      Return a nicely formatted representation string
+ |  
+ |  _asdict(self)
+ |      Return a new OrderedDict which maps field names to their values
+ |  
+ |  _replace(_self, **kwds)
+ |      Return a new GeoPoint object replacing specified fields with new values
+ |  
+ |  ----------------------------------------------------------------------
+ |  Class methods inherited from GeoPoint:
+ |  
+ |  _make(cls, iterable, new=<built-in method __new__ of type object>, len=<built-in function len>) from __builtin__.type
+ |      Make a new GeoPoint object from a sequence or iterable
+ |  
+ |  ----------------------------------------------------------------------
+ |  Static methods inherited from GeoPoint:
+ |  
+ |  __new__(_cls, latitude, longitude)
+ |      Create new instance of GeoPoint(latitude, longitude)
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data descriptors inherited from GeoPoint:
+ |  
+ |  latitude
+ |      Alias for field number 0
+ |  
+ |  longitude
+ |      Alias for field number 1
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data and other attributes inherited from GeoPoint:
+ |  
+ |  _fields = ('latitude', 'longitude')
+ |  
+ |  ----------------------------------------------------------------------
+ |  Methods inherited from __builtin__.tuple:
+ |  
+ |  __add__(...)
+ |      x.__add__(y) <==> x+y
+ |  
+ |  __contains__(...)
+ |      x.__contains__(y) <==> y in x
+ |  
+ |  __eq__(...)
+ |      x.__eq__(y) <==> x==y
+ |  
+ |  __ge__(...)
+ |      x.__ge__(y) <==> x>=y
+ |  
+ |  __getattribute__(...)
+ |      x.__getattribute__('name') <==> x.name
+ |  
+ |  __getitem__(...)
+ |      x.__getitem__(y) <==> x[y]
+ |  
+ |  __getslice__(...)
+ |      x.__getslice__(i, j) <==> x[i:j]
+ |      
+ |      Use of negative indices is not supported.
+ |  
+ |  __gt__(...)
+ |      x.__gt__(y) <==> x>y
+ |  
+ |  __hash__(...)
+ |      x.__hash__() <==> hash(x)
+ |  
+ |  __iter__(...)
+ |      x.__iter__() <==> iter(x)
+ |  
+ |  __le__(...)
+ |      x.__le__(y) <==> x<=y
+ |  
+ |  __len__(...)
+ |      x.__len__() <==> len(x)
+ |  
+ |  __lt__(...)
+ |      x.__lt__(y) <==> x<y
+ |  
+ |  __mul__(...)
+ |      x.__mul__(n) <==> x*n
+ |  
+ |  __ne__(...)
+ |      x.__ne__(y) <==> x!=y
+ |  
+ |  __rmul__(...)
+ |      x.__rmul__(n) <==> n*x
+ |  
+ |  count(...)
+ |      T.count(value) -> integer -- return number of occurrences of value
+ |  
+ |  index(...)
+ |      T.index(value, [start, [stop]]) -> integer -- return first index of value.
+ |      Raises ValueError if the value is not present.
+
+>>> 
+>>> 
+>>> 
+>>> class GeoPoint(namedtuple('GeoPoint', ['latitude', 'longitude']):
+	def distance(self, other):
+		'euclidean distance'
+		lat = self.latitude - other.latitude
+		lng = self.longitude - other.longitude
+		return math.sqrt(lat ** 2 + lng ** 2)
+	       
+SyntaxError: invalid syntax
+>>> class GeoPoint(namedtuple('GeoPoint', ['latitude', 'longitude'])):
+	def distance(self, other):
+		'euclidean distance'
+		lat = self.latitude - other.latitude
+		lng = self.longitude - other.longitude
+		return math.sqrt(lat ** 2 + lng ** 2)
+
+	
+>>> 
+>>> 
+>>> dict
+<type 'dict'>
+>>> 
+>>> 
+>>> 
+>>> # array
+>>> # fixed-size
+>>> # fixed-type
+>>> 
+>>> # approx constant speed of insert and lookup
+>>> 
+>>> item = ('a', 1)
+>>> 
+>>> size = 8
+>>> arr = [None] * 8
+>>> arr
+[None, None, None, None, None, None, None, None]
+>>> 
+>>> item
+('a', 1)
+>>> 
+>>> arr[0] = item
+>>> arr
+[('a', 1), None, None, None, None, None, None, None]
+>>> 
+>>> item = ('b', 2)
+>>> 
+>>> arr[1] = item
+>>> arr
+[('a', 1), ('b', 2), None, None, None, None, None, None]
+>>> 
+>>> 
+>>> 
+=============================== RESTART: Shell ===============================
+>>> 
+>>> size = 8
+>>> arr = [None] * size
+>>> 
+>>> arr
+[None, None, None, None, None, None, None, None]
+>>> 
+>>> 
+>>> item = ('a', 1)
+>>> 
+>>> ord('a')
+97
+>>> hash('a')
+12416037344
+>>> hash('hello')
+840651671246116861
+>>> hash('hellodsfsdlfs')
+2619251404270437710
+>>> hash('dfsdfjsdf')
+4493292790156132589
+>>> hash('ddsfasfjalsfsfssdfafdsfsd')
+658136079556945156
+>>> 2 ** 6
+64
+>>> -2 ** 63
+-9223372036854775808L
+>>> 2 ** 63 -1
+9223372036854775807L
+>>> 
+>>> 
+>>> 
+>>> size = 8
+>>> arr = [None] * size
+>>> 
+>>> arr
+[None, None, None, None, None, None, None, None]
+>>> hash('a')
+12416037344
+>>> 
+>>> hash('a') % size
+0
+>>> 
+>>> arr[hash('a') % size] = ('a', 1)
+>>> arr[hash('b') % size] = ('b', 2)
+>>> arr[hash('c') % size] = ('c', 3)
+>>> 
+>>> arr
+[('a', 1), None, ('c', 3), ('b', 2), None, None, None, None]
+>>> 
+>>> {'a': 1, 'b': 2, 'c': 3}
+{'a': 1, 'c': 3, 'b': 2}
+>>> 
+>>> size *= 4
+>>> tmp = arr
+>>> tmp
+[('a', 1), None, ('c', 3), ('b', 2), None, None, None, None]
+>>> arr = [None] * size
+>>> 
+>>> for item in tmp:
+	if item is not None:
+		key, value = item
+		arr[hash(key) % size] = item
+
+		
+>>> arr
+[('a', 1), None, ('c', 3), ('b', 2), None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None]
+>>> size *= 4
+>>> tmp = arr
+>>> for item in tmp:
+	if item is not None:
+		key, value = item
+		arr[hash(key) % size] = item
+
+		
+
+Traceback (most recent call last):
+  File "<pyshell#1096>", line 4, in <module>
+    arr[hash(key) % size] = item
+IndexError: list assignment index out of range
+>>> arr = [None] * size
+>>> for item in tmp:
+	if item is not None:
+		key, value = item
+		arr[hash(key) % size] = item
+
+		
+>>> arr
+[None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, ('a', 1), None, ('c', 3), ('b', 2), None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None]
+>>> 
+>>> 
+>>> d = {'a': 1, 'b': 2, 'c': 3}
+>>> dict(a=1, b=2, c=3)
+{'a': 1, 'c': 3, 'b': 2}
+>>> 
+>>> dict([('a', 1), ('b', 2), ('c', 3)])
+{'a': 1, 'c': 3, 'b': 2}
+>>> 
+>>> dict(d)
+{'a': 1, 'c': 3, 'b': 2}
+>>> 
+>>> dict.update(c=30)
+
+Traceback (most recent call last):
+  File "<pyshell#1110>", line 1, in <module>
+    dict.update(c=30)
+TypeError: descriptor 'update' of 'dict' object needs an argument
+>>> d.update(c=30)
+>>> d
+{'a': 1, 'c': 30, 'b': 2}
+>>> dict.fromkeys('abc')
+{'a': None, 'c': None, 'b': None}
+>>> dict.fromkeys('abc', 0)
+{'a': 0, 'c': 0, 'b': 0}
+>>> dict.fromkeys(range(10))
+{0: None, 1: None, 2: None, 3: None, 4: None, 5: None, 6: None, 7: None, 8: None, 9: None}
+>>> 
+>>> d = {'a': 1, 'b': 2, 'c': 3}
+>>> d.update(dict.fromkeys(range(15)))
+>>> d
+{0: None, 1: None, 2: None, 3: None, 4: None, 5: None, 6: None, 7: None, 8: None, 9: None, 10: None, 11: None, 12: None, 13: None, 14: None, 'a': 1, 'c': 3, 'b': 2}
+>>> d.keys()
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 'a', 'c', 'b']
+>>> d.update(dict.fromkeys(range(100)))
+>>> d.keys()
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 'b', 99, 'a', 'c']
+>>> 
+>>> c
+
+Traceback (most recent call last):
+  File "<pyshell#1124>", line 1, in <module>
+    c
+NameError: name 'c' is not defined
+>>> 
+>>> 
+>>> d = {[]: 1}
+
+Traceback (most recent call last):
+  File "<pyshell#1127>", line 1, in <module>
+    d = {[]: 1}
+TypeError: unhashable type: 'list'
+>>> 
+>>> hash([])
+
+Traceback (most recent call last):
+  File "<pyshell#1129>", line 1, in <module>
+    hash([])
+TypeError: unhashable type: 'list'
+>>> 
+>>> a = [10, 20]
+>>> b = [10, 20]
+>>> 
+>>> a.append(30)
+>>> a
+[10, 20, 30]
+>>> 
+>>> 
+>>> 
+>>> 
+=============================== RESTART: Shell ===============================
+>>> 
+>>> class Dog:
+	def __init__(self, name):
+		self.name = name
+	def bark(self):
+		print 'Woof! %s is barking' % self.name
+
+		
+>>> a = Dog('Fido')
+>>> a.bark()
+Woof! Fido is barking
+>>> 
+>>> d = {}
+>>> d[a] = 'my dog'
+>>> d
+{<__main__.Dog instance at 0x102faa1b8>: 'my dog'}
+>>> 
+>>> class Dog:
+	def __init__(self, name):
+		self.name = name
+	def __repr__(self):
+		return 'Dog(%r)' % self.name
+	def bark(self):
+		print 'Woof! %s is barking' % self.name
+
+		
+>>> a = Dog('Fido')
+>>> d = {}
+>>> d[a] = 'my dog'
+>>> d
+{Dog('Fido'): 'my dog'}
+>>> d[a]
+'my dog'
+>>> 
+>>> d[Dog('Fido')]
+
+Traceback (most recent call last):
+  File "<pyshell#1161>", line 1, in <module>
+    d[Dog('Fido')]
+KeyError: Dog('Fido')
+>>> 
+>>> hash(Dog('Fido'))
+271559236
+>>> hash(Dog('Fido'))
+271559694
+>>> class Dog:
+	def __init__(self, name):
+		self.name = name
+	def __repr__(self):
+		return 'Dog(%r)' % self.name
+	def __hash__(self):
+		return hash(self.name)
+	def bark(self):
+		print 'Woof! %s is barking' % self.name
+
+		
+>>> hash('Fido')
+-4328439044073677036
+>>> hash(Dog('Fido'))
+-4328439044073677036
+>>> 
+>>> d = {}
+>>> d[Dog('Fido')] = 'my dog'
+>>> d[Dog('Fido')]
+
+Traceback (most recent call last):
+  File "<pyshell#1173>", line 1, in <module>
+    d[Dog('Fido')]
+KeyError: Dog('Fido')
+>>> 
+>>> class Dog:
+	def __init__(self, name):
+		self.name = name
+	def __repr__(self):
+		return 'Dog(%r)' % self.name
+	def __hash__(self):
+		return hash(self.name)
+	def __eq__(self, other):
+		return self.name == other.name
+	def bark(self):
+		print 'Woof! %s is barking' % self.name
+
+		
+>>> d = {}
+>>> d[Dog('Fido')] = 'my dog'
+>>> 
+>>> d[Dog('Fido')]
+'my dog'
+>>> d
+{Dog('Fido'): 'my dog'}
+>>> 
+>>> # valid dict keys:  __hash__ and either __eq__ or __cmp__
+>>> # good dict keys: int, str, and tuple of int/str
+>>> 
+>>> a = Dog('Fido')
+>>> d = {}
+>>> d[a] = 'my dog'
+>>> d
+{Dog('Fido'): 'my dog'}
+>>> d[a]
+'my dog'
+>>> a.name = 'Clifford'
+>>> 
+>>> d
+{Dog('Clifford'): 'my dog'}
+>>> d[a]
+
+Traceback (most recent call last):
+  File "<pyshell#1194>", line 1, in <module>
+    d[a]
+KeyError: Dog('Clifford')
+>>> 
+>>> # mutable objects are BAD dict keys
+>>> 
+>>> class Dog:
+	def __init__(self, name):
+		self.name = name
+		self.hash = None
+	def __repr__(self):
+		return 'Dog(%r)' % self.name
+	def __hash__(self):
+		if self.hash is not None:
+			return self.hash
+		self.hash = hash(self.name)
+		return self.hash
+	def __eq__(self, other):
+		return self.name == other.name
+	def bark(self):
+		print 'Woof! %s is barking' % self.name
+
+		
+>>> a = Dog('Fido')
+>>> d = {}
+>>> d[a] = 'my dog'
+>>> d
+{Dog('Fido'): 'my dog'}
+>>> d[a]
+'my dog'
+>>> a.name = 'Clifford'
+>>> d[a]
+'my dog'
+>>> d[Dog('Clifford')]
+
+Traceback (most recent call last):
+  File "<pyshell#1207>", line 1, in <module>
+    d[Dog('Clifford')]
+KeyError: Dog('Clifford')
+>>> 
+>>> 
+>>> # break until 3:11pm
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> dict.get
+<method 'get' of 'dict' objects>
+>>> 
+>>> help(dict.get)
+Help on method_descriptor:
+
+get(...)
+    D.get(k[,d]) -> D[k] if k in D, else d.  d defaults to None.
+
+>>> 
+>>> d = {'a': 1, 'b': 2, 'c': 3}
+>>> d['a'] if 'a' in d else 0
+1
+>>> d['z'] if 'z' in d else 0
+0
+>>> 
+>>> try:
+	d['z']
+except KeyError:
+	0
+
+	
+0
+>>> try:
+	d['a']
+except KeyError:
+	0
+
+	
+1
+>>> #     d['a'] except KeyError: 0
+>>> 
+>>> 
+>>> try:
+	print d['a']
+except:
+	print 'default'
+
+	
+1
+>>> 
+>>> try:
+	print x['a']
+except:
+	print 'default'
+
+	
+default
+>>> 
+>>> try:
+	print x['a']
+except KeyError:
+	print 'default'
+
+	
+
+Traceback (most recent call last):
+  File "<pyshell#1244>", line 2, in <module>
+    print x['a']
+NameError: name 'x' is not defined
+>>> 
+>>> 
+>>> 
+>>> 
+>>> dict.get
+<method 'get' of 'dict' objects>
+>>> 
+>>> 
+>>> 
+>>> try:
+	print x['a']
+except Exception:
+	print 'default'
+
+	
+default
+>>> 
+>>> 
+>>> d = {'a': 1, 'b': 2, 'c': 3}
+>>> d.get('z', 0)
+0
+>>> d.get('z')
+>>> print d.get('z')
+None
+>>> 
+>>> 
+>>> d.setdefault('a')
+1
+>>> d.setdefault('a', 0)
+1
+>>> d.setdefault('z', 0)
+0
+>>> d
+{'a': 1, 'c': 3, 'b': 2, 'z': 0}
+>>> 
+>>> 
+>>> 
+>>> 
+>>> open('data/dialogue.txt')
+<open file 'data/dialogue.txt', mode 'r' at 0x102f83c90>
+>>> 
+>>> # Grab "data/dialogue.txt" from our GitHub repo
+>>> 
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+
+Traceback (most recent call last):
+  File "/Users/mike/teaching/2017-04-10/words.py", line 11, in <module>
+    counts[word] = counts[word] + 1
+KeyError: "Who's"
+>>> line
+"Who's there?\n"
+>>> word
+"Who's"
+>>> counts
+{}
+>>> counts[word] + 1
+
+Traceback (most recent call last):
+  File "<pyshell#1278>", line 1, in <module>
+    counts[word] + 1
+KeyError: "Who's"
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+>>> len(counts)
+7529
+>>> counts['the']
+953
+>>> 
+>>> 
+>>> 2 + 2
+4
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+>>> counts['the']
+953
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+
+Traceback (most recent call last):
+  File "/Users/mike/teaching/2017-04-10/words.py", line 11, in <module>
+    counts[word] = counts.get[word, 0] + 1
+TypeError: 'builtin_function_or_method' object has no attribute '__getitem__'
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+>>> 
+>>> 
+>>> 
+>>> d = {'a': 1, 'b': 2, 'c': 3}
+>>> for k in d:
+	print k
+
+	
+a
+c
+b
+>>> d.keys()
+['a', 'c', 'b']
+>>> d.values()
+[1, 3, 2]
+>>> d.items()
+[('a', 1), ('c', 3), ('b', 2)]
+>>> 
+>>> k in d
+True
+>>> 
+>>> d.iteritems()
+<dictionary-itemiterator object at 0x1030606d8>
+>>> 
+>>> d.keys()
+['a', 'c', 'b']
+>>> d.iterkeys()
+<dictionary-keyiterator object at 0x1030606d8>
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[953, 627, 612]
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('zone,', 1), ('youth:', 1), ('youth,', 4)]
+>>> 
+>>> 
+>>> d
+
+Traceback (most recent call last):
+  File "<pyshell#1304>", line 1, in <module>
+    d
+NameError: name 'd' is not defined
+>>> d = {'a': 1, 'b': 2, 'c': 3}
+>>> 
+>>> d.items()
+[('a', 1), ('c', 3), ('b', 2)]
+>>> 
+>>> def keyfunc(pair):
+	return pair[1]
+
+>>> map(keyfunc, d.items())
+[1, 3, 2]
+>>> 
+>>> 
+>>> 
+>>> names = ['John', 'Paul', 'George', 'Ringo']
+>>> 
+>>> sorted(names)
+['George', 'John', 'Paul', 'Ringo']
+>>> 
+>>> map(len, names)
+[4, 4, 6, 5]
+>>> zip(map(len, names), names)
+[(4, 'John'), (4, 'Paul'), (6, 'George'), (5, 'Ringo')]
+>>> sorted(zip(map(len, names), names))
+[(4, 'John'), (4, 'Paul'), (5, 'Ringo'), (6, 'George')]
+>>> [v for k, v in sorted(zip(map(len, names), names))]
+['John', 'Paul', 'Ringo', 'George']
+>>> 
+>>> 
+>>> 
+>>> sorted(names, key=len)
+['John', 'Paul', 'Ringo', 'George']
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('zone,', 1), ('youth:', 1), ('youth,', 4)]
+[('sending.', 1), ('considered:', 1), ('Until', 1)]
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('zone,', 1), ('youth:', 1), ('youth,', 4)]
+[('the', 953), ('and', 627), ('of', 612)]
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+>>> 
+>>> # Greek: "lambda" -- make a function
+>>> 
+>>> # def statement
+>>> # 1. make a function object
+>>> # 2. attach metadata to obj
+>>> # 3. assign obj to variable
+>>> 
+>>> # lambda expression
+>>> # 1. make a function object
+>>> 
+>>> lambda x: 3 * x + 1
+<function <lambda> at 0x1005062a8>
+>>> 
+>>> import operators as op
+
+Traceback (most recent call last):
+  File "<pyshell#1341>", line 1, in <module>
+    import operators as op
+ImportError: No module named operators
+>>> import operator as op
+>>> 
+>>> lambda a, b: a + b
+<function <lambda> at 0x1039f2050>
+>>> op.add
+<built-in function add>
+>>> 
+>>> plus = lambda a, b: a + b
+>>> plus(5, 10)
+15
+>>> op.add(5, 10)
+15
+>>> 
+>>> lambda pair: pair[1]
+<function <lambda> at 0x1039f7050>
+>>> 
+>>> op.itemgetter(1)
+<operator.itemgetter object at 0x1039fd210>
+>>> 
+>>> lambda x: x[1]
+<function <lambda> at 0x1039f7050>
+>>> 
+>>> names = ['John', 'Paul', 'George', 'Ringo']
+>>> max(names, key=len)
+'George'
+>>> min(names, key=len)
+'John'
+>>> sorted(names, key=lambda s: (len(s), s))
+['John', 'Paul', 'Ringo', 'George']
+>>> 
+>>> 
+>>> 
+>>> sorting_key = map(len, names)
+>>> results = sorted(zip(sorting_key, names))
+>>> results
+[(4, 'John'), (4, 'Paul'), (5, 'Ringo'), (6, 'George')]
+>>> [v for k, v in results]
+['John', 'Paul', 'Ringo', 'George']
+>>> 
+>>> 
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+>>> 
+>>> 
+>>> dir(set)
+['__and__', '__class__', '__cmp__', '__contains__', '__delattr__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__iand__', '__init__', '__ior__', '__isub__', '__iter__', '__ixor__', '__le__', '__len__', '__lt__', '__ne__', '__new__', '__or__', '__rand__', '__reduce__', '__reduce_ex__', '__repr__', '__ror__', '__rsub__', '__rxor__', '__setattr__', '__sizeof__', '__str__', '__sub__', '__subclasshook__', '__xor__', 'add', 'clear', 'copy', 'difference', 'difference_update', 'discard', 'intersection', 'intersection_update', 'isdisjoint', 'issubset', 'issuperset', 'pop', 'remove', 'symmetric_difference', 'symmetric_difference_update', 'union', 'update']
+>>> help(set.add)
+Help on method_descriptor:
+
+add(...)
+    Add an element to a set.
+    
+    This has no effect if the element is already present.
+
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+
+Traceback (most recent call last):
+  File "/Users/mike/teaching/2017-04-10/words.py", line 28, in <module>
+    words[initial].add(word)
+KeyError: 'W'
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+
+Traceback (most recent call last):
+  File "/Users/mike/teaching/2017-04-10/words.py", line 28, in <module>
+    words.get(initial).add(word)
+AttributeError: 'NoneType' object has no attribute 'add'
+>>> []
+[]
+>>> {}
+{}
+>>> ()
+()
+>>> set()
+set([])
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+>>> 
+>>> words['v']
+
+Traceback (most recent call last):
+  File "<pyshell#1379>", line 1, in <module>
+    words['v']
+KeyError: 'v'
+>>> words
+{}
+>>> 
+>>> 
+>>> line
+'Go, bid the soldiers shoot.'
+>>> word
+'shoot.'
+>>> initial
+'s'
+>>> words
+{}
+>>> words.get(initial)
+>>> words.get(initial, set())
+set([])
+>>> words.get(initial, set()).add(word)
+>>> words
+{}
+>>> words.get(initial, set())
+set([])
+>>> words.get(initial, set()).add(word)
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+>>> 
+>>> 
+>>> words['v']
+set(['visage', 'vile', 'violets', 'voyage;', 'vain', 'violent', 'very--pajock.', 'vacancy', 'villanous,', 'virtue,', 'vow', 'vantage.', 'valiant', 'violet', 'valenced', 'voyage,', 'vapours.', 'vows,', 'varnish', 'villain,', 'violets,', 'vengeance!', 'vanquisher;', 'virgin', 'vouchers,', 'vulgar', 'visit', 'verse', 'venom,', 'villain?', 'vigour', 'view;', 'vantage', 'vows:', 'vows;', 'venom', 'verity', 'validity;', 'vouchers', 'voice:', 'voice;', 'very', 'villain;', 'visitation', 'violence,', 'vicious', 'virtues', 'voice,', 'vouch', 'vengeance', 'virtue', 'villain!', 'vice', 'variable', 'violence;', 'ventages', 'vast', "venom'd", 'volume', 'vailed', 'visage,', 'villanies,--', 'villain', 'vouchsafe', 'virtue;', 'very,', 'violence', 'valour,', 'vial,', 'vulgar.', 'villany!', 'visitation?', 'vision', 'volley.', 'voice', "vanish'd", 'vows', 'view'])
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+set(['visage', 'vile', 'violets', 'voyage;', 'vain', 'violent', 'very--pajock.', 'vacancy', 'villanous,', 'virtue,', 'vow', 'vantage.', 'valiant', 'violet', 'valenced', 'voyage,', 'vapours.', 'vows,', 'varnish', 'villain,', 'violets,', 'vengeance!', 'vanquisher;', 'virgin', 'vouchers,', 'vulgar', 'visit', 'verse', 'venom,', 'villain?', 'vigour', 'view;', 'vantage', 'vows:', 'vows;', 'venom', 'verity', 'validity;', 'vouchers', 'voice:', 'voice;', 'very', 'villain;', 'visitation', 'violence,', 'vicious', 'virtues', 'voice,', 'vouch', 'vengeance', 'virtue', 'villain!', 'vice', 'variable', 'violence;', 'ventages', 'vast', "venom'd", 'volume', 'vailed', 'visage,', 'villanies,--', 'villain', 'vouchsafe', 'virtue;', 'very,', 'violence', 'valour,', 'vial,', 'vulgar.', 'villany!', 'visitation?', 'vision', 'volley.', 'voice', "vanish'd", 'vows', 'view'])
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+set(['visage', 'vile', 'violets', 'voyage;', 'vain', 'violent', 'very--pajock.', 'vacancy', 'villanous,', 'virtue,', 'vow', 'vantage.', 'valiant', 'violet', 'valenced', 'voyage,', 'vapours.', 'vows,', 'varnish', 'villain,', 'violets,', 'vengeance!', 'vanquisher;', 'virgin', 'vouchers,', 'vulgar', 'visit', 'verse', 'venom,', 'villain?', 'vigour', 'view;', 'vantage', 'vows:', 'vows;', 'venom', 'verity', 'validity;', 'vouchers', 'voice:', 'voice;', 'very', 'villain;', 'visitation', 'violence,', 'vicious', 'virtues', 'voice,', 'vouch', 'vengeance', 'virtue', 'villain!', 'vice', 'variable', 'violence;', 'ventages', 'vast', "venom'd", 'volume', 'vailed', 'visage,', 'villanies,--', 'villain', 'vouchsafe', 'virtue;', 'very,', 'violence', 'valour,', 'vial,', 'vulgar.', 'villany!', 'visitation?', 'vision', 'volley.', 'voice', "vanish'd", 'vows', 'view'])
+>>> words.keys()
+["'", '&', 'A', 'C', 'B', 'E', 'D', 'G', 'F', 'I', 'H', 'K', 'J', 'M', 'L', 'O', 'N', 'Q', 'P', 'S', 'R', 'U', 'T', 'W', 'V', 'Y', '[', ']', 'a', 'c', 'b', 'e', 'd', 'g', 'f', 'i', 'h', 'k', 'j', 'm', 'l', 'o', 'n', 'q', 'p', 's', 'r', 'u', 't', 'w', 'v', 'y', 'z']
+>>> 'hello' in words
+False
+>>> words['hello']
+set([])
+>>> 'hello' in words
+True
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+set(['visage', 'vile', 'violets', 'voyage;', 'vain', 'violent', 'very--pajock.', 'vacancy', 'villanous,', 'virtue,', 'vow', 'vantage.', 'valiant', 'violet', 'valenced', 'voyage,', 'vapours.', 'vows,', 'varnish', 'villain,', 'violets,', 'vengeance!', 'vanquisher;', 'virgin', 'vouchers,', 'vulgar', 'visit', 'verse', 'venom,', 'villain?', 'vigour', 'view;', 'vantage', 'vows:', 'vows;', 'venom', 'verity', 'validity;', 'vouchers', 'voice:', 'voice;', 'very', 'villain;', 'visitation', 'violence,', 'vicious', 'virtues', 'voice,', 'vouch', 'vengeance', 'virtue', 'villain!', 'vice', 'variable', 'violence;', 'ventages', 'vast', "venom'd", 'volume', 'vailed', 'visage,', 'villanies,--', 'villain', 'vouchsafe', 'virtue;', 'very,', 'violence', 'valour,', 'vial,', 'vulgar.', 'villany!', 'visitation?', 'vision', 'volley.', 'voice', "vanish'd", 'vows', 'view'])
+>>> 
+>>> import string
+>>> string.punctuation
+'!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+set(['visage', 'vile', 'violets', 'voyage;', 'vain', 'violent', 'very--pajock.', 'vacancy', 'villanous,', 'virtue,', 'vow', 'vantage.', 'valiant', 'violet', 'valenced', 'voyage,', 'vapours.', 'vows,', 'varnish', 'villain,', 'violets,', 'vengeance!', 'vanquisher;', 'virgin', 'vouchers,', 'vulgar', 'visit', 'verse', 'venom,', 'villain?', 'vigour', 'view;', 'vantage', 'vows:', 'vows;', 'venom', 'verity', 'validity;', 'vouchers', 'voice:', 'voice;', 'very', 'villain;', 'visitation', 'violence,', 'vicious', 'virtues', 'voice,', 'vouch', 'vengeance', 'virtue', 'villain!', 'vice', 'variable', 'violence;', 'ventages', 'vast', "venom'd", 'volume', 'vailed', 'visage,', 'villanies,--', 'villain', 'vouchsafe', 'virtue;', 'very,', 'violence', 'valour,', 'vial,', 'vulgar.', 'villany!', 'visitation?', 'vision', 'volley.', 'voice', "vanish'd", 'vows', 'view'])
+
+Traceback (most recent call last):
+  File "/Users/mike/teaching/2017-04-10/words.py", line 43, in <module>
+    chain[last].append(word)
+NameError: name 'last' is not defined
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+set(['visage', 'vile', 'violets', 'voyage;', 'vain', 'violent', 'very--pajock.', 'vacancy', 'villanous,', 'virtue,', 'vow', 'vantage.', 'valiant', 'violet', 'valenced', 'voyage,', 'vapours.', 'vows,', 'varnish', 'villain,', 'violets,', 'vengeance!', 'vanquisher;', 'virgin', 'vouchers,', 'vulgar', 'visit', 'verse', 'venom,', 'villain?', 'vigour', 'view;', 'vantage', 'vows:', 'vows;', 'venom', 'verity', 'validity;', 'vouchers', 'voice:', 'voice;', 'very', 'villain;', 'visitation', 'violence,', 'vicious', 'virtues', 'voice,', 'vouch', 'vengeance', 'virtue', 'villain!', 'vice', 'variable', 'violence;', 'ventages', 'vast', "venom'd", 'volume', 'vailed', 'visage,', 'villanies,--', 'villain', 'vouchsafe', 'virtue;', 'very,', 'violence', 'valour,', 'vial,', 'vulgar.', 'villany!', 'visitation?', 'vision', 'volley.', 'voice', "vanish'd", 'vows', 'view'])
+>>> 
+>>> 
+>>> len(chain)
+7529
+>>> len(counts)
+7529
+>>> set(chain.keys()) - set(counts.keys())
+set([None])
+>>> set(counts.keys()) - set(chain.keys())
+set(['shoot.'])
+>>> 
+>>> chain['dead']
+['hour,', 'Did', 'vast', 'corse,', 'dog,', 'body?', 'body', 'and', 'and', "men's", 'body.', 'and', 'To']
+>>> len(chain['dead'])
+13
+>>> chain['dead'].count('and')
+3
+>>> len(chain['the'])
+953
+>>> chain['the']
+['king!', 'Dane.', 'minutes', 'pole', 'same', 'king', 'king?', 'majesty', 'sensible', 'king?', 'very', 'ambitious', 'sledded', 'ice.', 'gross', 'subject', 'land,', 'Sunday', 'week;', 'night', 'day:', 'whisper', 'combat;', 'conqueror:', 'which,', 'inheritance', 'same', 'article', 'skirts', 'main', 'chief', 'land.', 'king', 'question', "mind's", 'most', 'mightiest', 'sheeted', 'Roman', 'sun;', 'moist', 'like', 'fates', 'omen', 'womb', 'show', 'air,', 'cock', 'trumpet', 'morn,', 'god', 'truth', 'crowing', 'cock.', 'time.', 'morn,', 'dew', 'dream', 'surrender', 'business', 'levies,', 'king,', 'scope', 'news', 'Dane,', 'heart,', 'mouth,', 'throne', 'clouds', 'sun.', 'dust:', 'fruitful', 'eye,', 'dejected', 'visage,', 'trappings', 'suits', 'survivor', 'most', 'dead,', 'first', 'world', 'most', 'cheer', 'great', 'clouds', "king's", 'heavens', 'Everlasting', 'uses', 'winds', 'salt', 'flushing', 'funeral', 'marriage', 'king', 'witness', 'dead', 'night,', 'act', 'third', 'watch;', 'thing,', 'platform', 'morning', 'sound', 'watch', 'platform,', 'night', 'earth', 'winds', 'trifling', 'youth', 'mind', 'voice', 'head.', 'main', 'rear', 'shot', 'moon:', 'infants', 'spring,', 'morn', 'effect', 'steep', 'primrose', 'shoulder', 'opposed', 'apparel', 'man,', 'best', 'edge', 'night', 'day,', 'key', 'Lord', 'truth.', 'wind', 'poor', 'holy', 'blood', 'soul', 'tongue', 'Lord', 'season', 'spirit', 'swaggering', 'manner', 'breach', 'observance.', "o'ergrowth", 'pales', 'stamp', 'general', 'dram', 'noble', 'sepulchre,', 'glimpses', 'moon,', 'reaches', 'fear?', 'flood,', 'dreadful', 'cliff', 'sea,', 'sea', 'Nemean', 'state', 'night,', 'day', 'foul', 'secrets', 'fretful', 'best', 'thoughts', 'fat', 'whole', 'power', 'vow', 'morning', 'afternoon,', 'porches', 'body,', 'blossoms', 'royal', 'matin', 'table', 'book', 'grave', 'right;', 'cellarage--', 'oath,', 'earth', 'charge', 'taints', 'working,', 'prenominate', 'phrase', 'addition', 'mass,', "consequence,'", "consequence,'", 'gentleman;', 'matter?', 'name', 'wrist', 'length', 'last,', 'king.', 'very', 'will', 'younger', 'king:', 'exterior', 'inward', 'understanding', 'supply', 'sovereign', 'full', 'father', 'trail', 'ambassadors;', 'fruit', 'main;', 'Polack;', 'assay', 'Polack:', 'soul', 'limbs', 'cause', 'cause', 'remainder', 'celestial', 'most', 'stars', 'sun', 'wing--', 'desk', 'fruits', 'madness', 'centre.', 'lobby.', 'encounter:', 'poor', 'sun', 'sun:', 'matter,', 'matter', 'satirical', 'air,', 'air.', 'means', 'Lord', 'indifferent', 'earth.', 'very', 'soles', 'middle', 'secret', 'news?', "world's", 'hands', 'world', 'worst.', 'very', 'ambitious', 'shadow', "beggars'", 'court?', 'rest', 'beaten', 'purpose.', 'good', 'rights', 'consonancy', 'obligation', 'king', 'earth,', 'air,', 'beauty', 'world!', 'paragon', 'players', 'way;', 'king', 'adventurous', 'lover', 'humourous', 'clown', 'sere;', 'lady', 'blank', 'tragedians', 'city.', 'means', 'late', 'same', 'city?', 'wonted', 'top', 'fashion,', 'common', 'quality', 'nation', 'poet', 'player', 'question.', 'boys', 'players.', 'appurtenance', 'players,', 'wind', 'second', 'players;', 'world,', 'law', 'liberty,', 'only', 'right,', 'first', 'pious', 'altitude', 'ring.', 'play,', 'million;', 'general:', 'top', 'scenes,', 'lines', 'matter', 'phrase', 'author', 'Hyrcanian', 'night', 'ominous', 'parching', 'hellish', 'whiff', 'milky', 'air', 'heavens,', 'rack', 'orb', 'dreadful', 'region,', "Cyclops'", 'spokes', 'round', 'hill', "fiends!'", "barber's,", 'mobled', 'flames', 'diadem', 'alarm', 'gods', 'burning', "gods.'", 'rest', 'players', 'abstract', 'time:', 'less', 'more', 'Murder', 'motive', 'cue', 'stage', 'general', 'guilty', 'free,', 'ignorant,', 'nose?', 'lie', 'throat,', 'lungs?', 'region', 'son', 'very', 'scene', 'soul', 'murder', 'quick:', 'devil:', 'devil', 'play', 'thing', 'conscience', 'king.', 'way:', 'court,', 'matter.', 'affliction', 'happy', 'thing', 'question:', 'mind', 'thousand', 'rub;', 'respect', 'whips', 'proud', "law's", 'spurns', 'unworthy', 'dread', 'will', 'native', 'pale', 'name', 'things', 'noble', 'power', 'force', 'time', 'more', 'doors', 'fool', 'rest', 'fair', 'mould', 'honey', 'hatch', 'disclose', 'demand', 'seas', 'play', 'ear', 'speech,', 'tongue:', 'town-crier', 'air', 'very', 'whirlwind', 'soul', 'ears', 'groundlings,', 'most', 'action', 'word,', 'word', 'action;', 'modesty', 'purpose', 'first', 'mirror', 'very', 'time', 'unskilful', 'judicious', 'censure', 'which', 'accent', 'gait', 'mean', 'play', 'fool', 'king', 'queen', 'players', 'poor', 'candied', 'pregnant', 'knee', 'king;', 'circumstance', 'very', 'whilst', 'theft.', 'play;', "chameleon's", 'air,', 'university,', 'Capitol;', 'players', 'devil', 'hobby-horse,', 'hobby-horse', 'argument', 'play.', 'players', 'play.', 'posy', 'world', 'sun', 'littlest', 'rest!', 'second', 'first.', 'slave', 'tree;', 'purpose', 'face', 'argument?', 'world.', 'play?', 'image', "duke's", 'galled', 'king.', 'puppets', 'garden', 'story', 'murderer', 'love', 'play.', 'stricken', 'world', 'rest', "ghost's", 'talk', 'poisoning?', 'recorders!', 'king', 'comedy,', 'right', 'end', 'matter:', 'heels', 'door', 'voice', 'king', 'grass', 'recorders!', 'wind', 'stops.', 'skill.', 'heart', 'top', 'queen', 'mass,', 'top', 'very', 'day', 'strength', 'mind,', 'summit', 'highest', 'boisterous', 'king', 'arras', 'process;', 'primal', 'sweet', 'visage', 'murder,', 'offence?', 'corrupted', 'wicked', 'law:', 'action', 'teeth', 'newborn', 'purging', 'incestuous', 'matter?', 'matter', 'rood,', 'queen,', 'inmost', 'king?', 'grace', 'rose', 'fair', 'body', 'doom,', 'act.', 'index?', 'front', 'herald', 'world', 'blood', 'judgment:', 'compulsive', 'charge,', 'rank', 'nasty', 'tithe', 'empire', 'rule,', 'precious', 'incorporal', 'sleeping', 'alarm,', 'heat', 'portal!', 'very', 'test,', 'matter', 'ulcerous', 'compost', 'weeds,', 'fatness', 'worser', 'purer', 'other', 'use', 'next', 'next', 'stamp', 'devil,', 'bloat', 'basket', "house's", 'birds', 'famous', 'basket', 'mandate;', 'sport', 'engineer', 'moon:', 'guts', 'neighbour', 'sea', 'mightier:', 'arras', 'owner', 'pith', 'body', 'mountains', 'body', 'chapel.', 'dead', 'chapel.', 'son', "king's", 'king', 'end:', 'corner', 'body', 'king.', 'king,', 'king', 'body.', 'body.', 'strong', 'distracted', "offender's", 'offence.', 'dead', 'end.', 'worm', 'fish', 'guts', 'other', 'stairs', 'lobby.', 'wind', 'affair:', 'Danish', 'hectic', 'Danish', 'conveyance', 'rendezvous.', 'main', 'name.', 'Pole', 'Polack', 'question', 'imposthume', 'man', 'event,', 'invisible', 'stake.', 'numbers', 'cause,', 'slain?', 'world;', 'unshaped', 'words', 'beauteous', 'mountain', 'grave', 'owl', 'morning', 'chamber-door;', 'maid,', 'cold', 'poison', 'people', 'which', 'door.', 'matter?', 'flats', 'world', 'clouds:', 'false', 'door.', 'harlot', 'chaste', 'cause,', 'blackest', 'profoundest', 'worlds', 'world:', 'certainty', 'kind', 'sense', 'beam.', 'thing', 'bier;', 'wheel', 'false', 'offence', 'great', 'world', 'ambassador', 'king:', 'grapple', 'instant', 'king', 'letters', 'bore', 'matter.', 'speedier,', 'star', 'great', 'general', 'spring', 'age', 'queen.', 'occasion', 'rest', 'hand?', 'very', 'which', 'practise', 'organ.', 'unworthiest', 'cap', 'French,', 'brave', 'brooch', 'nation.', 'scrimers', 'painting', 'spark', 'very', 'quick', 'ulcer:--', 'church.', 'fame', 'foils;', 'moon,', 'thing', 'nonce,', 'glassy', 'pendent', 'weeping', 'poor', 'crowner', 'point:', 'water;', 'man;', 'man', 'water', 'truth', 'more', 'first', 'Scripture?', 'purpose,', 'mason,', 'shipwright,', 'carpenter?', 'gallows', 'gallows', 'church:', 'gallows', 'time,', 'hand', 'daintier', 'land,', 'knave', 'ground,', 'first', 'pate', 'mazzard', 'trick', 'breeding,', 'skull', 'sconce', 'fine', 'recovery', 'length', 'inheritor', 'dead,', 'quick;', 'knave', 'card,', 'Lord,', 'age', 'toe', 'peasant', 'heel', 'courtier,', 'days', 'year,', 'very', 'men', 'earth', 'laying', 'earth', "king's", 'table', 'earth?', 'noble', 'dust', 'wind', 'world', 'winter', 'king.', 'courtiers:', 'order,', 'last', 'bringing', 'service', 'dead', 'earth:', 'fair', 'sweet:', 'earth', 'quick', 'skyish', 'wandering', 'Dane.', 'burning', 'fit', 'female', 'reason', 'matter', 'present', 'other;', 'circumstance?', 'mutines', 'bilboes.', 'dark', 'supervise,', 'grinding', 'axe,', 'commission:', 'play--I', 'king,', 'palm', 'view', 'bearers', 'model', 'writ', 'other,', 'impression,', 'next', 'baser', 'pass', 'election', 'issue', 'business', 'interim', 'image', 'bravery', 'more', "king's", 'possession', 'head.', 'wind', 'matter,--', 'card', 'continent', 'arithmetic', 'verity', 'gentleman', 'nomination', 'imputation', 'which', 'carriages,', 'hilts,', 'carriages?', 'margent', 'hangers.', 'matter,', 'French', 'Danish.', 'answer.', 'opposition', 'hall:', 'breathing', 'foils', 'gentleman', 'king', 'odd', 'shell', 'same', 'dressy', 'tune', 'time', 'most', 'bubbles', 'hall:', "king's", 'odds.', 'fall', 'readiness', 'faction', 'house,', 'foils.', 'darkest', 'foils,', 'wager?', 'odds', 'weaker', 'stoops', 'first', 'third', 'battlements', 'cup', 'cups;', 'kettle', 'trumpet', 'cannoneer', 'heavens,', 'heavens', 'king', 'judges,', 'cup.', "poison'd", 'third,', 'queen', 'queen?', 'drink,', 'drink,--O', 'drink!', 'door', 'world', 'foul', 'king,', "king's", 'unsatisfied.', 'cup:', 'ambassadors', 'news', 'election', 'occurrents,', 'drum', 'ability', 'Polack', 'view;', 'yet', "inventors'", 'noblest', 'audience.', 'stage;', 'rites', 'bodies:', 'field,', 'soldiers']
+>>> 
+>>> 
+>>> 
+>>> 
+>>> random.choice('abc')
+
+Traceback (most recent call last):
+  File "<pyshell#1419>", line 1, in <module>
+    random.choice('abc')
+NameError: name 'random' is not defined
+>>> import random
+>>> random.choice('abc')
+'c'
+>>> random.choice('abc')
+'c'
+>>> random.choice('abc')
+'b'
+>>> random.choice('abc')
+'c'
+>>> random.choice('abc')
+'c'
+>>> random.choice('abc')
+'c'
+>>> random.choice('aaaaaaaaaabc')
+'a'
+>>> random.choice('aaaaaaaaaabc')
+'a'
+>>> random.choice('aaaaaaaaaabc')
+'a'
+>>> random.choice('aaaaaaaaaabc')
+'a'
+>>> random.choice('aaaaaaaaaabc')
+'a'
+>>> random.choice('aaaaaaaaaabc')
+'a'
+>>> random.choice('aaaaaaaaaabc')
+'a'
+>>> random.choice('aaaaaaaaaabc')
+'a'
+>>> random.choice('aaaaaaaaaabc')
+'a'
+>>> random.choice('aaaaaaaaaabc')
+'a'
+>>> random.choice('aaaaaaaaaabc')
+'a'
+>>> random.choice('aaaaaaaaaabc')
+'a'
+>>> random.choice('aaaaaaaaaabc')
+'a'
+>>> random.choice('aaaaaaaaaabc')
+'a'
+>>> random.choice('aaaaaaaaaabc')
+'a'
+>>> random.choice('aaaaaaaaaabc')
+'a'
+>>> random.choice('aaaaaaaaaabc')
+'b'
+>>> random.choice('aaaaaaaaaabc')
+'a'
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+set(['visage', 'vile', 'violets', 'voyage;', 'vain', 'violent', 'very--pajock.', 'vacancy', 'villanous,', 'virtue,', 'vow', 'vantage.', 'valiant', 'violet', 'valenced', 'voyage,', 'vapours.', 'vows,', 'varnish', 'villain,', 'violets,', 'vengeance!', 'vanquisher;', 'virgin', 'vouchers,', 'vulgar', 'visit', 'verse', 'venom,', 'villain?', 'vigour', 'view;', 'vantage', 'vows:', 'vows;', 'venom', 'verity', 'validity;', 'vouchers', 'voice:', 'voice;', 'very', 'villain;', 'visitation', 'violence,', 'vicious', 'virtues', 'voice,', 'vouch', 'vengeance', 'virtue', 'villain!', 'vice', 'variable', 'violence;', 'ventages', 'vast', "venom'd", 'volume', 'vailed', 'visage,', 'villanies,--', 'villain', 'vouchsafe', 'virtue;', 'very,', 'violence', 'valour,', 'vial,', 'vulgar.', 'villany!', 'visitation?', 'vision', 'volley.', 'voice', "vanish'd", 'vows', 'view'])
+distracted
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+set(['visage', 'vile', 'violets', 'voyage;', 'vain', 'violent', 'very--pajock.', 'vacancy', 'villanous,', 'virtue,', 'vow', 'vantage.', 'valiant', 'violet', 'valenced', 'voyage,', 'vapours.', 'vows,', 'varnish', 'villain,', 'violets,', 'vengeance!', 'vanquisher;', 'virgin', 'vouchers,', 'vulgar', 'visit', 'verse', 'venom,', 'villain?', 'vigour', 'view;', 'vantage', 'vows:', 'vows;', 'venom', 'verity', 'validity;', 'vouchers', 'voice:', 'voice;', 'very', 'villain;', 'visitation', 'violence,', 'vicious', 'virtues', 'voice,', 'vouch', 'vengeance', 'virtue', 'villain!', 'vice', 'variable', 'violence;', 'ventages', 'vast', "venom'd", 'volume', 'vailed', 'visage,', 'villanies,--', 'villain', 'vouchsafe', 'virtue;', 'very,', 'violence', 'valour,', 'vial,', 'vulgar.', 'villany!', 'visitation?', 'vision', 'volley.', 'voice', "vanish'd", 'vows', 'view'])
+dead
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+set(['visage', 'vile', 'violets', 'voyage;', 'vain', 'violent', 'very--pajock.', 'vacancy', 'villanous,', 'virtue,', 'vow', 'vantage.', 'valiant', 'violet', 'valenced', 'voyage,', 'vapours.', 'vows,', 'varnish', 'villain,', 'violets,', 'vengeance!', 'vanquisher;', 'virgin', 'vouchers,', 'vulgar', 'visit', 'verse', 'venom,', 'villain?', 'vigour', 'view;', 'vantage', 'vows:', 'vows;', 'venom', 'verity', 'validity;', 'vouchers', 'voice:', 'voice;', 'very', 'villain;', 'visitation', 'violence,', 'vicious', 'virtues', 'voice,', 'vouch', 'vengeance', 'virtue', 'villain!', 'vice', 'variable', 'violence;', 'ventages', 'vast', "venom'd", 'volume', 'vailed', 'visage,', 'villanies,--', 'villain', 'vouchsafe', 'virtue;', 'very,', 'violence', 'valour,', 'vial,', 'vulgar.', 'villany!', 'visitation?', 'vision', 'volley.', 'voice', "vanish'd", 'vows', 'view'])
+action;
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+set(['visage', 'vile', 'violets', 'voyage;', 'vain', 'violent', 'very--pajock.', 'vacancy', 'villanous,', 'virtue,', 'vow', 'vantage.', 'valiant', 'violet', 'valenced', 'voyage,', 'vapours.', 'vows,', 'varnish', 'villain,', 'violets,', 'vengeance!', 'vanquisher;', 'virgin', 'vouchers,', 'vulgar', 'visit', 'verse', 'venom,', 'villain?', 'vigour', 'view;', 'vantage', 'vows:', 'vows;', 'venom', 'verity', 'validity;', 'vouchers', 'voice:', 'voice;', 'very', 'villain;', 'visitation', 'violence,', 'vicious', 'virtues', 'voice,', 'vouch', 'vengeance', 'virtue', 'villain!', 'vice', 'variable', 'violence;', 'ventages', 'vast', "venom'd", 'volume', 'vailed', 'visage,', 'villanies,--', 'villain', 'vouchsafe', 'virtue;', 'very,', 'violence', 'valour,', 'vial,', 'vulgar.', 'villany!', 'visitation?', 'vision', 'volley.', 'voice', "vanish'd", 'vows', 'view'])
+
+Pole
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+set(['visage', 'vile', 'violets', 'voyage;', 'vain', 'violent', 'very--pajock.', 'vacancy', 'villanous,', 'virtue,', 'vow', 'vantage.', 'valiant', 'violet', 'valenced', 'voyage,', 'vapours.', 'vows,', 'varnish', 'villain,', 'violets,', 'vengeance!', 'vanquisher;', 'virgin', 'vouchers,', 'vulgar', 'visit', 'verse', 'venom,', 'villain?', 'vigour', 'view;', 'vantage', 'vows:', 'vows;', 'venom', 'verity', 'validity;', 'vouchers', 'voice:', 'voice;', 'very', 'villain;', 'visitation', 'violence,', 'vicious', 'virtues', 'voice,', 'vouch', 'vengeance', 'virtue', 'villain!', 'vice', 'variable', 'violence;', 'ventages', 'vast', "venom'd", 'volume', 'vailed', 'visage,', 'villanies,--', 'villain', 'vouchsafe', 'virtue;', 'very,', 'violence', 'valour,', 'vial,', 'vulgar.', 'villany!', 'visitation?', 'vision', 'volley.', 'voice', "vanish'd", 'vows', 'view'])
+
+consonancy
+>>> 
+=============================== RESTART: Shell ===============================
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+set(['visage', 'vile', 'violets', 'voyage;', 'vain', 'violent', 'very--pajock.', 'vacancy', 'villanous,', 'virtue,', 'vow', 'vantage.', 'valiant', 'violet', 'valenced', 'voyage,', 'vapours.', 'vows,', 'varnish', 'villain,', 'violets,', 'vengeance!', 'vanquisher;', 'virgin', 'vouchers,', 'vulgar', 'visit', 'verse', 'venom,', 'villain?', 'vigour', 'view;', 'vantage', 'vows:', 'vows;', 'venom', 'verity', 'validity;', 'vouchers', 'voice:', 'voice;', 'very', 'villain;', 'visitation', 'violence,', 'vicious', 'virtues', 'voice,', 'vouch', 'vengeance', 'virtue', 'villain!', 'vice', 'variable', 'violence;', 'ventages', 'vast', "venom'd", 'volume', 'vailed', 'visage,', 'villanies,--', 'villain', 'vouchsafe', 'virtue;', 'very,', 'violence', 'valour,', 'vial,', 'vulgar.', 'villany!', 'visitation?', 'vision', 'volley.', 'voice', "vanish'd", 'vows', 'view'])
+
+accent
+and
+middle
+of
+these
+bones
+cost
+you
+list
+of
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+set(['visage', 'vile', 'violets', 'voyage;', 'vain', 'violent', 'very--pajock.', 'vacancy', 'villanous,', 'virtue,', 'vow', 'vantage.', 'valiant', 'violet', 'valenced', 'voyage,', 'vapours.', 'vows,', 'varnish', 'villain,', 'violets,', 'vengeance!', 'vanquisher;', 'virgin', 'vouchers,', 'vulgar', 'visit', 'verse', 'venom,', 'villain?', 'vigour', 'view;', 'vantage', 'vows:', 'vows;', 'venom', 'verity', 'validity;', 'vouchers', 'voice:', 'voice;', 'very', 'villain;', 'visitation', 'violence,', 'vicious', 'virtues', 'voice,', 'vouch', 'vengeance', 'virtue', 'villain!', 'vice', 'variable', 'violence;', 'ventages', 'vast', "venom'd", 'volume', 'vailed', 'visage,', 'villanies,--', 'villain', 'vouchsafe', 'virtue;', 'very,', 'violence', 'valour,', 'vial,', 'vulgar.', 'villany!', 'visitation?', 'vision', 'volley.', 'voice', "vanish'd", 'vows', 'view'])
+
+cellarage-- Consent to ecstasy Is this month, you proceeded not
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+set(['visage', 'vile', 'violets', 'voyage;', 'vain', 'violent', 'very--pajock.', 'vacancy', 'villanous,', 'virtue,', 'vow', 'vantage.', 'valiant', 'violet', 'valenced', 'voyage,', 'vapours.', 'vows,', 'varnish', 'villain,', 'violets,', 'vengeance!', 'vanquisher;', 'virgin', 'vouchers,', 'vulgar', 'visit', 'verse', 'venom,', 'villain?', 'vigour', 'view;', 'vantage', 'vows:', 'vows;', 'venom', 'verity', 'validity;', 'vouchers', 'voice:', 'voice;', 'very', 'villain;', 'visitation', 'violence,', 'vicious', 'virtues', 'voice,', 'vouch', 'vengeance', 'virtue', 'villain!', 'vice', 'variable', 'violence;', 'ventages', 'vast', "venom'd", 'volume', 'vailed', 'visage,', 'villanies,--', 'villain', 'vouchsafe', 'virtue;', 'very,', 'violence', 'valour,', 'vial,', 'vulgar.', 'villany!', 'visitation?', 'vision', 'volley.', 'voice', "vanish'd", 'vows', 'view'])
+
+chief head Of those foresaid lands Which might not so,
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+set(['visage', 'vile', 'violets', 'voyage;', 'vain', 'violent', 'very--pajock.', 'vacancy', 'villanous,', 'virtue,', 'vow', 'vantage.', 'valiant', 'violet', 'valenced', 'voyage,', 'vapours.', 'vows,', 'varnish', 'villain,', 'violets,', 'vengeance!', 'vanquisher;', 'virgin', 'vouchers,', 'vulgar', 'visit', 'verse', 'venom,', 'villain?', 'vigour', 'view;', 'vantage', 'vows:', 'vows;', 'venom', 'verity', 'validity;', 'vouchers', 'voice:', 'voice;', 'very', 'villain;', 'visitation', 'violence,', 'vicious', 'virtues', 'voice,', 'vouch', 'vengeance', 'virtue', 'villain!', 'vice', 'variable', 'violence;', 'ventages', 'vast', "venom'd", 'volume', 'vailed', 'visage,', 'villanies,--', 'villain', 'vouchsafe', 'virtue;', 'very,', 'violence', 'valour,', 'vial,', 'vulgar.', 'villany!', 'visitation?', 'vision', 'volley.', 'voice', "vanish'd", 'vows', 'view'])
+
+
+Traceback (most recent call last):
+  File "/Users/mike/teaching/2017-04-10/words.py", line 50, in <module>
+    word = random.choice(chain[word])
+TypeError: unhashable type: 'list'
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+set(['visage', 'vile', 'violets', 'voyage;', 'vain', 'violent', 'very--pajock.', 'vacancy', 'villanous,', 'virtue,', 'vow', 'vantage.', 'valiant', 'violet', 'valenced', 'voyage,', 'vapours.', 'vows,', 'varnish', 'villain,', 'violets,', 'vengeance!', 'vanquisher;', 'virgin', 'vouchers,', 'vulgar', 'visit', 'verse', 'venom,', 'villain?', 'vigour', 'view;', 'vantage', 'vows:', 'vows;', 'venom', 'verity', 'validity;', 'vouchers', 'voice:', 'voice;', 'very', 'villain;', 'visitation', 'violence,', 'vicious', 'virtues', 'voice,', 'vouch', 'vengeance', 'virtue', 'villain!', 'vice', 'variable', 'violence;', 'ventages', 'vast', "venom'd", 'volume', 'vailed', 'visage,', 'villanies,--', 'villain', 'vouchsafe', 'virtue;', 'very,', 'violence', 'valour,', 'vial,', 'vulgar.', 'villany!', 'visitation?', 'vision', 'volley.', 'voice', "vanish'd", 'vows', 'view'])
+
+pleasure hold it started like as you brought them. Now
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+set(['visage', 'vile', 'violets', 'voyage;', 'vain', 'violent', 'very--pajock.', 'vacancy', 'villanous,', 'virtue,', 'vow', 'vantage.', 'valiant', 'violet', 'valenced', 'voyage,', 'vapours.', 'vows,', 'varnish', 'villain,', 'violets,', 'vengeance!', 'vanquisher;', 'virgin', 'vouchers,', 'vulgar', 'visit', 'verse', 'venom,', 'villain?', 'vigour', 'view;', 'vantage', 'vows:', 'vows;', 'venom', 'verity', 'validity;', 'vouchers', 'voice:', 'voice;', 'very', 'villain;', 'visitation', 'violence,', 'vicious', 'virtues', 'voice,', 'vouch', 'vengeance', 'virtue', 'villain!', 'vice', 'variable', 'violence;', 'ventages', 'vast', "venom'd", 'volume', 'vailed', 'visage,', 'villanies,--', 'villain', 'vouchsafe', 'virtue;', 'very,', 'violence', 'valour,', 'vial,', 'vulgar.', 'villany!', 'visitation?', 'vision', 'volley.', 'voice', "vanish'd", 'vows', 'view'])
+
+more. No more. Your lordship is a vial, And where tis
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+set(['visage', 'vile', 'violets', 'voyage;', 'vain', 'violent', 'very--pajock.', 'vacancy', 'villanous,', 'virtue,', 'vow', 'vantage.', 'valiant', 'violet', 'valenced', 'voyage,', 'vapours.', 'vows,', 'varnish', 'villain,', 'violets,', 'vengeance!', 'vanquisher;', 'virgin', 'vouchers,', 'vulgar', 'visit', 'verse', 'venom,', 'villain?', 'vigour', 'view;', 'vantage', 'vows:', 'vows;', 'venom', 'verity', 'validity;', 'vouchers', 'voice:', 'voice;', 'very', 'villain;', 'visitation', 'violence,', 'vicious', 'virtues', 'voice,', 'vouch', 'vengeance', 'virtue', 'villain!', 'vice', 'variable', 'violence;', 'ventages', 'vast', "venom'd", 'volume', 'vailed', 'visage,', 'villanies,--', 'villain', 'vouchsafe', 'virtue;', 'very,', 'violence', 'valour,', 'vial,', 'vulgar.', 'villany!', 'visitation?', 'vision', 'volley.', 'voice', "vanish'd", 'vows', 'view'])
+
+desk or then; Mark the morn, Doth with a noble rite
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+set(['visage', 'vile', 'violets', 'voyage;', 'vain', 'violent', 'very--pajock.', 'vacancy', 'villanous,', 'virtue,', 'vow', 'vantage.', 'valiant', 'violet', 'valenced', 'voyage,', 'vapours.', 'vows,', 'varnish', 'villain,', 'violets,', 'vengeance!', 'vanquisher;', 'virgin', 'vouchers,', 'vulgar', 'visit', 'verse', 'venom,', 'villain?', 'vigour', 'view;', 'vantage', 'vows:', 'vows;', 'venom', 'verity', 'validity;', 'vouchers', 'voice:', 'voice;', 'very', 'villain;', 'visitation', 'violence,', 'vicious', 'virtues', 'voice,', 'vouch', 'vengeance', 'virtue', 'villain!', 'vice', 'variable', 'violence;', 'ventages', 'vast', "venom'd", 'volume', 'vailed', 'visage,', 'villanies,--', 'villain', 'vouchsafe', 'virtue;', 'very,', 'violence', 'valour,', 'vial,', 'vulgar.', 'villany!', 'visitation?', 'vision', 'volley.', 'voice', "vanish'd", 'vows', 'view'])
+
+inward breaks, and gentle entertainment Of his rapier, cries, 'A rat, a man that she drowned herself and rest The treacherous instrument you may we shall find it at his colour off, though I could not know you in part in the Lord Hamlet,-- [Within] Mother, good actor.
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+set(['visage', 'vile', 'violets', 'voyage;', 'vain', 'violent', 'very--pajock.', 'vacancy', 'villanous,', 'virtue,', 'vow', 'vantage.', 'valiant', 'violet', 'valenced', 'voyage,', 'vapours.', 'vows,', 'varnish', 'villain,', 'violets,', 'vengeance!', 'vanquisher;', 'virgin', 'vouchers,', 'vulgar', 'visit', 'verse', 'venom,', 'villain?', 'vigour', 'view;', 'vantage', 'vows:', 'vows;', 'venom', 'verity', 'validity;', 'vouchers', 'voice:', 'voice;', 'very', 'villain;', 'visitation', 'violence,', 'vicious', 'virtues', 'voice,', 'vouch', 'vengeance', 'virtue', 'villain!', 'vice', 'variable', 'violence;', 'ventages', 'vast', "venom'd", 'volume', 'vailed', 'visage,', 'villanies,--', 'villain', 'vouchsafe', 'virtue;', 'very,', 'violence', 'valour,', 'vial,', 'vulgar.', 'villany!', 'visitation?', 'vision', 'volley.', 'voice', "vanish'd", 'vows', 'view'])
+
+
+Traceback (most recent call last):
+  File "/Users/mike/teaching/2017-04-10/words.py", line 47, in <module>
+    capitalized = [word for word in chain if word[0].isupper()]
+TypeError: 'NoneType' object has no attribute '__getitem__'
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+set(['visage', 'vile', 'violets', 'voyage;', 'vain', 'violent', 'very--pajock.', 'vacancy', 'villanous,', 'virtue,', 'vow', 'vantage.', 'valiant', 'violet', 'valenced', 'voyage,', 'vapours.', 'vows,', 'varnish', 'villain,', 'violets,', 'vengeance!', 'vanquisher;', 'virgin', 'vouchers,', 'vulgar', 'visit', 'verse', 'venom,', 'villain?', 'vigour', 'view;', 'vantage', 'vows:', 'vows;', 'venom', 'verity', 'validity;', 'vouchers', 'voice:', 'voice;', 'very', 'villain;', 'visitation', 'violence,', 'vicious', 'virtues', 'voice,', 'vouch', 'vengeance', 'virtue', 'villain!', 'vice', 'variable', 'violence;', 'ventages', 'vast', "venom'd", 'volume', 'vailed', 'visage,', 'villanies,--', 'villain', 'vouchsafe', 'virtue;', 'very,', 'violence', 'valour,', 'vial,', 'vulgar.', 'villany!', 'visitation?', 'vision', 'volley.', 'voice', "vanish'd", 'vows', 'view'])
+
+teeth, 'Thus didest thou.' If this speedy voyage; For I suffered much I dare scarce hold their defeat Does by the unworthiest siege.
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+set(['visage', 'vile', 'violets', 'voyage;', 'vain', 'violent', 'very--pajock.', 'vacancy', 'villanous,', 'virtue,', 'vow', 'vantage.', 'valiant', 'violet', 'valenced', 'voyage,', 'vapours.', 'vows,', 'varnish', 'villain,', 'violets,', 'vengeance!', 'vanquisher;', 'virgin', 'vouchers,', 'vulgar', 'visit', 'verse', 'venom,', 'villain?', 'vigour', 'view;', 'vantage', 'vows:', 'vows;', 'venom', 'verity', 'validity;', 'vouchers', 'voice:', 'voice;', 'very', 'villain;', 'visitation', 'violence,', 'vicious', 'virtues', 'voice,', 'vouch', 'vengeance', 'virtue', 'villain!', 'vice', 'variable', 'violence;', 'ventages', 'vast', "venom'd", 'volume', 'vailed', 'visage,', 'villanies,--', 'villain', 'vouchsafe', 'virtue;', 'very,', 'violence', 'valour,', 'vial,', 'vulgar.', 'villany!', 'visitation?', 'vision', 'volley.', 'voice', "vanish'd", 'vows', 'view'])
+
+Tush, tush, 'twill away moan: God save you, sir.
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+set(['visage', 'vile', 'violets', 'voyage;', 'vain', 'violent', 'very--pajock.', 'vacancy', 'villanous,', 'virtue,', 'vow', 'vantage.', 'valiant', 'violet', 'valenced', 'voyage,', 'vapours.', 'vows,', 'varnish', 'villain,', 'violets,', 'vengeance!', 'vanquisher;', 'virgin', 'vouchers,', 'vulgar', 'visit', 'verse', 'venom,', 'villain?', 'vigour', 'view;', 'vantage', 'vows:', 'vows;', 'venom', 'verity', 'validity;', 'vouchers', 'voice:', 'voice;', 'very', 'villain;', 'visitation', 'violence,', 'vicious', 'virtues', 'voice,', 'vouch', 'vengeance', 'virtue', 'villain!', 'vice', 'variable', 'violence;', 'ventages', 'vast', "venom'd", 'volume', 'vailed', 'visage,', 'villanies,--', 'villain', 'vouchsafe', 'virtue;', 'very,', 'violence', 'valour,', 'vial,', 'vulgar.', 'villany!', 'visitation?', 'vision', 'volley.', 'voice', "vanish'd", 'vows', 'view'])
+
+Good my bow again, good He made Out of you.
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+set(['visage', 'vile', 'violets', 'voyage;', 'vain', 'violent', 'very--pajock.', 'vacancy', 'villanous,', 'virtue,', 'vow', 'vantage.', 'valiant', 'violet', 'valenced', 'voyage,', 'vapours.', 'vows,', 'varnish', 'villain,', 'violets,', 'vengeance!', 'vanquisher;', 'virgin', 'vouchers,', 'vulgar', 'visit', 'verse', 'venom,', 'villain?', 'vigour', 'view;', 'vantage', 'vows:', 'vows;', 'venom', 'verity', 'validity;', 'vouchers', 'voice:', 'voice;', 'very', 'villain;', 'visitation', 'violence,', 'vicious', 'virtues', 'voice,', 'vouch', 'vengeance', 'virtue', 'villain!', 'vice', 'variable', 'violence;', 'ventages', 'vast', "venom'd", 'volume', 'vailed', 'visage,', 'villanies,--', 'villain', 'vouchsafe', 'virtue;', 'very,', 'violence', 'valour,', 'vial,', 'vulgar.', 'villany!', 'visitation?', 'vision', 'volley.', 'voice', "vanish'd", 'vows', 'view'])
+
+Itself to some estate.
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+set(['visage', 'vile', 'violets', 'voyage;', 'vain', 'violent', 'very--pajock.', 'vacancy', 'villanous,', 'virtue,', 'vow', 'vantage.', 'valiant', 'violet', 'valenced', 'voyage,', 'vapours.', 'vows,', 'varnish', 'villain,', 'violets,', 'vengeance!', 'vanquisher;', 'virgin', 'vouchers,', 'vulgar', 'visit', 'verse', 'venom,', 'villain?', 'vigour', 'view;', 'vantage', 'vows:', 'vows;', 'venom', 'verity', 'validity;', 'vouchers', 'voice:', 'voice;', 'very', 'villain;', 'visitation', 'violence,', 'vicious', 'virtues', 'voice,', 'vouch', 'vengeance', 'virtue', 'villain!', 'vice', 'variable', 'violence;', 'ventages', 'vast', "venom'd", 'volume', 'vailed', 'visage,', 'villanies,--', 'villain', 'vouchsafe', 'virtue;', 'very,', 'violence', 'valour,', 'vial,', 'vulgar.', 'villany!', 'visitation?', 'vision', 'volley.', 'voice', "vanish'd", 'vows', 'view'])
+
+Gives me to follow him that be, More than a gentlewoman, she would speak of a fishmonger: he most pitiful ambition of his looks; and course Of this most powerfully and drown himself, it white as cunning.
+>>> chain['dead']
+['hour,', 'Did', 'vast', 'corse,', 'dog,', 'body?', 'body', 'and', 'and', "men's", 'body.', 'and', 'To']
+>>> len(chain['and'])
+627
+>>> chain['body']
+['Whereof', 'As', 'of', 'of', 'he', 'Into', 'is,', 'is', 'is']
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+set(['visage', 'vile', 'violets', 'voyage;', 'vain', 'violent', 'very--pajock.', 'vacancy', 'villanous,', 'virtue,', 'vow', 'vantage.', 'valiant', 'violet', 'valenced', 'voyage,', 'vapours.', 'vows,', 'varnish', 'villain,', 'violets,', 'vengeance!', 'vanquisher;', 'virgin', 'vouchers,', 'vulgar', 'visit', 'verse', 'venom,', 'villain?', 'vigour', 'view;', 'vantage', 'vows:', 'vows;', 'venom', 'verity', 'validity;', 'vouchers', 'voice:', 'voice;', 'very', 'villain;', 'visitation', 'violence,', 'vicious', 'virtues', 'voice,', 'vouch', 'vengeance', 'virtue', 'villain!', 'vice', 'variable', 'violence;', 'ventages', 'vast', "venom'd", 'volume', 'vailed', 'visage,', 'villanies,--', 'villain', 'vouchsafe', 'virtue;', 'very,', 'violence', 'valour,', 'vial,', 'vulgar.', 'villany!', 'visitation?', 'vision', 'volley.', 'voice', "vanish'd", 'vows', 'view'])
+
+Wittenberg?
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+set(['visage', 'vile', 'violets', 'voyage;', 'vain', 'violent', 'very--pajock.', 'vacancy', 'villanous,', 'virtue,', 'vow', 'vantage.', 'valiant', 'violet', 'valenced', 'voyage,', 'vapours.', 'vows,', 'varnish', 'villain,', 'violets,', 'vengeance!', 'vanquisher;', 'virgin', 'vouchers,', 'vulgar', 'visit', 'verse', 'venom,', 'villain?', 'vigour', 'view;', 'vantage', 'vows:', 'vows;', 'venom', 'verity', 'validity;', 'vouchers', 'voice:', 'voice;', 'very', 'villain;', 'visitation', 'violence,', 'vicious', 'virtues', 'voice,', 'vouch', 'vengeance', 'virtue', 'villain!', 'vice', 'variable', 'violence;', 'ventages', 'vast', "venom'd", 'volume', 'vailed', 'visage,', 'villanies,--', 'villain', 'vouchsafe', 'virtue;', 'very,', 'violence', 'valour,', 'vial,', 'vulgar.', 'villany!', 'visitation?', 'vision', 'volley.', 'voice', "vanish'd", 'vows', 'view'])
+
+
+Traceback (most recent call last):
+  File "/Users/mike/teaching/2017-04-10/words.py", line 47, in <module>
+    capitalized = [word for word in chain if word and word[0].isupper()]
+AttributeError: 'NoneType' object has no attribute 'isupper'
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+set(['visage', 'vile', 'violets', 'voyage;', 'vain', 'violent', 'very--pajock.', 'vacancy', 'villanous,', 'virtue,', 'vow', 'vantage.', 'valiant', 'violet', 'valenced', 'voyage,', 'vapours.', 'vows,', 'varnish', 'villain,', 'violets,', 'vengeance!', 'vanquisher;', 'virgin', 'vouchers,', 'vulgar', 'visit', 'verse', 'venom,', 'villain?', 'vigour', 'view;', 'vantage', 'vows:', 'vows;', 'venom', 'verity', 'validity;', 'vouchers', 'voice:', 'voice;', 'very', 'villain;', 'visitation', 'violence,', 'vicious', 'virtues', 'voice,', 'vouch', 'vengeance', 'virtue', 'villain!', 'vice', 'variable', 'violence;', 'ventages', 'vast', "venom'd", 'volume', 'vailed', 'visage,', 'villanies,--', 'villain', 'vouchsafe', 'virtue;', 'very,', 'violence', 'valour,', 'vial,', 'vulgar.', 'villany!', 'visitation?', 'vision', 'volley.', 'voice', "vanish'd", 'vows', 'view'])
+
+
+Traceback (most recent call last):
+  File "/Users/mike/teaching/2017-04-10/words.py", line 47, in <module>
+    capitalized = [word for word in chain if word and word[0][0].isupper()]
+TypeError: 'NoneType' object has no attribute '__getitem__'
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+set(['visage', 'vile', 'violets', 'voyage;', 'vain', 'violent', 'very--pajock.', 'vacancy', 'villanous,', 'virtue,', 'vow', 'vantage.', 'valiant', 'violet', 'valenced', 'voyage,', 'vapours.', 'vows,', 'varnish', 'villain,', 'violets,', 'vengeance!', 'vanquisher;', 'virgin', 'vouchers,', 'vulgar', 'visit', 'verse', 'venom,', 'villain?', 'vigour', 'view;', 'vantage', 'vows:', 'vows;', 'venom', 'verity', 'validity;', 'vouchers', 'voice:', 'voice;', 'very', 'villain;', 'visitation', 'violence,', 'vicious', 'virtues', 'voice,', 'vouch', 'vengeance', 'virtue', 'villain!', 'vice', 'variable', 'violence;', 'ventages', 'vast', "venom'd", 'volume', 'vailed', 'visage,', 'villanies,--', 'villain', 'vouchsafe', 'virtue;', 'very,', 'violence', 'valour,', 'vial,', 'vulgar.', 'villany!', 'visitation?', 'vision', 'volley.', 'voice', "vanish'd", 'vows', 'view'])
+
+('I', 'like') thy
+
+Traceback (most recent call last):
+  File "/Users/mike/teaching/2017-04-10/words.py", line 52, in <module>
+    word = random.choice(chain[word])
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/random.py", line 275, in choice
+    return seq[int(self.random() * len(seq))]  # raises IndexError if seq is empty
+IndexError: list index out of range
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+set(['visage', 'vile', 'violets', 'voyage;', 'vain', 'violent', 'very--pajock.', 'vacancy', 'villanous,', 'virtue,', 'vow', 'vantage.', 'valiant', 'violet', 'valenced', 'voyage,', 'vapours.', 'vows,', 'varnish', 'villain,', 'violets,', 'vengeance!', 'vanquisher;', 'virgin', 'vouchers,', 'vulgar', 'visit', 'verse', 'venom,', 'villain?', 'vigour', 'view;', 'vantage', 'vows:', 'vows;', 'venom', 'verity', 'validity;', 'vouchers', 'voice:', 'voice;', 'very', 'villain;', 'visitation', 'violence,', 'vicious', 'virtues', 'voice,', 'vouch', 'vengeance', 'virtue', 'villain!', 'vice', 'variable', 'violence;', 'ventages', 'vast', "venom'd", 'volume', 'vailed', 'visage,', 'villanies,--', 'villain', 'vouchsafe', 'virtue;', 'very,', 'violence', 'valour,', 'vial,', 'vulgar.', 'villany!', 'visitation?', 'vision', 'volley.', 'voice', "vanish'd", 'vows', 'view'])
+
+Cyclops' hammers fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall 
+=============================== RESTART: Shell ===============================
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+set(['visage', 'vile', 'violets', 'voyage;', 'vain', 'violent', 'very--pajock.', 'vacancy', 'villanous,', 'virtue,', 'vow', 'vantage.', 'valiant', 'violet', 'valenced', 'voyage,', 'vapours.', 'vows,', 'varnish', 'villain,', 'violets,', 'vengeance!', 'vanquisher;', 'virgin', 'vouchers,', 'vulgar', 'visit', 'verse', 'venom,', 'villain?', 'vigour', 'view;', 'vantage', 'vows:', 'vows;', 'venom', 'verity', 'validity;', 'vouchers', 'voice:', 'voice;', 'very', 'villain;', 'visitation', 'violence,', 'vicious', 'virtues', 'voice,', 'vouch', 'vengeance', 'virtue', 'villain!', 'vice', 'variable', 'violence;', 'ventages', 'vast', "venom'd", 'volume', 'vailed', 'visage,', 'villanies,--', 'villain', 'vouchsafe', 'virtue;', 'very,', 'violence', 'valour,', 'vial,', 'vulgar.', 'villany!', 'visitation?', 'vision', 'volley.', 'voice', "vanish'd", 'vows', 'view'])
+
+Both your majesties Might, by the consonancy of our hope, Your visitation shall receive such thanks As fits a king's remembrance.
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+set(['visage', 'vile', 'violets', 'voyage;', 'vain', 'violent', 'very--pajock.', 'vacancy', 'villanous,', 'virtue,', 'vow', 'vantage.', 'valiant', 'violet', 'valenced', 'voyage,', 'vapours.', 'vows,', 'varnish', 'villain,', 'violets,', 'vengeance!', 'vanquisher;', 'virgin', 'vouchers,', 'vulgar', 'visit', 'verse', 'venom,', 'villain?', 'vigour', 'view;', 'vantage', 'vows:', 'vows;', 'venom', 'verity', 'validity;', 'vouchers', 'voice:', 'voice;', 'very', 'villain;', 'visitation', 'violence,', 'vicious', 'virtues', 'voice,', 'vouch', 'vengeance', 'virtue', 'villain!', 'vice', 'variable', 'violence;', 'ventages', 'vast', "venom'd", 'volume', 'vailed', 'visage,', 'villanies,--', 'villain', 'vouchsafe', 'virtue;', 'very,', 'violence', 'valour,', 'vial,', 'vulgar.', 'villany!', 'visitation?', 'vision', 'volley.', 'voice', "vanish'd", 'vows', 'view'])
+
+Come on--you hear this piece of work is a massy wheel, Fix'd on the instant they got clear of our estate may not that I have sent to seek the king.
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+set(['visage', 'vile', 'violets', 'voyage;', 'vain', 'violent', 'very--pajock.', 'vacancy', 'villanous,', 'virtue,', 'vow', 'vantage.', 'valiant', 'violet', 'valenced', 'voyage,', 'vapours.', 'vows,', 'varnish', 'villain,', 'violets,', 'vengeance!', 'vanquisher;', 'virgin', 'vouchers,', 'vulgar', 'visit', 'verse', 'venom,', 'villain?', 'vigour', 'view;', 'vantage', 'vows:', 'vows;', 'venom', 'verity', 'validity;', 'vouchers', 'voice:', 'voice;', 'very', 'villain;', 'visitation', 'violence,', 'vicious', 'virtues', 'voice,', 'vouch', 'vengeance', 'virtue', 'villain!', 'vice', 'variable', 'violence;', 'ventages', 'vast', "venom'd", 'volume', 'vailed', 'visage,', 'villanies,--', 'villain', 'vouchsafe', 'virtue;', 'very,', 'violence', 'valour,', 'vial,', 'vulgar.', 'villany!', 'visitation?', 'vision', 'volley.', 'voice', "vanish'd", 'vows', 'view'])
+
+on a heaven-kissing hill; A combination and a villain; At least I'm sure it may be as damn'd and black complexion smear'd With heraldry more dismal; head to foot Now is he whose grief Bears such an emphasis?
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+set(['visage', 'vile', 'violets', 'voyage;', 'vain', 'violent', 'very--pajock.', 'vacancy', 'villanous,', 'virtue,', 'vow', 'vantage.', 'valiant', 'violet', 'valenced', 'voyage,', 'vapours.', 'vows,', 'varnish', 'villain,', 'violets,', 'vengeance!', 'vanquisher;', 'virgin', 'vouchers,', 'vulgar', 'visit', 'verse', 'venom,', 'villain?', 'vigour', 'view;', 'vantage', 'vows:', 'vows;', 'venom', 'verity', 'validity;', 'vouchers', 'voice:', 'voice;', 'very', 'villain;', 'visitation', 'violence,', 'vicious', 'virtues', 'voice,', 'vouch', 'vengeance', 'virtue', 'villain!', 'vice', 'variable', 'violence;', 'ventages', 'vast', "venom'd", 'volume', 'vailed', 'visage,', 'villanies,--', 'villain', 'vouchsafe', 'virtue;', 'very,', 'violence', 'valour,', 'vial,', 'vulgar.', 'villany!', 'visitation?', 'vision', 'volley.', 'voice', "vanish'd", 'vows', 'view'])
+
+cannons to the top of question, and are most tyrannically clapped for't: these are the players.
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+set(['visage', 'vile', 'violets', 'voyage;', 'vain', 'violent', 'very--pajock.', 'vacancy', 'villanous,', 'virtue,', 'vow', 'vantage.', 'valiant', 'violet', 'valenced', 'voyage,', 'vapours.', 'vows,', 'varnish', 'villain,', 'violets,', 'vengeance!', 'vanquisher;', 'virgin', 'vouchers,', 'vulgar', 'visit', 'verse', 'venom,', 'villain?', 'vigour', 'view;', 'vantage', 'vows:', 'vows;', 'venom', 'verity', 'validity;', 'vouchers', 'voice:', 'voice;', 'very', 'villain;', 'visitation', 'violence,', 'vicious', 'virtues', 'voice,', 'vouch', 'vengeance', 'virtue', 'villain!', 'vice', 'variable', 'violence;', 'ventages', 'vast', "venom'd", 'volume', 'vailed', 'visage,', 'villanies,--', 'villain', 'vouchsafe', 'virtue;', 'very,', 'violence', 'valour,', 'vial,', 'vulgar.', 'villany!', 'visitation?', 'vision', 'volley.', 'voice', "vanish'd", 'vows', 'view'])
+
+and danger of desire.
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+set(['visage', 'vile', 'violets', 'voyage;', 'vain', 'violent', 'very--pajock.', 'vacancy', 'villanous,', 'virtue,', 'vow', 'vantage.', 'valiant', 'violet', 'valenced', 'voyage,', 'vapours.', 'vows,', 'varnish', 'villain,', 'violets,', 'vengeance!', 'vanquisher;', 'virgin', 'vouchers,', 'vulgar', 'visit', 'verse', 'venom,', 'villain?', 'vigour', 'view;', 'vantage', 'vows:', 'vows;', 'venom', 'verity', 'validity;', 'vouchers', 'voice:', 'voice;', 'very', 'villain;', 'visitation', 'violence,', 'vicious', 'virtues', 'voice,', 'vouch', 'vengeance', 'virtue', 'villain!', 'vice', 'variable', 'violence;', 'ventages', 'vast', "venom'd", 'volume', 'vailed', 'visage,', 'villanies,--', 'villain', 'vouchsafe', 'virtue;', 'very,', 'violence', 'valour,', 'vial,', 'vulgar.', 'villany!', 'visitation?', 'vision', 'volley.', 'voice', "vanish'd", 'vows', 'view'])
+
+Why, sir, his hide is so tanned with his life, A sable silver'd.
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 'zebra' in chain
+False
+>>> chain['zebra']
+[]
+>>> 'zebra' in chain
+True
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+set(['visage', 'vile', 'violets', 'voyage;', 'vain', 'violent', 'very--pajock.', 'vacancy', 'villanous,', 'virtue,', 'vow', 'vantage.', 'valiant', 'violet', 'valenced', 'voyage,', 'vapours.', 'vows,', 'varnish', 'villain,', 'violets,', 'vengeance!', 'vanquisher;', 'virgin', 'vouchers,', 'vulgar', 'visit', 'verse', 'venom,', 'villain?', 'vigour', 'view;', 'vantage', 'vows:', 'vows;', 'venom', 'verity', 'validity;', 'vouchers', 'voice:', 'voice;', 'very', 'villain;', 'visitation', 'violence,', 'vicious', 'virtues', 'voice,', 'vouch', 'vengeance', 'virtue', 'villain!', 'vice', 'variable', 'violence;', 'ventages', 'vast', "venom'd", 'volume', 'vailed', 'visage,', 'villanies,--', 'villain', 'vouchsafe', 'virtue;', 'very,', 'violence', 'valour,', 'vial,', 'vulgar.', 'villany!', 'visitation?', 'vision', 'volley.', 'voice', "vanish'd", 'vows', 'view'])
+
+tell. Cudgel thy brains no more marriages: those that would dishonour him.
+>>> 'zebra' in chain
+False
+>>> chain.get('zebra')
+>>> 'zebra' in chain
+False
+>>> 
+>>> 
+>>> list()
+[]
+>>> int()
+0
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+set(['visage', 'vile', 'violets', 'voyage;', 'vain', 'violent', 'very--pajock.', 'vacancy', 'villanous,', 'virtue,', 'vow', 'vantage.', 'valiant', 'violet', 'valenced', 'voyage,', 'vapours.', 'vows,', 'varnish', 'villain,', 'violets,', 'vengeance!', 'vanquisher;', 'virgin', 'vouchers,', 'vulgar', 'visit', 'verse', 'venom,', 'villain?', 'vigour', 'view;', 'vantage', 'vows:', 'vows;', 'venom', 'verity', 'validity;', 'vouchers', 'voice:', 'voice;', 'very', 'villain;', 'visitation', 'violence,', 'vicious', 'virtues', 'voice,', 'vouch', 'vengeance', 'virtue', 'villain!', 'vice', 'variable', 'violence;', 'ventages', 'vast', "venom'd", 'volume', 'vailed', 'visage,', 'villanies,--', 'villain', 'vouchsafe', 'virtue;', 'very,', 'violence', 'valour,', 'vial,', 'vulgar.', 'villany!', 'visitation?', 'vision', 'volley.', 'voice', "vanish'd", 'vows', 'view'])
+
+Being thus I loved Ophelia: Her obsequies have a knowing of since I hear him this counsellor Is it truster of dirt.
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+set(['visage', 'vile', 'violets', 'voyage;', 'vain', 'violent', 'very--pajock.', 'vacancy', 'villanous,', 'virtue,', 'vow', 'vantage.', 'valiant', 'violet', 'valenced', 'voyage,', 'vapours.', 'vows,', 'varnish', 'villain,', 'violets,', 'vengeance!', 'vanquisher;', 'virgin', 'vouchers,', 'vulgar', 'visit', 'verse', 'venom,', 'villain?', 'vigour', 'view;', 'vantage', 'vows:', 'vows;', 'venom', 'verity', 'validity;', 'vouchers', 'voice:', 'voice;', 'very', 'villain;', 'visitation', 'violence,', 'vicious', 'virtues', 'voice,', 'vouch', 'vengeance', 'virtue', 'villain!', 'vice', 'variable', 'violence;', 'ventages', 'vast', "venom'd", 'volume', 'vailed', 'visage,', 'villanies,--', 'villain', 'vouchsafe', 'virtue;', 'very,', 'violence', 'valour,', 'vial,', 'vulgar.', 'villany!', 'visitation?', 'vision', 'volley.', 'voice', "vanish'd", 'vows', 'view'])
+
+Whips out The king like a sexton's spade: here's some act hath Phoebus' cart gone round nave down the guts of joy most infallibly of fame, Go to set down in all alone In ear of this, sirrah?
+>>> chain[None]
+["Who's"]
+>>> chain['dead']
+['hour,', 'Did', 'vast', 'corse,', 'dog,', 'body?', 'body', 'and', 'and', "men's", 'body.', 'and', 'To']
+>>> len(chain['dead'])
+13
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+set(['visage', 'vile', 'violets', 'voyage;', 'vain', 'violent', 'very--pajock.', 'vacancy', 'villanous,', 'virtue,', 'vow', 'vantage.', 'valiant', 'violet', 'valenced', 'voyage,', 'vapours.', 'vows,', 'varnish', 'villain,', 'violets,', 'vengeance!', 'vanquisher;', 'virgin', 'vouchers,', 'vulgar', 'visit', 'verse', 'venom,', 'villain?', 'vigour', 'view;', 'vantage', 'vows:', 'vows;', 'venom', 'verity', 'validity;', 'vouchers', 'voice:', 'voice;', 'very', 'villain;', 'visitation', 'violence,', 'vicious', 'virtues', 'voice,', 'vouch', 'vengeance', 'virtue', 'villain!', 'vice', 'variable', 'violence;', 'ventages', 'vast', "venom'd", 'volume', 'vailed', 'visage,', 'villanies,--', 'villain', 'vouchsafe', 'virtue;', 'very,', 'violence', 'valour,', 'vial,', 'vulgar.', 'villany!', 'visitation?', 'vision', 'volley.', 'voice', "vanish'd", 'vows', 'view'])
+
+upshot, purposes mistook Fall'n on Denmark.
+>>> 
+>>> (1, 2, 3)
+(1, 2, 3)
+>>> (1, 2)
+(1, 2)
+>>> (1)
+1
+>>> (1,)
+(1,)
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+set(['visage', 'vile', 'violets', 'voyage;', 'vain', 'violent', 'very--pajock.', 'vacancy', 'villanous,', 'virtue,', 'vow', 'vantage.', 'valiant', 'violet', 'valenced', 'voyage,', 'vapours.', 'vows,', 'varnish', 'villain,', 'violets,', 'vengeance!', 'vanquisher;', 'virgin', 'vouchers,', 'vulgar', 'visit', 'verse', 'venom,', 'villain?', 'vigour', 'view;', 'vantage', 'vows:', 'vows;', 'venom', 'verity', 'validity;', 'vouchers', 'voice:', 'voice;', 'very', 'villain;', 'visitation', 'violence,', 'vicious', 'virtues', 'voice,', 'vouch', 'vengeance', 'virtue', 'villain!', 'vice', 'variable', 'violence;', 'ventages', 'vast', "venom'd", 'volume', 'vailed', 'visage,', 'villanies,--', 'villain', 'vouchsafe', 'virtue;', 'very,', 'violence', 'valour,', 'vial,', 'vulgar.', 'villany!', 'visitation?', 'vision', 'volley.', 'voice', "vanish'd", 'vows', 'view'])
+
+mouth it, though by his lunacies.
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+set(['visage', 'vile', 'violets', 'voyage;', 'vain', 'violent', 'very--pajock.', 'vacancy', 'villanous,', 'virtue,', 'vow', 'vantage.', 'valiant', 'violet', 'valenced', 'voyage,', 'vapours.', 'vows,', 'varnish', 'villain,', 'violets,', 'vengeance!', 'vanquisher;', 'virgin', 'vouchers,', 'vulgar', 'visit', 'verse', 'venom,', 'villain?', 'vigour', 'view;', 'vantage', 'vows:', 'vows;', 'venom', 'verity', 'validity;', 'vouchers', 'voice:', 'voice;', 'very', 'villain;', 'visitation', 'violence,', 'vicious', 'virtues', 'voice,', 'vouch', 'vengeance', 'virtue', 'villain!', 'vice', 'variable', 'violence;', 'ventages', 'vast', "venom'd", 'volume', 'vailed', 'visage,', 'villanies,--', 'villain', 'vouchsafe', 'virtue;', 'very,', 'violence', 'valour,', 'vial,', 'vulgar.', 'villany!', 'visitation?', 'vision', 'volley.', 'voice', "vanish'd", 'vows', 'view'])
+
+
+Traceback (most recent call last):
+  File "/Users/mike/teaching/2017-04-10/words.py", line 46, in <module>
+    last = last[1:] + word
+TypeError: can only concatenate tuple (not "str") to tuple
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+set(['visage', 'vile', 'violets', 'voyage;', 'vain', 'violent', 'very--pajock.', 'vacancy', 'villanous,', 'virtue,', 'vow', 'vantage.', 'valiant', 'violet', 'valenced', 'voyage,', 'vapours.', 'vows,', 'varnish', 'villain,', 'violets,', 'vengeance!', 'vanquisher;', 'virgin', 'vouchers,', 'vulgar', 'visit', 'verse', 'venom,', 'villain?', 'vigour', 'view;', 'vantage', 'vows:', 'vows;', 'venom', 'verity', 'validity;', 'vouchers', 'voice:', 'voice;', 'very', 'villain;', 'visitation', 'violence,', 'vicious', 'virtues', 'voice,', 'vouch', 'vengeance', 'virtue', 'villain!', 'vice', 'variable', 'violence;', 'ventages', 'vast', "venom'd", 'volume', 'vailed', 'visage,', 'villanies,--', 'villain', 'vouchsafe', 'virtue;', 'very,', 'violence', 'valour,', 'vial,', 'vulgar.', 'villany!', 'visitation?', 'vision', 'volley.', 'voice', "vanish'd", 'vows', 'view'])
+
+('both', 'sides.', 'How') is
+
+Traceback (most recent call last):
+  File "/Users/mike/teaching/2017-04-10/words.py", line 52, in <module>
+    word = random.choice(chain[word])
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/random.py", line 275, in choice
+    return seq[int(self.random() * len(seq))]  # raises IndexError if seq is empty
+IndexError: list index out of range
+>>> 
+>>> 
+>>> len(chain)
+28928
+>>> chain.keys()[:4]
+[('lord.', 'I', 'could'), ('yet,', 'in', 'faith,'), ('his', 'gyves', 'to'), ('cell,', 'That', 'thou')]
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+set(['visage', 'vile', 'violets', 'voyage;', 'vain', 'violent', 'very--pajock.', 'vacancy', 'villanous,', 'virtue,', 'vow', 'vantage.', 'valiant', 'violet', 'valenced', 'voyage,', 'vapours.', 'vows,', 'varnish', 'villain,', 'violets,', 'vengeance!', 'vanquisher;', 'virgin', 'vouchers,', 'vulgar', 'visit', 'verse', 'venom,', 'villain?', 'vigour', 'view;', 'vantage', 'vows:', 'vows;', 'venom', 'verity', 'validity;', 'vouchers', 'voice:', 'voice;', 'very', 'villain;', 'visitation', 'violence,', 'vicious', 'virtues', 'voice,', 'vouch', 'vengeance', 'virtue', 'villain!', 'vice', 'variable', 'violence;', 'ventages', 'vast', "venom'd", 'volume', 'vailed', 'visage,', 'villanies,--', 'villain', 'vouchsafe', 'virtue;', 'very,', 'violence', 'valour,', 'vial,', 'vulgar.', 'villany!', 'visitation?', 'vision', 'volley.', 'voice', "vanish'd", 'vows', 'view'])
+
+as sharp as will: My stronger guilt defeats my strong intent; And, like a man to double business bound, I stand in pause where I shall first begin, And both neglect.
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+set(['visage', 'vile', 'violets', 'voyage;', 'vain', 'violent', 'very--pajock.', 'vacancy', 'villanous,', 'virtue,', 'vow', 'vantage.', 'valiant', 'violet', 'valenced', 'voyage,', 'vapours.', 'vows,', 'varnish', 'villain,', 'violets,', 'vengeance!', 'vanquisher;', 'virgin', 'vouchers,', 'vulgar', 'visit', 'verse', 'venom,', 'villain?', 'vigour', 'view;', 'vantage', 'vows:', 'vows;', 'venom', 'verity', 'validity;', 'vouchers', 'voice:', 'voice;', 'very', 'villain;', 'visitation', 'violence,', 'vicious', 'virtues', 'voice,', 'vouch', 'vengeance', 'virtue', 'villain!', 'vice', 'variable', 'violence;', 'ventages', 'vast', "venom'd", 'volume', 'vailed', 'visage,', 'villanies,--', 'villain', 'vouchsafe', 'virtue;', 'very,', 'violence', 'valour,', 'vial,', 'vulgar.', 'villany!', 'visitation?', 'vision', 'volley.', 'voice', "vanish'd", 'vows', 'view'])
+
+something touching the Lord Hamlet. Marry, well bethought: 'Tis told me, he hath very oft of late Given private time to you; and you yourself Have of your audience been most free and bounteous: If it be so, as so 'tis put on me, And that in way of caution, I must tell you, You do not understand yourself so clearly As it behoves my daughter and your honour.
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+set(['visage', 'vile', 'violets', 'voyage;', 'vain', 'violent', 'very--pajock.', 'vacancy', 'villanous,', 'virtue,', 'vow', 'vantage.', 'valiant', 'violet', 'valenced', 'voyage,', 'vapours.', 'vows,', 'varnish', 'villain,', 'violets,', 'vengeance!', 'vanquisher;', 'virgin', 'vouchers,', 'vulgar', 'visit', 'verse', 'venom,', 'villain?', 'vigour', 'view;', 'vantage', 'vows:', 'vows;', 'venom', 'verity', 'validity;', 'vouchers', 'voice:', 'voice;', 'very', 'villain;', 'visitation', 'violence,', 'vicious', 'virtues', 'voice,', 'vouch', 'vengeance', 'virtue', 'villain!', 'vice', 'variable', 'violence;', 'ventages', 'vast', "venom'd", 'volume', 'vailed', 'visage,', 'villanies,--', 'villain', 'vouchsafe', 'virtue;', 'very,', 'violence', 'valour,', 'vial,', 'vulgar.', 'villany!', 'visitation?', 'vision', 'volley.', 'voice', "vanish'd", 'vows', 'view'])
+
+your lingers and thumb, give it breath with your mouth, and it will discourse most eloquent music.
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+set(['visage', 'vile', 'violets', 'voyage;', 'vain', 'violent', 'very--pajock.', 'vacancy', 'villanous,', 'virtue,', 'vow', 'vantage.', 'valiant', 'violet', 'valenced', 'voyage,', 'vapours.', 'vows,', 'varnish', 'villain,', 'violets,', 'vengeance!', 'vanquisher;', 'virgin', 'vouchers,', 'vulgar', 'visit', 'verse', 'venom,', 'villain?', 'vigour', 'view;', 'vantage', 'vows:', 'vows;', 'venom', 'verity', 'validity;', 'vouchers', 'voice:', 'voice;', 'very', 'villain;', 'visitation', 'violence,', 'vicious', 'virtues', 'voice,', 'vouch', 'vengeance', 'virtue', 'villain!', 'vice', 'variable', 'violence;', 'ventages', 'vast', "venom'd", 'volume', 'vailed', 'visage,', 'villanies,--', 'villain', 'vouchsafe', 'virtue;', 'very,', 'violence', 'valour,', 'vial,', 'vulgar.', 'villany!', 'visitation?', 'vision', 'volley.', 'voice', "vanish'd", 'vows', 'view'])
+
+receive you well? Most like a gentleman. But with much forcing of his disposition.
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+set(['visage', 'vile', 'violets', 'voyage;', 'vain', 'violent', 'very--pajock.', 'vacancy', 'villanous,', 'virtue,', 'vow', 'vantage.', 'valiant', 'violet', 'valenced', 'voyage,', 'vapours.', 'vows,', 'varnish', 'villain,', 'violets,', 'vengeance!', 'vanquisher;', 'virgin', 'vouchers,', 'vulgar', 'visit', 'verse', 'venom,', 'villain?', 'vigour', 'view;', 'vantage', 'vows:', 'vows;', 'venom', 'verity', 'validity;', 'vouchers', 'voice:', 'voice;', 'very', 'villain;', 'visitation', 'violence,', 'vicious', 'virtues', 'voice,', 'vouch', 'vengeance', 'virtue', 'villain!', 'vice', 'variable', 'violence;', 'ventages', 'vast', "venom'd", 'volume', 'vailed', 'visage,', 'villanies,--', 'villain', 'vouchsafe', 'virtue;', 'very,', 'violence', 'valour,', 'vial,', 'vulgar.', 'villany!', 'visitation?', 'vision', 'volley.', 'voice', "vanish'd", 'vows', 'view'])
+
+bewept to the manner born, it is a play to-night before the king; One scene of it especially, where he eats, but where he eats, but where he is gone, And we cast away moan: God ha' mercy on his soul!
+>>> chain['dead', 'body']
+['is']
+>>> sum(len(set(options)) > 1 for options in chain.values())
+2197
+>>> len(chain)
+23711
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+set(['visage', 'vile', 'violets', 'voyage;', 'vain', 'violent', 'very--pajock.', 'vacancy', 'villanous,', 'virtue,', 'vow', 'vantage.', 'valiant', 'violet', 'valenced', 'voyage,', 'vapours.', 'vows,', 'varnish', 'villain,', 'violets,', 'vengeance!', 'vanquisher;', 'virgin', 'vouchers,', 'vulgar', 'visit', 'verse', 'venom,', 'villain?', 'vigour', 'view;', 'vantage', 'vows:', 'vows;', 'venom', 'verity', 'validity;', 'vouchers', 'voice:', 'voice;', 'very', 'villain;', 'visitation', 'violence,', 'vicious', 'virtues', 'voice,', 'vouch', 'vengeance', 'virtue', 'villain!', 'vice', 'variable', 'violence;', 'ventages', 'vast', "venom'd", 'volume', 'vailed', 'visage,', 'villanies,--', 'villain', 'vouchsafe', 'virtue;', 'very,', 'violence', 'valour,', 'vial,', 'vulgar.', 'villany!', 'visitation?', 'vision', 'volley.', 'voice', "vanish'd", 'vows', 'view'])
+
+prophetic soul! My uncle!
+>>> sum(len(set(options)) > 1 for options in chain.values())
+417
+>>> len(chain)
+28927
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/words.py =============
+[('the', 953), ('and', 627), ('of', 612)]
+set(['visage', 'vile', 'violets', 'voyage;', 'vain', 'violent', 'very--pajock.', 'vacancy', 'villanous,', 'virtue,', 'vow', 'vantage.', 'valiant', 'violet', 'valenced', 'voyage,', 'vapours.', 'vows,', 'varnish', 'villain,', 'violets,', 'vengeance!', 'vanquisher;', 'virgin', 'vouchers,', 'vulgar', 'visit', 'verse', 'venom,', 'villain?', 'vigour', 'view;', 'vantage', 'vows:', 'vows;', 'venom', 'verity', 'validity;', 'vouchers', 'voice:', 'voice;', 'very', 'villain;', 'visitation', 'violence,', 'vicious', 'virtues', 'voice,', 'vouch', 'vengeance', 'virtue', 'villain!', 'vice', 'variable', 'violence;', 'ventages', 'vast', "venom'd", 'volume', 'vailed', 'visage,', 'villanies,--', 'villain', 'vouchsafe', 'virtue;', 'very,', 'violence', 'valour,', 'vial,', 'vulgar.', 'villany!', 'visitation?', 'vision', 'volley.', 'voice', "vanish'd", 'vows', 'view'])
+
+marry a man, If your hands apt, drugs fit, and unprofitable, Seem to prove, Whether aught, to tell how.
+>>> sum(len(set(options)) > 1 for options in chain.values())
+2274
+>>> len(chain)
+7529
+>>> 
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/markov.py =============
+And even the like precurse of fierce events, As harbingers preceding still the fates And prologue to the trumpet to the manner born, it is but variable service, two dishes, but to one table: that's the French bet against the doom, Is thought-sick at the invisible event, Exposing what is mortal and unsure To all that lives must die, Passing through nature to eternity.
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/markov.py =============
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/markov.py =============
+
+Traceback (most recent call last):
+  File "/Users/mike/teaching/2017-04-10/markov.py", line 30, in <module>
+    chain_walk()
+  File "/Users/mike/teaching/2017-04-10/markov.py", line 20, in chain_walk
+    last = random.choice(list(chain))
+NameError: global name 'chain' is not defined
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/markov.py =============
+the toe of the spring, Too oft before their buttons be disclosed, And in this upshot, purposes mistook Fall'n on the bier; Hey non nonny, nonny, hey nonny; And in the ominous horse, Hath now this dread and black As hell, whereto it goes.
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/markov.py =============
+them, to men's eyes.
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/markov.py =============
+What say you?
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/markov.py =============
+As he in his heart, Whereon his brains still beating puts him thus From fashion of himself.
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/markov.py =============
+mine arms: Now pile your dust upon the fretful porpentine: But this most excellent canopy, the air, promise-crammed: you cannot play upon me.
+>>> 
+>>> 
+>>> import markov
+Will want true colour; tears perchance for blood.
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/markov.py =============
+It warms the very ecstasy of love, May sweep to my brains, They had begun the play--I sat me down, Devised a new commission, wrote it fair: I once did hold it, as our statists do, A baseness to write fair and warlike form In which the majesty of Denmark?
+>>> 
+>>> 
+>>> import markov
+>>> markov.chain_init
+<function chain_init at 0x100734d70>
+>>> markov.chain_walk
+<function chain_walk at 0x100734de8>
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/markov.py =============
+What, ho!
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/markov.py =============
+convoy is subject of my lord such-a-one, that died to-day, But I knew you are arrant knave.
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/markov.py =============
+let them know, both what we mean to do, And what's untimely done.
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/markov.py =============
+Drown'd, drown'd.
+>>> 
+>>> 
+>>> 
+>>> for i in range(1, 10):
+	chain = chain_init('data/dialogue.txt', i)
+	interesting = [last for last, options in chain.items() if len(set(options)) > 1]
+	if len(interesting) < 3:
+		print i, interesting
+
+		
+9 [('to', 'be', 'made', 'For', 'such', 'a', 'guest', 'is', 'meet.')]
+>>> 
+>>> 
+>>> 
+>>> # SELECT x ^ 2
+>>> # FROM range(10)
+>>> # WHERE x % 2 == 0
+>>> 
+>>> [x ** 2 for x in range(10) if x % 2 == 0]
+[0, 4, 16, 36, 64]
+>>> [x ** 2 for x in range(10)]
+[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+>>> 
+>>> # <true> if <condition> else <false>
+>>> 
+============= RESTART: /Users/mike/teaching/2017-04-10/markov.py =============
+smiles upon my lord,-- Nay, then, belike, he shall the cue for her?
+>>> 
+=============================== RESTART: Shell ===============================
+>>> 
+>>> import markov.Chain
+
+Traceback (most recent call last):
+  File "<pyshell#1511>", line 1, in <module>
+    import markov.Chain
+ImportError: No module named Chain
+>>> from markov import Chain
+>>> 
+>>> import markov
+>>> markov.Chain
+<class markov.Chain at 0x10045f328>
+>>> 
+>>> 
+>>> from math import sqrt
+>>> 
+>>> from Queue import Queue
+>>> 
+>>> import itertools
+>>> 
+>>> 
+>>> 
+>>> print 5
+5
+>>> from __future__ import print_function
+>>> print 5
+SyntaxError: invalid syntax
+>>> print(5)
+5
+>>> 
+>>> 
+>>> '%s' % 5
+'5'
+>>> 'one %s blank' % 5
+'one 5 blank'
+>>> 'one %s blank' % 5, 10
+('one 5 blank', 10)
+>>> 'one %s blank' % 5, 10
+('one 5 blank', 10)
+>>> 
+>>> 
+>>> 
+>>> def interp(x):
+	print 'one %s blank' % x
+	
+SyntaxError: invalid syntax
+>>> 
+>>> def interp(x):
+	print('one %s blank' % x)
+
+	
+>>> interp(5)
+one 5 blank
+>>> 
+>>> interp([5, 10])
+one [5, 10] blank
+>>> 
+>>> 
+>>> arg = (5, 10)
+>>> interp(arg)
+
+Traceback (most recent call last):
+  File "<pyshell#1550>", line 1, in <module>
+    interp(arg)
+  File "<pyshell#1543>", line 2, in interp
+    print('one %s blank' % x)
+TypeError: not all arguments converted during string formatting
+>>> 
+>>> def interp(x):
+	print('one %s blank' % (x,))
+
+	
+>>> def interp(x):
+	return 'one %s blank' % (x,)
+
+>>> 
+>>> 'one {} blank'.format(x)
+
+Traceback (most recent call last):
+  File "<pyshell#1557>", line 1, in <module>
+    'one {} blank'.format(x)
+NameError: name 'x' is not defined
+>>> x = (5, 10)
+>>> 'one {} blank'.format(x)
+'one (5, 10) blank'
+>>> 

@@ -1,0 +1,635 @@
+Python 2.7.12 (v2.7.12:d33e0cf91556, Jun 27 2016, 15:19:22) [MSC v.1500 32 bit (Intel)] on win32
+Type "copyright", "credits" or "license()" for more information.
+>>> 'happy' if 1 < 2 else 'sad'
+'happy'
+>>> 'happy' if 1 > 2 else 'sad'
+'sad'
+>>> i for i in range(10)
+SyntaxError: invalid syntax
+>>> i for i in range(10):
+	
+SyntaxError: invalid syntax
+>>> x for i in range(10:
+		 
+SyntaxError: invalid syntax
+>>> x for i in range(10):
+	
+SyntaxError: invalid syntax
+>>> x for i in range(10)
+SyntaxError: invalid syntax
+>>> [x for i in range(10)]
+
+Traceback (most recent call last):
+  File "<pyshell#7>", line 1, in <module>
+    [x for i in range(10)]
+NameError: name 'x' is not defined
+>>> x = 0
+>>> [x for i in range(10)]
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+>>> [i for i in range(10)]
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+>>> [print i for i in range(10)]
+SyntaxError: invalid syntax
+>>> 
+
+>>> 
+>>> #test
+>>> i for i in range(10)
+SyntaxError: invalid syntax
+>>> [i for i in range(10)]
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+>>> [i for i == 4 in range(10)]
+SyntaxError: invalid syntax
+>>> i if i == 4 in range(10)
+SyntaxError: invalid syntax
+>>> [i if i == 4 in range(10)]
+SyntaxError: invalid syntax
+>>> i if i == 4
+SyntaxError: invalid syntax
+>>> i if i == 4 else 'no'
+'no'
+>>> i if i == 4 in range(10) else 'no'
+'no'
+>>> 
+>>> 
+>>> names = ['John', 'Paul', 'George', 'Ringo']
+>>> [len(name) for name in names]
+[4, 4, 6, 5]
+>>> (len(name) for name in names)
+<generator object <genexpr> at 0x03863F08>
+>>> for each in (len(name) for name in names):
+	print each
+
+	
+4
+4
+6
+5
+>>> any([len(name) == 4 for name in names])
+True
+>>> any(len(name) == 4 for name in names)
+True
+>>> all(len(name) == 4 for name in names)
+False
+>>> 
+>>> 
+>>> #You can create a generator using ()
+>>> (len(name) for name in names)
+<generator object <genexpr> at 0x03761CB0>
+>>> #Tuples are made with commas
+>>> 1,2,3
+(1, 2, 3)
+>>> #Dictionary
+>>> {x: 1}
+{0: 1}
+>>> 
+>>> 
+>>> 
+>>> 
+>>> tuple
+<type 'tuple'>
+>>> 
+>>> a = 10
+>>> b = 5
+>>> tmp = a
+>>> a = b
+>>> b = tmp
+>>> a
+5
+>>> b
+10
+>>> # swapped functions
+>>> # I mean swapped variables
+>>> 
+>>> tmp = a
+>>> b = a
+>>> a = b
+>>> 
+>>> 
+>>> tmp = a
+>>> a = b
+>>> b = tmp
+>>> 
+>>> a = 5
+>>> b = 10
+>>> a, b = b, a
+>>> a
+10
+>>> b
+5
+>>> # Python can swap using tuples
+>>> a, b = b, a
+>>> # This uses tuple packing and unpacking to create the illusion of simultaneous assignment
+>>> t = 5, 10
+>>> t
+(5, 10)
+>>> a, b = t
+>>> a
+5
+>>> b
+10
+>>> # Above is an example of packing and unpacking
+>>> 
+>>> 
+>>> def update_p(p, v, a):
+	return p + v
+
+>>> def update_v(p, v, a):
+	return v + a
+
+>>> def update_a(p, v, a):
+	return p
+
+>>> p = v = a = 1
+>>> p
+1
+>>> v
+1
+a
+>>> 
+>>> a
+1
+>>> p = update_p(p, v, a)
+>>> v = update_v(p, v, a)
+>>> a = update_a(p, v, a)
+>>> p
+2
+>>> v
+2
+>>> a
+2
+>>> p = update_p(p, v, a)
+>>> v = update_v(p, v, a)
+>>> a = update_a(p, v, a)
+>>> p
+4
+>>> v
+4
+>>> a
+4
+>>> # Python isn't working simultaneously, so our calculations are not as expected if we had done it in Excel
+>>> 
+>>> # Excel is "declarative", meaning simultaneous
+>>> # Python is "procedural", meaning one after the other
+>>> 
+>>> # We would have had to use a temporary variable in Python to accomodate
+>>> 
+>>> p = v = a = 1
+>>> tmp_p = update_p(p, v, a)
+>>> tmp_v = update_v(p, v, a)
+>>> tmp_a = update_a(p, v, a)
+>>> 
+>>> p = tmp_p
+>>> v = tmp_v
+>>> a = tmp_a
+>>> 
+>>> p,v,a
+(2, 2, 1)
+>>> # Now it is correct
+>>> # But, there is an easier way . . . create an illusion of simultaneous assignment
+>>> 
+>>> p, v, a = update_p(p, v, a), update_v(p, v, a), update_a(p , v, a)
+>>> p
+4
+>>> v
+3
+>>> a
+2
+>>> p, v, a = update_p(p, v, a), update_v(p, v, a), update_a(p , v, a)
+>>> p, v, a
+(7, 5, 4)
+>>> # Python pretends it is simultaneous when you put it all on the same line
+>>> p, v, a = update_p(p, v, a), update_v(p, v, a), update_a(p , v, a)
+>>> p, v, a
+(12, 9, 7)
+>>> # You should avoid temporary variables
+>>> # And shoot for the illusion of simultaneous computation
+>>> # Python is using packing and unpacking to do it behind the scenes
+>>> 
+>>> 
+
+>>> # Don't break the illusion!
+>>> # 1. no repeated variables on the left-hand
+>>> # 2. no impure functions on the right-hand
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> boston = 42.3601, 71.0589
+>>> raleigh = 35.7796, 78.6382
+>>> boston[0]
+42.3601
+>>> boston[1]
+71.0589
+>>> 
+>>> from collections import namedtuple
+>>> GeoPoint = namedtuple('GeoPoint', ['latitude', 'longitude'])
+>>> Geopoint
+
+Traceback (most recent call last):
+  File "<pyshell#158>", line 1, in <module>
+    Geopoint
+NameError: name 'Geopoint' is not defined
+>>> GeoPoint
+<class '__main__.GeoPoint'>
+>>> boston = GeoPoint(42.3601, 71.0589)
+>>> boston
+GeoPoint(latitude=42.3601, longitude=71.0589)
+>>> boston.latitude
+42.3601
+>>> #Named tuple is really just creating a class for us
+>>> #It created a namedtuple and passed in field names for each field on the tuple
+>>> # And then you can call .field on each, like boston.latitude
+>>> 5._repr_
+SyntaxError: invalid syntax
+>>> help(repr)
+Help on built-in function repr in module __builtin__:
+
+repr(...)
+    repr(object) -> string
+    
+    Return the canonical string representation of the object.
+    For most object types, eval(repr(object)) == object.
+
+>>> dir(5)
+['__abs__', '__add__', '__and__', '__class__', '__cmp__', '__coerce__', '__delattr__', '__div__', '__divmod__', '__doc__', '__float__', '__floordiv__', '__format__', '__getattribute__', '__getnewargs__', '__hash__', '__hex__', '__index__', '__init__', '__int__', '__invert__', '__long__', '__lshift__', '__mod__', '__mul__', '__neg__', '__new__', '__nonzero__', '__oct__', '__or__', '__pos__', '__pow__', '__radd__', '__rand__', '__rdiv__', '__rdivmod__', '__reduce__', '__reduce_ex__', '__repr__', '__rfloordiv__', '__rlshift__', '__rmod__', '__rmul__', '__ror__', '__rpow__', '__rrshift__', '__rshift__', '__rsub__', '__rtruediv__', '__rxor__', '__setattr__', '__sizeof__', '__str__', '__sub__', '__subclasshook__', '__truediv__', '__trunc__', '__xor__', 'bit_length', 'conjugate', 'denominator', 'imag', 'numerator', 'real']
+>>> 5.repr()
+SyntaxError: invalid syntax
+>>> 'hi'.repr()
+
+Traceback (most recent call last):
+  File "<pyshell#170>", line 1, in <module>
+    'hi'.repr()
+AttributeError: 'str' object has no attribute 'repr'
+>>> dir('hi')
+['__add__', '__class__', '__contains__', '__delattr__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__getslice__', '__gt__', '__hash__', '__init__', '__le__', '__len__', '__lt__', '__mod__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__rmod__', '__rmul__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '_formatter_field_name_split', '_formatter_parser', 'capitalize', 'center', 'count', 'decode', 'encode', 'endswith', 'expandtabs', 'find', 'format', 'index', 'isalnum', 'isalpha', 'isdigit', 'islower', 'isspace', 'istitle', 'isupper', 'join', 'ljust', 'lower', 'lstrip', 'partition', 'replace', 'rfind', 'rindex', 'rjust', 'rpartition', 'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title', 'translate', 'upper', 'zfill']
+>>> 'hi'.__repr__
+<method-wrapper '__repr__' of str object at 0x02DB6380>
+>>> help(__repr__)
+
+Traceback (most recent call last):
+  File "<pyshell#173>", line 1, in <module>
+    help(__repr__)
+NameError: name '__repr__' is not defined
+>>> 
+>>> 
+>>> class GeoPoint(GeoPoint):
+	def distance(self, a, b):
+		lat = a.latitude - b.latitude
+		lng = a.longitude - b.longitude
+		return math.sqrt(lat ** 2 + lng ** 2)
+
+	
+>>> import math
+>>> boston = GeoPoint(42.3601, 71.0589)
+>>> raleigh = GeoPoint(35.7796, 78.6382)
+>>> class GeoPoint(GeoPoint):
+	def distance(self, other):
+		lat = self.latitude - other.latitude
+		lng = self.longitude - other.longitude
+		return math.sqrt(lat ** 2 + lng ** 2)
+
+	
+>>> boston = GeoPoint(42.3601, 71.0589)
+>>> raleigh = GeoPoint(35.7796, 78.6382)
+>>> boston.distance(raleigh)
+10.037368616325699
+>>> 
+>>> help(GeoPoint(GeoPoint))
+
+Traceback (most recent call last):
+  File "<pyshell#191>", line 1, in <module>
+    help(GeoPoint(GeoPoint))
+TypeError: __new__() takes exactly 3 arguments (2 given)
+>>> help(GeoPoint)
+Help on class GeoPoint in module __main__:
+
+class GeoPoint(GeoPoint)
+ |  Method resolution order:
+ |      GeoPoint
+ |      GeoPoint
+ |      GeoPoint
+ |      __builtin__.tuple
+ |      __builtin__.object
+ |  
+ |  Methods defined here:
+ |  
+ |  distance(self, other)
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data descriptors inherited from GeoPoint:
+ |  
+ |  __dict__
+ |      dictionary for instance variables (if defined)
+ |  
+ |  ----------------------------------------------------------------------
+ |  Methods inherited from GeoPoint:
+ |  
+ |  __getnewargs__(self)
+ |      Return self as a plain tuple.  Used by copy and pickle.
+ |  
+ |  __getstate__(self)
+ |      Exclude the OrderedDict from pickling
+ |  
+ |  __repr__(self)
+ |      Return a nicely formatted representation string
+ |  
+ |  _asdict(self)
+ |      Return a new OrderedDict which maps field names to their values
+ |  
+ |  _replace(_self, **kwds)
+ |      Return a new GeoPoint object replacing specified fields with new values
+ |  
+ |  ----------------------------------------------------------------------
+ |  Class methods inherited from GeoPoint:
+ |  
+ |  _make(cls, iterable, new=<built-in method __new__ of type object>, len=<built-in function len>) from __builtin__.type
+ |      Make a new GeoPoint object from a sequence or iterable
+ |  
+ |  ----------------------------------------------------------------------
+ |  Static methods inherited from GeoPoint:
+ |  
+ |  __new__(_cls, latitude, longitude)
+ |      Create new instance of GeoPoint(latitude, longitude)
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data descriptors inherited from GeoPoint:
+ |  
+ |  latitude
+ |      Alias for field number 0
+ |  
+ |  longitude
+ |      Alias for field number 1
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data and other attributes inherited from GeoPoint:
+ |  
+ |  _fields = ('latitude', 'longitude')
+ |  
+ |  ----------------------------------------------------------------------
+ |  Methods inherited from __builtin__.tuple:
+ |  
+ |  __add__(...)
+ |      x.__add__(y) <==> x+y
+ |  
+ |  __contains__(...)
+ |      x.__contains__(y) <==> y in x
+ |  
+ |  __eq__(...)
+ |      x.__eq__(y) <==> x==y
+ |  
+ |  __ge__(...)
+ |      x.__ge__(y) <==> x>=y
+ |  
+ |  __getattribute__(...)
+ |      x.__getattribute__('name') <==> x.name
+ |  
+ |  __getitem__(...)
+ |      x.__getitem__(y) <==> x[y]
+ |  
+ |  __getslice__(...)
+ |      x.__getslice__(i, j) <==> x[i:j]
+ |      
+ |      Use of negative indices is not supported.
+ |  
+ |  __gt__(...)
+ |      x.__gt__(y) <==> x>y
+ |  
+ |  __hash__(...)
+ |      x.__hash__() <==> hash(x)
+ |  
+ |  __iter__(...)
+ |      x.__iter__() <==> iter(x)
+ |  
+ |  __le__(...)
+ |      x.__le__(y) <==> x<=y
+ |  
+ |  __len__(...)
+ |      x.__len__() <==> len(x)
+ |  
+ |  __lt__(...)
+ |      x.__lt__(y) <==> x<y
+ |  
+ |  __mul__(...)
+ |      x.__mul__(n) <==> x*n
+ |  
+ |  __ne__(...)
+ |      x.__ne__(y) <==> x!=y
+ |  
+ |  __rmul__(...)
+ |      x.__rmul__(n) <==> n*x
+ |  
+ |  count(...)
+ |      T.count(value) -> integer -- return number of occurrences of value
+ |  
+ |  index(...)
+ |      T.index(value, [start, [stop]]) -> integer -- return first index of value.
+ |      Raises ValueError if the value is not present.
+
+>>> class GeoPoint(namedtuple('GeoPoint', ['latitude', 'longitude'])):
+	def distance(self, other):
+		lat = self.latitude - other.latitude
+		lng = self.longitude - other.longitude
+		return math.sqrt(lat ** 2 + lng ** 2)
+
+	
+>>> y = GeoPoint(
+	)
+
+Traceback (most recent call last):
+  File "<pyshell#196>", line 1, in <module>
+    y = GeoPoint(
+TypeError: __new__() takes exactly 3 arguments (1 given)
+>>> boston = GeoPoint(42.3601, 71.0589)
+>>> boston
+GeoPoint(latitude=42.3601, longitude=71.0589)
+>>> 
+>>> 
+
+
+>>> 
+
+>>> 
+
+>>> 
+
+
+>>> 
+
+>>> dict
+<type 'dict'>
+>>> 
+>>> d = {'a': 1, 'b': 2, 'c': 3}
+>>> d
+{'a': 1, 'c': 3, 'b': 2}
+>>> dict(a=1, b=2, c=3)
+{'a': 1, 'c': 3, 'b': 2}
+>>> dict(d)
+{'a': 1, 'c': 3, 'b': 2}
+>>> 
+>>> d.update(c=30)
+>>> d
+{'a': 1, 'c': 30, 'b': 2}
+>>> dict.fromkeys('abc')
+{'a': None, 'c': None, 'b': None}
+>>> dict.fromkeys('abc', 0)
+{'a': 0, 'c': 0, 'b': 0}
+>>> dict.fromkeys(range(10))
+{0: None, 1: None, 2: None, 3: None, 4: None, 5: None, 6: None, 7: None, 8: None, 9: None}
+>>> 
+>>> dict(a=1, b=2, c=3)
+{'a': 1, 'c': 3, 'b': 2}
+>>> d = {'a': 1, 'b': 2, 'c': 3}
+>>> d.update(dict.fromkeys(range(15)))
+>>> d
+{0: None, 1: None, 2: None, 3: None, 4: None, 5: None, 6: None, 7: None, 8: None, 9: None, 10: None, 11: None, 12: None, 13: None, 14: None, 'a': 1, 'c': 3, 'b': 2}
+>>> d.keys()
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 'a', 'c', 'b']
+>>> d.update(dict.fromkeys(range(100)))
+>>> d.keys()
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 'b', 99, 'a', 'c']
+>>> 
+>>> d = {[]: 1}
+
+Traceback (most recent call last):
+  File "<pyshell#226>", line 1, in <module>
+    d = {[]: 1}
+TypeError: unhashable type: 'list'
+>>> 
+>>> a = [10, 20]
+>>> b = [10, 20]
+>>> a == b
+True
+>>> hex(a)
+
+Traceback (most recent call last):
+  File "<pyshell#231>", line 1, in <module>
+    hex(a)
+TypeError: hex() argument can't be converted to hex
+>>> a.append(30)
+>>> a
+[10, 20, 30]
+>>> b
+[10, 20]
+>>> 
+>>> 
+>>> 
+>>> class Dog:
+	def __init__(self, name):
+		self.name = name
+	def bark(self):
+		print 'Woof! %s is barking' % self.name
+
+		
+>>> a = Dog('Fido')
+>>> a.bark()
+Woof! Fido is barking
+>>> d = {}
+>>> d[a] = 'my dog'
+>>> d
+{<__main__.Dog instance at 0x0390DDF0>: 'my dog'}
+>>> class Dog:
+	def __init__(self, name):
+		self.name = name
+	def __repr__(self):
+		return 'Dog(%r)' % self.name
+	def bark(self):
+		print 'Woof! %s is barking' % self.name
+
+		
+>>> a = Dog('Fido')
+>>> d = {}
+>>> d[a] = 'my dog'
+>>> d
+{Dog('Fido'): 'my dog'}
+>>> d[a]
+'my dog'
+>>> 
+>>> d[Dog('Fido')]
+
+Traceback (most recent call last):
+  File "<pyshell#257>", line 1, in <module>
+    d[Dog('Fido')]
+KeyError: Dog('Fido')
+>>> hash(Dog('Fido'))
+3739098
+>>> hash(Dog('Fido'))
+-2143774083
+>>> class Dog:
+	def __init__(self, name):
+		self.name = name
+	def __repr__(self):
+		return 'Dog(%r)' % self.name
+	def __hash__(self):
+		return hash(self.name)
+	def bark(self):
+		print 'Woof! %s is barking' % self.name
+
+		
+>>> # Now the class with have the same hash for dogs with the same name
+>>> 
+>>> hash('Fido')
+1510907668
+>>> hash(Dog('Fido'))
+1510907668
+>>> d = {}
+>>> d[Dog('Fido')] = 'my dog'
+>>> d[Dog('Fido')]
+
+Traceback (most recent call last):
+  File "<pyshell#268>", line 1, in <module>
+    d[Dog('Fido')]
+KeyError: Dog('Fido')
+>>> class Dog:
+	def __init__(self, name):
+		self.name = name
+	def __repr__(self):
+		return 'Dog(%r)' % self.name
+	def __hash__(self):
+		return hash(self.name)
+	def __eq__(self, other):
+		return self.name == other.name
+	def bark(self):
+		print 'Woof! %s is barking' % self.name
+
+		
+>>> d = {}
+>>> d[Dog('Fido')] = 'my dog'
+>>> d[Dog('Fido')]
+'my dog'
+>>> 
+>>> # valid dict keys:	__hash__ and either __eq__ or __cmp__
+>>> # good dict keys:	int, str, and tuple or int/str
+>>> # mutable objects are bad dictionary keys
+>>> self.other
+
+Traceback (most recent call last):
+  File "<pyshell#278>", line 1, in <module>
+    self.other
+NameError: name 'self' is not defined
+>>> other
+
+Traceback (most recent call last):
+  File "<pyshell#279>", line 1, in <module>
+    other
+NameError: name 'other' is not defined
+>>> d
+{Dog('Fido'): 'my dog'}
+>>> d = {'a': 1, 'b': 2, 'c': 3}
+>>> d.get('a')
+1
+>>> d['a]
+  
+SyntaxError: EOL while scanning string literal
+>>> d['a'] if 'a' in d else 0
+1
+>>> d['z'] if 'a' in d else 0
+
+Traceback (most recent call last):
+  File "<pyshell#285>", line 1, in <module>
+    d['z'] if 'a' in d else 0
+KeyError: 'z'
+>>> d['z'] if 'z' in d else 0
+0
+>>> 
