@@ -29,6 +29,10 @@ Example:
     Sometimes people "just expect" their tools / functions
     to be in the same place as other tools. This is the use-case
     for this method type
+4) Class Method         Class.method()
+    Implicitly passes the class object itself as the first argument
+    Like passing in the "Tire" class when the Tire class calls the method
+    Useful for alternate constructors
 '''
 
 import math
@@ -45,14 +49,17 @@ class Circle:
     def __init__(self, radius):
         self.radius = radius
 
-    @staticmethod
+    @classmethod
+    # class method figures out which class is calling the method
+    # Like, if Tire called it. Then it creates a "tire" class
+    # instead of a Circle method
     #constructed for customer 5
     # who only creates circles based on
     # bounding box diagonal, not radius
-    def from_bbd(diagonal):
+    def from_bbd(cls, diagonal):
         'construct a new circle from a bounding box diagonal'
         radius = diagonal / math.sqrt(2)
-        return Circle(radius)
+        return cls(radius)
 
     def __repr__(self):
         'Change how the name appears in IDLE'
