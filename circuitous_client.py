@@ -92,4 +92,18 @@ print 'and an area {:.2f}'.format(c.area())
 print
 
 
+# Customer 6: The Feds
+# We like to micromanage
+# We'll tell you not just WHAT to build but also
+# How to build it
+# It should not directly access the radius inside inside area methods
+# Area methods must infer the radius from the circumference
+# Circle instances must not store the radius
+# A circle instance must store the diameter and ONLY the the diameter
 
+c = Circle(10)
+#Check the characteristics of the circle
+print c.__dict__
+c.radius = 20
+print c.__dict__
+print c.area()

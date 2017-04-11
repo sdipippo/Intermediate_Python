@@ -33,6 +33,18 @@ Example:
     Implicitly passes the class object itself as the first argument
     Like passing in the "Tire" class when the Tire class calls the method
     Useful for alternate constructors
+
+One problem with inheritance:
+THe "Circle vs. Ellipse" problem
+Which one should be the parent (base)?
+If something is built into the base class that is not
+appropriate for the child class, that is hard to deal with
+No solution provided in class . . . other than not doing it.
+
+Classes should pretty much always inherit from "Object" if not
+inheriting from another class. It changes the "metaclass" to a newer
+method
+
 '''
 
 import math
@@ -40,11 +52,11 @@ from collections import namedtuple
 
 Version = namedtuple('Version', 'major minor patch')
 
-class Circle:
+class Circle(object):
     'advanced circle analytics toolkit'
 
     #major, minor, patch
-    version = Version(0, 3, 0)
+    version = Version(0, 5, 0)
 
     def __init__(self, radius):
         self.radius = radius
@@ -60,6 +72,22 @@ class Circle:
         'construct a new circle from a bounding box diagonal'
         radius = diagonal / math.sqrt(2)
         return cls(radius)
+
+    # The 'property' built-in changes the behavior of the dot method
+    # Used to retroactively insert getters and setters when you need them
+    # The use of property requires us to pass in the Object arg
+    @property
+    def radius(self):
+        return self.diameter / 2.0
+
+    @radius.setter
+    def radius(self, radius):
+        self.diameter = radius * 2.0
+
+    #radius = property(get_radius, set_radius)
+        
+
+    
 
     def __repr__(self):
         'Change how the name appears in IDLE'
