@@ -77,3 +77,19 @@ print
 
 print 'an incline of 7 degrees'
 print 'is a {:.0f} grade'.format(Circle.angle_to_grade(7))
+print
+
+#Customer 5: International Graphics company
+# We have money and power!
+# We build circles NOT with radius,
+# But with a bounding box diagonal
+# r = d / sqrt(r) or d^2 = 2r^2
+
+c = Circle.from_bbd(5)
+print 'a circle with diagonal 5'
+print 'has a radius {:.2f}'.format(c.radius)
+print 'and an area {:.2f}'.format(c.area())
+print
+
+
+

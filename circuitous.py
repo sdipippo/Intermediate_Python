@@ -40,10 +40,19 @@ class Circle:
     'advanced circle analytics toolkit'
 
     #major, minor, patch
-    version = Version(0, 1, 0)
+    version = Version(0, 3, 0)
 
     def __init__(self, radius):
         self.radius = radius
+
+    @staticmethod
+    #constructed for customer 5
+    # who only creates circles based on
+    # bounding box diagonal, not radius
+    def from_bbd(diagonal):
+        'construct a new circle from a bounding box diagonal'
+        radius = diagonal / math.sqrt(2)
+        return Circle(radius)
 
     def __repr__(self):
         'Change how the name appears in IDLE'
