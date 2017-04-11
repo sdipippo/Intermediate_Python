@@ -1,6 +1,11 @@
 '''Copyright (c) 2017 Circuitous, Inc.
 
+Classes are for SHARED information
+Instances are for UNIQUE information
 
+Introspection
+    Using code to learn about code (like gleaning
+    the name of a class that inherited us)
 '''
 
 import math
@@ -19,7 +24,9 @@ class Circle:
 
     def __repr__(self):
         'Change how the name appears in IDLE'
-        return 'Circle(%r)' % self.radius
+        # We look at the metadata and fill in a class that inherits
+        # this class, if there is one.
+        return '%s(%r)' % (self.__class__.__name__,self.radius)
 
     def area(self):
         'Quadrature on a planar shape of uniform revolution'
