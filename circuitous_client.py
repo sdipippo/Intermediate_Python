@@ -70,4 +70,10 @@ t = Tire(22)
 print 'A tire of radius', t.radius
 print 'has an area {:.2f}'.format(t.area())
 print 'and circumference {:.2f}'.format(t.circumference())
-print 
+print
+
+
+# Customer 4: National Trucking Company
+
+print 'an incline of 7 degrees'
+print 'is a {:.0f} grade'.format(Circle.angle_to_grade(7))
