@@ -589,3 +589,747 @@ AttributeError: SkipTwoSeq instance has no attribute 'upper'
 >>> skip.capitalize()
 'ADG'
 >>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/abstract.py 
+>>> ca = Capper()
+>>> ca.capitalize()
+
+Traceback (most recent call last):
+  File "<pyshell#194>", line 1, in <module>
+    ca.capitalize()
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/abstract.py", line 9, in capitalize
+    return ''.join([c.upper() for c in self])
+TypeError: iteration over non-sequence
+>>> class Jumper:
+	def jump(self):
+		print 'boing!'
+
+		
+>>> class Swimmer:
+	def swim(self)
+	
+SyntaxError: invalid syntax
+>>> class Swimmer:
+	def swim(self):
+		print 'splash'
+
+		
+>>> class Shooter:
+	def shoot(self:
+		  
+SyntaxError: invalid syntax
+>>> class Shooter:
+	def shoot(self):
+		print 'zap!'
+
+		
+>>> class PistolRabbit(Shooter, Jumper):
+	def draw(self):
+		print 'animate'
+
+		
+>>> 
+>>> class LaserShark(Shooter, Swimmer):
+	def draw(self):
+		print 'animate'
+
+		
+>>> j = Jumper()
+>>> j.jump
+<bound method Jumper.jump of <__main__.Jumper instance at 0x033F8E68>>
+>>> j.jump()
+boing!
+>>> cap = Capper()
+>>> cap.capitalize()
+
+Traceback (most recent call last):
+  File "<pyshell#222>", line 1, in <module>
+    cap.capitalize()
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/abstract.py", line 9, in capitalize
+    return ''.join([c.upper() for c in self])
+TypeError: iteration over non-sequence
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/abstract.py 
+>>> Capper()
+<__main__.Capper instance at 0x03E5A620>
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/abstract.py 
+ 
+>>> 
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/abstract.py 
+>>> Capper()
+
+Traceback (most recent call last):
+  File "<pyshell#225>", line 1, in <module>
+    Capper()
+TypeError: Can't instantiate abstract class Capper with abstract methods __getitem__, __len__
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py 
+
+Traceback (most recent call last):
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 16, in <module>
+    d = FileDict()
+TypeError: Can't instantiate abstract class FileDict with abstract methods __delitem__, __getitem__, __iter__, __len__, __setitem__
+>>> d = {}
+>>> d
+{}
+>>> d.__getitem__
+<built-in method __getitem__ of dict object at 0x034881E0>
+>>> d.__getitem__()
+
+Traceback (most recent call last):
+  File "<pyshell#229>", line 1, in <module>
+    d.__getitem__()
+TypeError: __getitem__() takes exactly one argument (0 given)
+>>> help(d.__getitem__)
+Help on built-in function __getitem__:
+
+__getitem__(...)
+    x.__getitem__(y) <==> x[y]
+
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py 
+
+Traceback (most recent call last):
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 19, in <module>
+    d = FileDict('starwars')
+TypeError: object() takes no parameters
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py 
+
+Traceback (most recent call last):
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 23, in <module>
+    d = FileDict('starwars')
+TypeError: Can't instantiate abstract class FileDict with abstract methods __delitem__, __getitem__, __iter__, __len__, __setitem__
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py 
+
+Traceback (most recent call last):
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 28, in <module>
+    d = FileDict('starwars')
+TypeError: Can't instantiate abstract class FileDict with abstract methods __delitem__, __getitem__, __iter__, __setitem__
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py 
+
+Traceback (most recent call last):
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 40, in <module>
+    d = FileDict('starwars')
+TypeError: Can't instantiate abstract class FileDict with abstract methods __delitem__, __iter__
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py 
+
+Traceback (most recent call last):
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 46, in <module>
+    d['hero'] = 'Luke'
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 28, in __setitem__
+    with open(filepath, 'w') as f:
+IOError: [Errno 2] No such file or directory: 'starwars\\hero'
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py 
+
+Traceback (most recent call last):
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 48, in <module>
+    d['hero'] = 'Luke'
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 28, in __setitem__
+    with open(filepath, 'w') as f:
+IOError: [Errno 2] No such file or directory: 'starwars\\hero'
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py 
+
+Traceback (most recent call last):
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 49, in <module>
+    d['hero'] = 'Luke'
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 28, in __setitem__
+    with open(filepath, 'w') as f:
+IOError: [Errno 2] No such file or directory: 'starwars\\hero'
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py 
+<__main__.FileDict object at 0x034BD570>
+
+Traceback (most recent call last):
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 55, in <module>
+    d['hero'] = ('Rey', 'Finn')
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 30, in __setitem__
+    f.write(value)
+TypeError: expected a string or other character buffer object
+>>> print 'a\tb'
+a	b
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py 
+
+Traceback (most recent call last):
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 49, in <module>
+    d = FileDict('starwars')
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 20, in __init__
+    os.mkdir(folder)
+WindowsError: [Error 183] Cannot create a file when that file already exists: 'starwars'
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py 
+<__main__.FileDict object at 0x0383A570>
+<__main__.FileDict object at 0x0383A570>
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py 
+
+Traceback (most recent call last):
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 58, in <module>
+    print d
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 52, in __repr__
+    return '{}({}, {})'.format(type(self).__name__, self.folder, self.items)
+RuntimeError: maximum recursion depth exceeded while getting the str of an object
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py 
+
+Traceback (most recent call last):
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 59, in <module>
+    print d
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 53, in __repr__
+    self.folder, self.items())
+  File "C:\Python27\lib\_abcoll.py", line 414, in items
+    return [(key, self[key]) for key in self]
+TypeError: iter() returned non-iterator of type 'NoneType'
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py 
+
+Traceback (most recent call last):
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 59, in <module>
+    print d
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 53, in __repr__
+    self.folder, self.items())
+  File "C:\Python27\lib\_abcoll.py", line 414, in items
+    return [(key, self[key]) for key in self]
+TypeError: iter() returned non-iterator of type 'NoneType'
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py 
+
+Traceback (most recent call last):
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 60, in <module>
+    print d
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 28, in __repr__
+    self.folder, self.items())
+  File "C:\Python27\lib\_abcoll.py", line 414, in items
+    return [(key, self[key]) for key in self]
+TypeError: iter() returned non-iterator of type 'NoneType'
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py 
+FileDict('starwars', [('hero', "'Luke'"), ('villain', "'Darth Vader'")])
+FileDict('starwars', [('hero', "('Rey', 'Finn')")])
+>>> dir (FileDict)
+['_MutableMapping__marker', '__abstractmethods__', '__class__', '__contains__', '__delattr__', '__delitem__', '__dict__', '__doc__', '__eq__', '__format__', '__getattribute__', '__getitem__', '__hash__', '__init__', '__iter__', '__len__', '__metaclass__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__setitem__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_abc_cache', '_abc_negative_cache', '_abc_negative_cache_version', '_abc_registry', 'clear', 'get', 'items', 'iteritems', 'iterkeys', 'itervalues', 'keys', 'pop', 'popitem', 'setdefault', 'update', 'values']
+>>> help(FileDict.items)
+Help on method items in module _abcoll:
+
+items(self) unbound __main__.FileDict method
+    D.items() -> list of D's (key, value) pairs, as 2-tuples
+
+>>> FileDict('starwars', [('hero', "'Luke'"), ('villain', "'Darth Vader'")])
+
+Traceback (most recent call last):
+  File "<pyshell#234>", line 1, in <module>
+    FileDict('starwars', [('hero', "'Luke'"), ('villain', "'Darth Vader'")])
+TypeError: __init__() takes exactly 2 arguments (3 given)
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py 
+FileDict('starwars', [('hero', "'Luke'"), ('villain', "'Darth Vader'")])
+FileDict('starwars', [('hero', "('Rey', 'Finn')")])
+>>> FileDict('starwars', [('hero', "('Rey', 'Finn')")])
+FileDict('starwars', [('hero', '"(\'Rey\', \'Finn\')"')])
+>>> d['hero']
+'"(\'Rey\', \'Finn\')"'
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py 
+FileDict('starwars', [('hero', 'Luke'), ('villain', 'Darth Vader')])
+FileDict('starwars', [('hero', ('Rey', 'Finn'))])
+>>> FileDict('starwars', [('hero', 'Luke'), ('villain', 'Darth Vader')])
+FileDict('starwars', [('hero', 'Luke'), ('villain', 'Darth Vader')])
+>>> d[1]
+
+Traceback (most recent call last):
+  File "<pyshell#238>", line 1, in <module>
+    d[1]
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py", line 41, in __getitem__
+    filepath = os.path.join(self.folder, key)
+  File "C:\Python27\lib\ntpath.py", line 67, in join
+    p_drive, p_path = splitdrive(p)
+  File "C:\Python27\lib\ntpath.py", line 115, in splitdrive
+    if len(p) > 1:
+TypeError: object of type 'int' has no len()
+>>> d['hero']
+'Luke'
+>>> d['villain']
+'Darth Vader'
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py 
+FileDict('starwars', [('hero', 'Luke'), ('villain', 'Darth Vader')])
+FileDict('starwars', [('hero', ('Rey', 'Finn'))])
+>>> d['hero']
+('Rey', 'Finn')
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict.py 
+FileDict('starwars', [('hero', 'Luke'), ('villain', 'Darth Vader')])
+FileDict('starwars', [('hero', ('Rey', 'Finn'))])
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict_v2_using_database.py 
+FileDict('starwars', [('hero', 'Luke'), ('villain', 'Darth Vader')])
+FileDict('starwars', [('hero', ('Rey', 'Finn'))])
+>>> 
+>>> d
+FileDict('starwars', [('hero', ('Rey', 'Finn'))])
+>>> d['hero']
+('Rey', 'Finn')
+>>> d.folder
+'starwars'
+>>> d.folder == 'test'
+False
+>>> d.folder = 'test'
+>>> d.folder
+'test'
+>>> d['a']
+
+Traceback (most recent call last):
+  File "<pyshell#249>", line 1, in <module>
+    d['a']
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict_v2_using_database.py", line 36, in __getitem__
+    raise KeyError(key)
+KeyError: 'a'
+>>> d['hero']
+
+Traceback (most recent call last):
+  File "<pyshell#250>", line 1, in <module>
+    d['hero']
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/filedict_v2_using_database.py", line 36, in __getitem__
+    raise KeyError(key)
+KeyError: 'hero'
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/sqldict.py 
+
+Traceback (most recent call last):
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/sqldict.py", line 16, in <module>
+    d = SqlDict('starwars.db') #starwars is the DB name
+TypeError: object() takes no parameters
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/sqldict.py 
+
+Traceback (most recent call last):
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/sqldict.py", line 19, in <module>
+    d = SqlDict('starwars.db') #starwars is the DB name
+TypeError: Can't instantiate abstract class SqlDict with abstract methods __delitem__, __getitem__, __iter__, __len__, __setitem__
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/sqldict.py 
+
+Traceback (most recent call last):
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/sqldict.py", line 33, in <module>
+    d = SqlDict('starwars.db') #starwars is the DB name
+TypeError: Can't instantiate abstract class SqlDict with abstract methods __delitem__, __getitem__, __iter__, __setitem__
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/sqldict.py 
+
+Traceback (most recent call last):
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/sqldict.py", line 40, in <module>
+    d = SqlDict('starwars.db') #starwars is the DB name
+TypeError: Can't instantiate abstract class SqlDict with abstract methods __delitem__, __getitem__, __setitem__
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/sqldict.py 
+
+Traceback (most recent call last):
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/sqldict.py", line 59, in <module>
+    d['hero'] = 'Luke'
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/sqldict.py", line 54, in __setitem__
+    c.execute('INSERT INTO Dict VALUES (?, ?)', (key, value))
+OperationalError: no such table: Dict
+>>> 
