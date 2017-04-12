@@ -329,3 +329,263 @@ AttributeError: 'DefaultDict' object has no attribute 'add'
 >>> root
 {'a': {1: {}, 2: {}}, 'b': {3: {}, 4: {}}}
 >>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/abstract.py 
+**********************************************************************
+File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/abstract.py", line 9, in __main__.SkipSeq
+Failed example:
+    skip = SkipSeq('abcdefg')
+Exception raised:
+    Traceback (most recent call last):
+      File "C:\Python27\lib\doctest.py", line 1315, in __run
+        compileflags, 1) in test.globs
+      File "<doctest __main__.SkipSeq[0]>", line 1, in <module>
+        skip = SkipSeq('abcdefg')
+    TypeError: this constructor takes no arguments
+**********************************************************************
+File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/abstract.py", line 10, in __main__.SkipSeq
+Failed example:
+    skip[0]
+Exception raised:
+    Traceback (most recent call last):
+      File "C:\Python27\lib\doctest.py", line 1315, in __run
+        compileflags, 1) in test.globs
+      File "<doctest __main__.SkipSeq[1]>", line 1, in <module>
+        skip[0]
+    NameError: name 'skip' is not defined
+**********************************************************************
+File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/abstract.py", line 12, in __main__.SkipSeq
+Failed example:
+    skip[1]
+Exception raised:
+    Traceback (most recent call last):
+      File "C:\Python27\lib\doctest.py", line 1315, in __run
+        compileflags, 1) in test.globs
+      File "<doctest __main__.SkipSeq[2]>", line 1, in <module>
+        skip[1]
+    NameError: name 'skip' is not defined
+**********************************************************************
+File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/abstract.py", line 14, in __main__.SkipSeq
+Failed example:
+    len(skip)
+Exception raised:
+    Traceback (most recent call last):
+      File "C:\Python27\lib\doctest.py", line 1315, in __run
+        compileflags, 1) in test.globs
+      File "<doctest __main__.SkipSeq[3]>", line 1, in <module>
+        len(skip)
+    NameError: name 'skip' is not defined
+**********************************************************************
+1 items had failures:
+   4 of   4 in __main__.SkipSeq
+***Test Failed*** 4 failures.
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/abstract.py 
+**********************************************************************
+File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/abstract.py", line 14, in __main__.SkipSeq
+Failed example:
+    len(skip)
+Expected:
+    4    
+Got:
+    4
+**********************************************************************
+1 items had failures:
+   1 of   4 in __main__.SkipSeq
+***Test Failed*** 1 failures.
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/abstract.py 
+**********************************************************************
+File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/abstract.py", line 14, in __main__.SkipSeq
+Failed example:
+    len(skip)
+Expected:
+    4   
+Got:
+    4
+**********************************************************************
+1 items had failures:
+   1 of   4 in __main__.SkipSeq
+***Test Failed*** 1 failures.
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/abstract.py 
+>>> skip[0]
+
+Traceback (most recent call last):
+  File "<pyshell#162>", line 1, in <module>
+    skip[0]
+NameError: name 'skip' is not defined
+>>> skip
+
+Traceback (most recent call last):
+  File "<pyshell#163>", line 1, in <module>
+    skip
+NameError: name 'skip' is not defined
+>>> skip = SkipSeq('abcdefg')
+>>> skip
+<__main__.SkipSeq instance at 0x03EABCD8>
+>>> skip[1]
+'c'
+>>> skip]2
+SyntaxError: invalid syntax
+>>> skip[2]
+'e'
+>>> [c for c in skip]
+['a', 'c', 'e', 'g']
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/abstract.py 
+>>> skip = SkipSeq('abcdefg')
+>>> skip.capitalize
+<bound method SkipSeq.capitalize of <__main__.SkipSeq instance at 0x03213B98>>
+>>> skip.capitalize()
+'ACEG'
+>>> ''.join(l1)
+
+Traceback (most recent call last):
+  File "<pyshell#173>", line 1, in <module>
+    ''.join(l1)
+NameError: name 'l1' is not defined
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/abstract.py 
+**********************************************************************
+File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/abstract.py", line 35, in __main__.SkipTwoSeq
+Failed example:
+    skip = SkipTwoSeq('abcdefg')
+Exception raised:
+    Traceback (most recent call last):
+      File "C:\Python27\lib\doctest.py", line 1315, in __run
+        compileflags, 1) in test.globs
+      File "<doctest __main__.SkipTwoSeq[0]>", line 1, in <module>
+        skip = SkipTwoSeq('abcdefg')
+    TypeError: this constructor takes no arguments
+**********************************************************************
+File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/abstract.py", line 36, in __main__.SkipTwoSeq
+Failed example:
+    skip[0]
+Exception raised:
+    Traceback (most recent call last):
+      File "C:\Python27\lib\doctest.py", line 1315, in __run
+        compileflags, 1) in test.globs
+      File "<doctest __main__.SkipTwoSeq[1]>", line 1, in <module>
+        skip[0]
+    NameError: name 'skip' is not defined
+**********************************************************************
+File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/abstract.py", line 38, in __main__.SkipTwoSeq
+Failed example:
+    skip[1]
+Exception raised:
+    Traceback (most recent call last):
+      File "C:\Python27\lib\doctest.py", line 1315, in __run
+        compileflags, 1) in test.globs
+      File "<doctest __main__.SkipTwoSeq[2]>", line 1, in <module>
+        skip[1]
+    NameError: name 'skip' is not defined
+**********************************************************************
+File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/abstract.py", line 40, in __main__.SkipTwoSeq
+Failed example:
+    len(skip)
+Exception raised:
+    Traceback (most recent call last):
+      File "C:\Python27\lib\doctest.py", line 1315, in __run
+        compileflags, 1) in test.globs
+      File "<doctest __main__.SkipTwoSeq[3]>", line 1, in <module>
+        len(skip)
+    NameError: name 'skip' is not defined
+**********************************************************************
+1 items had failures:
+   4 of   4 in __main__.SkipTwoSeq
+***Test Failed*** 4 failures.
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/abstract.py 
+**********************************************************************
+File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/abstract.py", line 36, in __main__.SkipTwoSeq
+Failed example:
+    skip[0]
+Exception raised:
+    Traceback (most recent call last):
+      File "C:\Python27\lib\doctest.py", line 1315, in __run
+        compileflags, 1) in test.globs
+      File "<doctest __main__.SkipTwoSeq[1]>", line 1, in <module>
+        skip[0]
+    AttributeError: SkipTwoSeq instance has no attribute '__getitem__'
+**********************************************************************
+File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/abstract.py", line 38, in __main__.SkipTwoSeq
+Failed example:
+    skip[1]
+Exception raised:
+    Traceback (most recent call last):
+      File "C:\Python27\lib\doctest.py", line 1315, in __run
+        compileflags, 1) in test.globs
+      File "<doctest __main__.SkipTwoSeq[2]>", line 1, in <module>
+        skip[1]
+    AttributeError: SkipTwoSeq instance has no attribute '__getitem__'
+**********************************************************************
+File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/abstract.py", line 40, in __main__.SkipTwoSeq
+Failed example:
+    len(skip)
+Exception raised:
+    Traceback (most recent call last):
+      File "C:\Python27\lib\doctest.py", line 1315, in __run
+        compileflags, 1) in test.globs
+      File "<doctest __main__.SkipTwoSeq[3]>", line 1, in <module>
+        len(skip)
+    AttributeError: SkipTwoSeq instance has no attribute '__len__'
+**********************************************************************
+1 items had failures:
+   3 of   4 in __main__.SkipTwoSeq
+***Test Failed*** 3 failures.
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/abstract.py 
+>>> 
+>>> 
+>>> skip = SkipTwoSeq('abcdefg')
+>>> skip[0]
+'a'
+>>> skip[1]
+'d'
+>>> skip[0:2]
+
+Traceback (most recent call last):
+  File "<pyshell#179>", line 1, in <module>
+    skip[0:2]
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/abstract.py", line 47, in __getitem__
+    return self.seq[index * 3]
+TypeError: unsupported operand type(s) for *: 'slice' and 'int'
+>>> skip[0:]
+
+Traceback (most recent call last):
+  File "<pyshell#180>", line 1, in <module>
+    skip[0:]
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/abstract.py", line 47, in __getitem__
+    return self.seq[index * 3]
+TypeError: unsupported operand type(s) for *: 'slice' and 'int'
+>>> len(skip)
+3
+>>> skip
+<__main__.SkipTwoSeq instance at 0x03682120>
+>>> i for i in skip
+SyntaxError: invalid syntax
+>>> i for i in skip:
+	
+SyntaxError: invalid syntax
+>>> [i for i in skip]
+['a', 'd', 'g']
+>>> type(skip)
+<type 'instance'>
+>>> skip
+<__main__.SkipTwoSeq instance at 0x03682120>
+>>> skip.seq
+'abcdefg'
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/abstract.py 
+>>> skip = SkipTwoSeq('abcdefg')
+>>> skip.upper()
+
+Traceback (most recent call last):
+  File "<pyshell#190>", line 1, in <module>
+    skip.upper()
+AttributeError: SkipTwoSeq instance has no attribute 'upper'
+>>> dir(skip)
+['__doc__', '__getitem__', '__init__', '__len__', '__module__', 'capitalize', 'seq', 'uncapitalize']
+>>> skip.capitalize()
+'ADG'
+>>> 
