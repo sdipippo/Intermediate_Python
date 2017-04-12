@@ -1,14 +1,44 @@
 '''
 abstract.py
 Playing with magics to skip every other element
+
+Mixin - small classes that are meant to be inherited but
+not meant to do anything by itself
+Programming is as easy as writing a list of capabilities
+    It is too easy to accidentally instantiate a Mixin
+    And it's too easy to forget to implement the required methods
+Solution: ABCs (Abstract Base Class)
+    Enforces / solves the problem of Mixins
+    Cannot be instantiated.
+    None of an ABCs children can be instantiated unless they
+     implement the required methods
+
 '''
+from abc import ABCMeta, abstractmethod
+from collections import Sequence
 
 class Capper:
     'inherit to gain uppercasing capability'
+    ' Here we create an ABC that requires two abstract methods'
+    ' that must be created to use this class'
+    __metaclass__ = ABCMeta
+    
     def capitalize(self):
         return ''.join([c.upper() for c in self])
 
-class Uncapper:
+    @abstractmethod
+    def __getitem__(self, index):
+        return None
+
+    @abstractmethod
+    def __len__(self):
+        return 0
+
+class Uncapper(Sequence):
+    'inherit to gain lowercasing capability'
+    ' Sequence is an ABC already, so this class inherits'
+    ' The Parent ABC requirements to work (__getitem__ and __len__)'
+    ' Must be defined before it will work '
     def uncapitalize(self):
         return ''.join([c.lower() for c in self])
 
