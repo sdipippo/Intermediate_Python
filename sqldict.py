@@ -20,6 +20,12 @@ class SqlDict(MutableMapping):
     def __init__(self, dbname):
         self.dbname = dbname
         self.connection = sqlite3.connect(dbname)
+        c = self.connection.cursor()
+        try:
+            c.execute('CREATE TABLE Dict (key text, value text)')
+            c.execute('CREATE UNIQUE INDEX KeyIndex ON Dict (key)')
+        except sqlite3.OperationalError:
+            pass # ignore, table already exists
 
     def __len__(self):
         # similar to file handle, allows us to do things to the DB connection
@@ -42,14 +48,19 @@ class SqlDict(MutableMapping):
         # The "input" is also a tuple (key,), but a single one here
         c.execute('SELECT value FROM Dict WHERE key=?', (key,))
         row = c.fetchone()
-        return row[0]
+        if row is None:
+            raise KeyError(key)
+        return json.loads(row[0])
 
     def __delitem__(self, key):
         c = self.connection.cursor()
         c.execute('DELETE FROM Dict WHERE key=?', (key,))
         self.connection.commit() #if you make a change, you must commit it
         
-    def __setitem__(self, key, value):        
+    def __setitem__(self, key, value):
+        if key in self:     # May create race condition, fix with better SQL
+                del self[key]
+        value = json.dumps(value) # converts ('Rey', 'Finn') to json since tuple is unsupported type
         c = self.connection.cursor()
         c.execute('INSERT INTO Dict VALUES (?, ?)', (key, value))
         self.connection.commit() #if you make a change, you must commit it
