@@ -9,6 +9,8 @@ dict-like, backed by a sqlite database.
     ===================
     key     text    <-- unique index
     value   text
+
+I should look at SQLAlchemy. Does it automate some of the SQL writing?
 '''
 
 from collections import MutableMapping
@@ -17,7 +19,7 @@ import sqlite3, json
 class SqlDict(MutableMapping):
     'dict-like class backed by a sqlite database'
     
-    def __init__(self, dbname):
+    def __init__(self, dbname, *args, **kwargs):
         self.dbname = dbname
         self.connection = sqlite3.connect(dbname)
         c = self.connection.cursor()
@@ -26,6 +28,20 @@ class SqlDict(MutableMapping):
             c.execute('CREATE UNIQUE INDEX KeyIndex ON Dict (key)')
         except sqlite3.OperationalError:
             pass # ignore, table already exists
+        self.update(*args, **kwargs)
+
+    def close(self):
+        self.connection.close()
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, etype, e, tb):
+        self.close()
+
+    def __repr__(self):
+        return '%s(%r, %r)' % (type(self).__name__,
+                               self.dbname, self.items())
 
     def __len__(self):
         # similar to file handle, allows us to do things to the DB connection
@@ -41,6 +57,7 @@ class SqlDict(MutableMapping):
         return (key for (key,) in rows)
 
     def __getitem__(self, key):
+        #import pdb; pdb.set_trace() #quit pdb with 'q'
         c = self.connection.cursor()
         # Note the syntax at the end of the next line. It's for security
         # The execute function itself sanitizes the input when you do this, keeping it secure
@@ -53,6 +70,8 @@ class SqlDict(MutableMapping):
         return json.loads(row[0])
 
     def __delitem__(self, key):
+        if key not in self:
+            raise KeyError(key)
         c = self.connection.cursor()
         c.execute('DELETE FROM Dict WHERE key=?', (key,))
         self.connection.commit() #if you make a change, you must commit it
@@ -66,10 +85,12 @@ class SqlDict(MutableMapping):
         self.connection.commit() #if you make a change, you must commit it
 
 if __name__ == '__main__':
-    d = SqlDict('starwars.db') #starwars is the DB name
-    d['hero'] = 'Luke'
-    d['villain'] = 'Darth Vader'
-    print d
-    del d['villain']
-    d['hero'] = ('Rey', 'Finn')
-    print d
+    with SqlDict('starwars.db') as d: #starwars is the DB name
+        # We are able to use "with" on this class because it has
+        # an __enter__ and __exit__ function
+        d['hero'] = 'Luke'
+        d['villain'] = 'Darth Vader'
+        print d
+        del d['villain']
+        d['hero'] = ('Rey', 'Finn')
+        print d
