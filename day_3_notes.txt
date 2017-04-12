@@ -1,0 +1,331 @@
+Python 2.7.12 (v2.7.12:d33e0cf91556, Jun 27 2016, 15:19:22) [MSC v.1500 32 bit (Intel)] on win32
+Type "copyright", "credits" or "license()" for more information.
+>>> class Foo:
+	pass
+
+>>> len(Foo())
+
+Traceback (most recent call last):
+  File "<pyshell#3>", line 1, in <module>
+    len(Foo())
+AttributeError: Foo instance has no attribute '__len__'
+>>> Foo()[1]
+
+Traceback (most recent call last):
+  File "<pyshell#4>", line 1, in <module>
+    Foo()[1]
+AttributeError: Foo instance has no attribute '__getitem__'
+>>> dir(dict)
+['__class__', '__cmp__', '__contains__', '__delattr__', '__delitem__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__gt__', '__hash__', '__init__', '__iter__', '__le__', '__len__', '__lt__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__setitem__', '__sizeof__', '__str__', '__subclasshook__', 'clear', 'copy', 'fromkeys', 'get', 'has_key', 'items', 'iteritems', 'iterkeys', 'itervalues', 'keys', 'pop', 'popitem', 'setdefault', 'update', 'values', 'viewitems', 'viewkeys', 'viewvalues']
+>>> '__missing__' in dir(dict)
+False
+>>> class AngryDict(dict):
+	def __missing__(self, key):
+		print 'I am angry! {} is missing.'.format(key)
+		raise KeyError(key)
+
+	
+>>> a = AngryDict(a=1, b=2, c=3)
+>>> a
+{'a': 1, 'c': 3, 'b': 2}
+>>> isinstance(a, dict)
+True
+>>> a['z']
+I am angry! z is missing.
+
+Traceback (most recent call last):
+  File "<pyshell#15>", line 1, in <module>
+    a['z']
+  File "<pyshell#11>", line 4, in __missing__
+    raise KeyError(key)
+KeyError: 'z'
+>>> 
+>>> '''
+The __missing__ on a dictionary changes the default behavior of a
+dictionary when a key is missing. Normally it raises a keyerror,
+but you can change it. Similar to how DefaultDict behaved yesterday
+'''
+'\nThe __missing__ on a dictionary changes the default behavior of a\ndictionary when a key is missing. Normally it raises a keyerror,\nbut you can change it. Similar to how DefaultDict behaved yesterday\n'
+>>> 
+>>> 
+>>> from collections import Counter
+>>> c = Counter()
+>>> c['a']
+0
+>>> c['b']
+0
+>>> c
+Counter()
+>>> # Counter() uses __missing__ to return 0 if no key exists
+>>> 
+>>> class ListDict(dict):
+	def __missing__(self,key):
+		value = []
+		self[key] = value
+		return value
+
+	
+>>> l = ListDict(a=[10, 20], b=[30, 40, 50])
+>>> l
+{'a': [10, 20], 'b': [30, 40, 50]}
+>>> l['a']
+[10, 20]
+>>> l['z']
+[]
+>>> l
+{'a': [10, 20], 'b': [30, 40, 50], 'z': []}
+>>> l['x'].append('hello')
+>>> l
+{'a': [10, 20], 'x': ['hello'], 'b': [30, 40, 50], 'z': []}
+>>> 
+>>> 
+>>> 
+>>> 'the answer was {} yesterday, but is {} today.'.format(1, 2)
+'the answer was 1 yesterday, but is 2 today.'
+
+>>> 'the answer was {} yesterday, but is {} today.'.format({a: 1}, 2)
+
+Traceback (most recent call last):
+  File "<pyshell#50>", line 1, in <module>
+    'the answer was {} yesterday, but is {} today.'.format({a: 1}, 2)
+TypeError: unhashable type: 'AngryDict'
+>>> 'the answer was {} yesterday, but is {} today.'.format({test: 1}, 2)
+
+Traceback (most recent call last):
+  File "<pyshell#51>", line 1, in <module>
+    'the answer was {} yesterday, but is {} today.'.format({test: 1}, 2)
+NameError: name 'test' is not defined
+>>> 'the answer was {old} yesterday, but is {new} today.'.format({old: 1, new:2})
+
+Traceback (most recent call last):
+  File "<pyshell#52>", line 1, in <module>
+    'the answer was {old} yesterday, but is {new} today.'.format({old: 1, new:2})
+NameError: name 'old' is not defined
+>>> 
+>>> 
+>>> 
+>>> template = 'the answer was %(old)s, but is %(new)s today'
+>>> template
+'the answer was %(old)s, but is %(new)s today'
+>>> template % {'old': 1, 'new': 2}
+'the answer was 1, but is 2 today'
+>>> 
+>>> template % {'old': 1}
+
+Traceback (most recent call last):
+  File "<pyshell#60>", line 1, in <module>
+    template % {'old': 1}
+KeyError: 'new'
+>>> 
+>>> 
+>>> class DefaultFormatDict(dict):
+	def __missing__(self, key):
+		return '%(' + key + ')s'
+
+	
+>>> template % DefaultFormatDict({'old': 1})
+'the answer was 1, but is %(new)s today'
+>>> 
+>>> # you could build utilities like this to avoid a lot of
+>>> # try / excepts, etc. It gets around certain errors
+>>> # It's basically an error handler
+>>> 
+>>> '{new:} + {old}'.format({'new': 1}, {'old': 2})
+
+Traceback (most recent call last):
+  File "<pyshell#73>", line 1, in <module>
+    '{new:} + {old}'.format({'new': 1}, {'old': 2})
+KeyError: 'new'
+>>> 
+>>> 
+>>> 
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/configs.py 
+>>> 
+>>> settings['fg']
+'cyan'
+>>> settings['bg']
+
+Traceback (most recent call last):
+  File "<pyshell#79>", line 1, in <module>
+    settings['bg']
+KeyError: 'bg'
+>>> dict.__dict__
+dict_proxy({'popitem': <method 'popitem' of 'dict' objects>, '__getattribute__': <slot wrapper '__getattribute__' of 'dict' objects>, 'pop': <method 'pop' of 'dict' objects>, 'has_key': <method 'has_key' of 'dict' objects>, 'viewkeys': <method 'viewkeys' of 'dict' objects>, '__lt__': <slot wrapper '__lt__' of 'dict' objects>, '__sizeof__': <method '__sizeof__' of 'dict' objects>, '__init__': <slot wrapper '__init__' of 'dict' objects>, 'viewitems': <method 'viewitems' of 'dict' objects>, '__new__': <built-in method __new__ of type object at 0x5EF53CB0>, '__contains__': <method '__contains__' of 'dict' objects>, '__cmp__': <slot wrapper '__cmp__' of 'dict' objects>, 'itervalues': <method 'itervalues' of 'dict' objects>, 'iteritems': <method 'iteritems' of 'dict' objects>, '__len__': <slot wrapper '__len__' of 'dict' objects>, '__ne__': <slot wrapper '__ne__' of 'dict' objects>, '__getitem__': <method '__getitem__' of 'dict' objects>, 'get': <method 'get' of 'dict' objects>, 'keys': <method 'keys' of 'dict' objects>, 'update': <method 'update' of 'dict' objects>, '__setitem__': <slot wrapper '__setitem__' of 'dict' objects>, '__gt__': <slot wrapper '__gt__' of 'dict' objects>, 'copy': <method 'copy' of 'dict' objects>, '__eq__': <slot wrapper '__eq__' of 'dict' objects>, 'iterkeys': <method 'iterkeys' of 'dict' objects>, '__delitem__': <slot wrapper '__delitem__' of 'dict' objects>, 'fromkeys': <method 'fromkeys' of 'dict' objects>, 'setdefault': <method 'setdefault' of 'dict' objects>, 'viewvalues': <method 'viewvalues' of 'dict' objects>, 'items': <method 'items' of 'dict' objects>, 'clear': <method 'clear' of 'dict' objects>, '__iter__': <slot wrapper '__iter__' of 'dict' objects>, '__doc__': "dict() -> new empty dictionary\ndict(mapping) -> new dictionary initialized from a mapping object's\n    (key, value) pairs\ndict(iterable) -> new dictionary initialized as if via:\n    d = {}\n    for k, v in iterable:\n        d[k] = v\ndict(**kwargs) -> new dictionary initialized with the name=value pairs\n    in the keyword argument list.  For example:  dict(one=1, two=2)", '__le__': <slot wrapper '__le__' of 'dict' objects>, 'values': <method 'values' of 'dict' objects>, '__repr__': <slot wrapper '__repr__' of 'dict' objects>, '__hash__': None, '__ge__': <slot wrapper '__ge__' of 'dict' objects>})
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/configs.py 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> ChainDict(defaults)
+{}
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/configs.py 
+>>> settings
+{'h': 80, 'fg': 'cyan'}
+>>> settings['fg']
+'cyan'
+>>> settings['bg']
+
+Traceback (most recent call last):
+  File "<pyshell#89>", line 1, in <module>
+    settings['bg']
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/configs.py", line 20, in __missing__
+    return self,fallback[key]
+NameError: global name 'fallback' is not defined
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/configs.py 
+>>> settings['bg']
+'black'
+>>> 
+>>> 
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/configs.py 
+>>> user['fg']
+'magenta'
+>>> user['h']
+80
+>>> user['z']
+
+Traceback (most recent call last):
+  File "<pyshell#95>", line 1, in <module>
+    user['z']
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/configs.py", line 21, in __missing__
+    return self.fallback[key]
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/configs.py", line 21, in __missing__
+    return self.fallback[key]
+KeyError: 'z'
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/configs.py 
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/configs.py 
+
+Traceback (most recent call last):
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/configs.py", line 25, in <module>
+    settings = ChainDict(defaults, {'fg': 'cyan', 'h': 80})
+  File "C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/configs.py", line 18, in __init__
+    self.update(*args, **kwargs)
+AttributeError: ChainDict instance has no attribute 'update'
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/configs.py 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+=============================== RESTART: Shell ===============================
+>>> 
+>>> 
+>>> 
+
+>>> int()
+0
+>>> type(int())
+<type 'int'>
+>>> type(int)
+<type 'type'>
+>>> # int is actually a class because it is type of "type"
+>>> type(len)
+<type 'builtin_function_or_method'>
+>>> # while len is a function
+>>> 
+>>> x = int
+>>> x
+<type 'int'>
+>>> x()
+0
+>>> x(5)
+5
+>>> x(5.5)
+5
+>>> y = list
+>>> y
+<type 'list'>
+>>> y()
+[]
+>>> y(1, 2, 3)
+
+Traceback (most recent call last):
+  File "<pyshell#120>", line 1, in <module>
+    y(1, 2, 3)
+TypeError: list() takes at most 1 argument (3 given)
+>>> 
+>>> 
+>>> 
+>>> class DefaultDict(dict)
+SyntaxError: invalid syntax
+>>> class DefaultDict(dict):
+	def __init__(self, constructor, *args, **kwargs):
+		self.constructor = constructor
+		self.update(*args, **kwargs)
+	def _missing__(self, key):
+		value = self.constructor()
+		self[key] = value
+		return value
+
+	
+>>> d = DefaultDict(set)
+>>> d = DefaultDict(set, a={1, 2}, b='hello')
+>>> d
+{'a': set([1, 2]), 'b': 'hello'}
+>>> d['z']
+
+Traceback (most recent call last):
+  File "<pyshell#137>", line 1, in <module>
+    d['z']
+KeyError: 'z'
+>>> d
+{'a': set([1, 2]), 'b': 'hello'}
+>>> class DefaultDict(dict):
+	def __init__(self, constructor, *args, **kwargs):
+		self.constructor = constructor
+		self.update(*args, **kwargs)
+	def __missing__(self, key):
+		value = self.constructor()
+		self[key] = value
+		return value
+
+	
+>>> d = DefaultDict(set, a={1, 2}, b='hello')
+>>> d
+{'a': set([1, 2]), 'b': 'hello'}
+>>> d['z']
+set([])
+>>> d
+{'a': set([1, 2]), 'b': 'hello', 'z': set([])}
+>>> d.add('foo')
+
+Traceback (most recent call last):
+  File "<pyshell#145>", line 1, in <module>
+    d.add('foo')
+AttributeError: 'DefaultDict' object has no attribute 'add'
+>>> 
+>>> def tree():
+	return DefaultDict(tree)
+
+>>> t = tree()
+>>> t
+{}
+>>> root = tree()
+>>> root
+{}
+>>> root['a']
+{}
+>>> root
+{'a': {}}
+>>> root['a'][1]
+{}
+>>> root['a'][2]
+{}
+>>> root
+{'a': {1: {}, 2: {}}}
+>>> root['b'][3]
+{}
+>>> root['b'][4]
+{}
+>>> root
+{'a': {1: {}, 2: {}}, 'b': {3: {}, 4: {}}}
+>>> 

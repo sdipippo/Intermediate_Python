@@ -25,6 +25,7 @@ def cpu_bound(x):
     return x + 1
 
 def serial(func, n):
+    'Does not use multiple threads or processes, normal Python'
     start = time.time()
     for result in map(func, xrange(n)):
         print result
@@ -40,7 +41,17 @@ def threaded(func, n, maxthreads=25):
     stop = time.time()
     print 'DURATION {:.2f}'.format(stop - start)
 
+def multiproc(func, n, maxthreads=25):
+    'This module allows us to use multiple sub-processes to accomplish the task'
+    start = time.time()
+    pool = Pool(min(n, maxthreads)) # Create a number of threads (n)
+    for result in pool.imap_unordered(func, xrange(n)):
+        print result
+    stop = time.time()
+    print 'DURATION {:.2f}'.format(stop - start)
+
 if __name__ == '__main__':
     serial(io_bound, 10)
     threaded(io_bound, 10) #Run the task with 10 threads
-    serial(cpu_bound, 25)
+    multiproc(io_bound, 10) #Run the task with 10 sub-processes
+    multiproc(cpu_bound, 10)
