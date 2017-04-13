@@ -15,7 +15,7 @@ that's a "with" block
 '''
 
 class ContextManager:
-    'a generic context manager'
+    'a generic context manager, basically a "with"'
 
     def __init__(self, value):
         print 'initializing the context manager'
@@ -49,7 +49,7 @@ class Suppress:
 class Closing:
     'close the object upon leaving the context'
     def __init__(self, closeable):
-        self.object = closeable
+        self.obj = closeable
     def __enter__(self):
         return self.obj
     def __exit__(self, *args):

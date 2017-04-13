@@ -20,7 +20,7 @@ class ChainDict(dict):
         self.update(*args, **kwargs)
 
     def __missing__(self, key):
-        import pdb; pdb.set_trace() #Puts you in python debugger during an exception
+        #import pdb; pdb.set_trace() #Puts you in python debugger during an exception
         return self.fallback[key]
 
 defaults = {'bg': 'black', 'fg': 'green', 'h': 40}
