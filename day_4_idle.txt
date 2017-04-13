@@ -2,4 +2,930 @@ Python 2.7.12 (v2.7.12:d33e0cf91556, Jun 27 2016, 15:19:22) [MSC v.1500 32 bit (
 Type "copyright", "credits" or "license()" for more information.
 >>> 
  RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/docfinder.py 
+>>> y = 1
+>>> def x():
+	print y
+
+	
+>>> x()
+1
+>>> def x():
+	z = global y + 1
+	
+SyntaxError: invalid syntax
+>>> def x():
+	global y
+	z = y + 1
+
+	
+>>> x()
+>>> def x():
+	global y
+	z = y + 1
+	return z
+
+>>> x()
+2
+>>> help(map)
+Help on built-in function map in module __builtin__:
+
+map(...)
+    map(function, sequence[, sequence, ...]) -> list
+    
+    Return a list of the results of applying the function to the items of
+    the argument sequence(s).  If more than one sequence is given, the
+    function is called with an argument list consisting of the corresponding
+    item of each sequence, substituting None for missing values when not all
+    sequences have the same length.  If the function is None, return a list of
+    the items of the sequence (or a list of tuples if more than one sequence).
+
+>>> 
+ RESTART: C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py 
+a 0.0437439691219
+division 0.0308780958508
+to 0.0302348021872
+for 0.0212286908974
+in 0.0183338694114
+that 0.0154390479254
+python 0.0141524605983
+be 0.0135091669347
+true 0.0125442264394
+float 0.0119009327758
+
+Traceback (most recent call last):
+  File "C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py", line 32, in <module>
+    create_db(force=True)
+  File "C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\docfinder.py", line 63, in create_db
+    self.dbname = database
+NameError: global name 'self' is not defined
+>>> 
+ RESTART: C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py 
+
+Traceback (most recent call last):
+  File "C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py", line 32, in <module>
+    create_db(force=True)
+  File "C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\docfinder.py", line 63, in create_db
+    self.dbname = database
+NameError: global name 'self' is not defined
+>>> 
+ RESTART: C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py 
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/docfinder.py 
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/docfinder.py 
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/docfinder.py 
+>>> 
+ RESTART: C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py 
+
+Traceback (most recent call last):
+  File "C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py", line 32, in <module>
+    create_db(force=True)
+  File "C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\docfinder.py", line 64, in create_db
+    os.remove(database)
+WindowsError: [Error 2] The system cannot find the file specified: 'pepsearch.db'
+>>> 
+ RESTART: C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py 
+
+Traceback (most recent call last):
+  File "C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py", line 32, in <module>
+    create_db(force=True)
+  File "C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\docfinder.py", line 69, in create_db
+    with closing(connection = sqlite3.connect(database)) as connection:
+TypeError: __init__() got an unexpected keyword argument 'connection'
+>>> 
+ RESTART: C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py 
+
+Traceback (most recent call last):
+  File "C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py", line 32, in <module>
+    create_db(force=True)
+  File "C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\docfinder.py", line 69, in create_db
+    with closing(connection = sqlite3.connect(database)) as connection:
+TypeError: __init__() got an unexpected keyword argument 'connection'
+>>> 
+ RESTART: C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py 
+>>> 
+ RESTART: C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py 
+>>> 
+ RESTART: C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py 
+
+Traceback (most recent call last):
+  File "C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py", line 32, in <module>
+    create_db(force=True)
+  File "C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\docfinder.py", line 71, in create_db
+    c.execute('CREATE TABLE Documents (uri text, text blob)')
+OperationalError: table Documents already exists
+>>> 
+ RESTART: C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py 
+
+Traceback (most recent call last):
+  File "C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py", line 32, in <module>
+    create_db(force=True)
+  File "C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\docfinder.py", line 71, in create_db
+    c.execute('CREATE TABLE Documents (uri text, text blob)')
+OperationalError: table Documents already exists
+>>> 
+ RESTART: C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py 
+>>> 
+ RESTART: C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py 
+pep-0237 14330
+pep-0236 13914
+pep-0235 6657
+>>> 
+ RESTART: C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py 
+pep-0237 14330
+
+Traceback (most recent call last):
+  File "C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py", line 43, in <module>
+    add_document(uri, text)
+  File "C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\docfinder.py", line 112, in add_document
+    c.execute('INSERT INTO Documents VALUES (?, ?)', (uri, blob))
+ProgrammingError: You must not use 8-bit bytestrings unless you use a text_factory that can interpret 8-bit bytestrings (like text_factory = str). It is highly recommended that you instead just switch your application to Unicode strings.
+>>> 
+ RESTART: C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py 
+pep-0237 14330
+pep-0236 13914
+pep-0235 6657
+>>> 
+ RESTART: C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py 
+
+Traceback (most recent call last):
+  File "C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py", line 10, in <module>
+    from docfinder import *
+  File "C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\docfinder.py", line 119
+    args = ((uri, term score) for term, score in score_document(text))
+                           ^
+SyntaxError: invalid syntax
+>>> 
+ RESTART: C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py 
+
+Traceback (most recent call last):
+  File "C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py", line 10, in <module>
+    from docfinder import *
+  File "C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\docfinder.py", line 119
+    args = (uri, term score) for term, score in score_document(text))
+                          ^
+SyntaxError: invalid syntax
+>>> 
+ RESTART: C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py 
+
+Traceback (most recent call last):
+  File "C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py", line 10, in <module>
+    from docfinder import *
+  File "C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\docfinder.py", line 119
+    args = (uri, term, score) for term, score in score_document(text))
+                                ^
+SyntaxError: invalid syntax
+>>> 
+ RESTART: C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py 
+pep-0237 14330
+
+Traceback (most recent call last):
+  File "C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py", line 43, in <module>
+    add_document(uri, text)
+  File "C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\docfinder.py", line 120, in add_document
+    c.executemany('INSERT INTO Scores VALUE (?, ?, ?)', args)
+OperationalError: near "VALUE": syntax error
+>>> 
+ RESTART: C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py 
+pep-0237 14330
+pep-0236 13914
+pep-0235 6657
+>>> 
+ RESTART: C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py 
+pep-0001 21093
+pep-0002 8338
+pep-0003 2233
+pep-0004 10523
+pep-0005 3099
+pep-0006 8439
+pep-0007 6840
+pep-0008 32509
+pep-0009 9011
+pep-0010 1989
+pep-0011 6259
+pep-0012 22407
+pep-0020 1537
+pep-0042 11386
+pep-0100 42745
+pep-0101 25522
+pep-0102 20843
+pep-0160 2253
+pep-0200 14252
+pep-0201 9674
+pep-0202 2276
+pep-0203 14147
+pep-0204 11030
+pep-0205 20340
+pep-0206 3256
+pep-0207 18802
+pep-0208 10099
+pep-0209 29438
+pep-0210 298
+pep-0211 6783
+pep-0212 4902
+pep-0213 8536
+pep-0214 13522
+pep-0215 4804
+pep-0216 5438
+pep-0217 1720
+pep-0218 8029
+pep-0219 8520
+pep-0220 745
+pep-0221 3978
+pep-0222 8830
+pep-0223 7504
+pep-0224 8866
+pep-0225 29809
+pep-0226 4469
+pep-0227 21474
+pep-0228 4663
+pep-0229 4214
+pep-0230 14446
+pep-0231 21675
+pep-0232 8003
+pep-0233 3051
+pep-0234 20856
+pep-0235 6657
+pep-0236 13914
+pep-0237 14330
+pep-0238 23422
+pep-0239 4782
+pep-0240 3077
+pep-0241 7703
+pep-0242 8974
+pep-0243 6702
+pep-0244 6335
+pep-0245 18731
+pep-0246 32205
+pep-0247 6400
+pep-0248 12098
+pep-0249 45244
+pep-0250 5401
+pep-0251 2560
+pep-0252 32627
+pep-0253 43135
+pep-0254 651
+pep-0255 20503
+pep-0256 10434
+pep-0257 11682
+pep-0258 35850
+pep-0259 3935
+pep-0260 2283
+pep-0261 10423
+pep-0262 12859
+pep-0263 8558
+pep-0264 4868
+pep-0265 7316
+pep-0266 19657
+pep-0267 10680
+pep-0268 8856
+pep-0269 7196
+pep-0270 2369
+pep-0271 1592
+pep-0272 9070
+pep-0273 8663
+pep-0274 5133
+pep-0275 12309
+pep-0276 16273
+pep-0277 4382
+pep-0278 9188
+pep-0279 8764
+pep-0280 19835
+pep-0281 4341
+pep-0282 22943
+pep-0283 11335
+pep-0284 10687
+pep-0285 17004
+pep-0286 3568
+pep-0287 32544
+pep-0288 5529
+pep-0289 10641
+pep-0290 13748
+pep-0291 6138
+pep-0292 8200
+pep-0293 15988
+pep-0294 3085
+pep-0295 3142
+pep-0296 16807
+pep-0297 3649
+pep-0298 8767
+pep-0299 3508
+pep-0301 14086
+pep-0302 28402
+pep-0303 7489
+pep-0304 13573
+pep-0305 14881
+pep-0306 3303
+pep-0307 34989
+pep-0308 17468
+pep-0309 10100
+pep-0310 8309
+pep-0311 9588
+pep-0312 5894
+pep-0313 4621
+pep-0314 9597
+pep-0315 4024
+pep-0316 15048
+pep-0317 14865
+pep-0318 30935
+pep-0319 15878
+pep-0320 6898
+pep-0321 4359
+pep-0322 5836
+pep-0323 19812
+pep-0324 18933
+pep-0325 10752
+pep-0326 20788
+pep-0327 40620
+pep-0328 10696
+pep-0329 9942
+pep-0330 9059
+pep-0331 8047
+pep-0332 2404
+pep-0333 75600
+pep-0334 13247
+pep-0335 17286
+pep-0336 2984
+pep-0337 5020
+pep-0338 13713
+pep-0339 22727
+pep-0340 22880
+pep-0341 3006
+pep-0342 26155
+pep-0343 37815
+pep-0344 21542
+pep-0345 16422
+pep-0346 44697
+pep-0347 10942
+pep-0348 19558
+pep-0349 5267
+pep-0350 25013
+pep-0351 5073
+pep-0352 11284
+pep-0353 9578
+pep-0354 8006
+pep-0355 20431
+pep-0356 5616
+pep-0357 8522
+pep-0358 10677
+pep-0359 18232
+pep-0360 3816
+pep-0361 8888
+pep-0362 12998
+pep-0363 8679
+pep-0364 10558
+pep-0365 4860
+pep-0366 5844
+pep-0367 19947
+pep-0368 34446
+
+Traceback (most recent call last):
+  File "C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py", line 43, in <module>
+    add_document(uri, text)
+  File "C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\docfinder.py", line 122, in add_document
+    connection.commit()
+KeyboardInterrupt
+>>> 
+ RESTART: C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py 
+pep-0237 14330
+pep-0236 13914
+pep-0235 6657
+>>> 
+ RESTART: C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py 
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/docfinder.py 
+>>> 
+ RESTART: C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py 
+pep-0237 14330
+
+Traceback (most recent call last):
+  File "C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py", line 43, in <module>
+    add_document(uri, text)
+  File "C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\docfinder.py", line 115, in add_document
+    raise DuplicateURI(uri)
+DuplicateURI: pep-0237
+>>> 
+ RESTART: C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py 
+
+Traceback (most recent call last):
+  File "C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py", line 47, in <module>
+    print get_document('pep-0237')[:100]
+TypeError: 'NoneType' object has no attribute '__getitem__'
+>>> 
+ RESTART: C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py 
+PEP: 237
+Title: Unifying Long Integers and Integers
+Version: $Revision$
+Last-Modified: $Date$
+Author
+>>> 
+ RESTART: C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py 
+PEP: 237
+Title: Unifying Long Integers and Integers
+Version: $Revision$
+Last-Modified: $Date$
+Author
+
+Traceback (most recent call last):
+  File "C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py", line 48, in <module>
+    print get_document('foo')[:100]
+  File "C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\docfinder.py", line 136, in get_document
+    raise UnknownURI(uri)
+UnknownURI: foo
+>>> 
+ RESTART: C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py 
+
+Traceback (most recent call last):
+  File "C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py", line 51, in <module>
+    pprint.pprint(search('zip')[:10])
+TypeError: 'NoneType' object has no attribute '__getitem__'
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/docfinder.py 
+>>> 
+ RESTART: C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py 
+[]
+>>> 
+ RESTART: C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py 
+[]
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/docfinder.py 
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/docfinder.py 
+>>> 
+ RESTART: C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py 
+[]
+[]
+>>> 
+ RESTART: C:/Users/sdipippo/Desktop/Python Programming/Intermediate Python ILT Apr 2017/docfinder.py 
+>>> 
+ RESTART: C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py 
+[]
+[]
+>>> 
+ RESTART: C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py 
+pep-0001 21093
+pep-0002 8338
+pep-0003 2233
+pep-0004 10523
+pep-0005 3099
+pep-0006 8439
+pep-0007 6840
+pep-0008 32509
+pep-0009 9011
+pep-0010 1989
+pep-0011 6259
+pep-0012 22407
+pep-0020 1537
+pep-0042 11386
+pep-0100 42745
+pep-0101 25522
+pep-0102 20843
+pep-0160 2253
+pep-0200 14252
+pep-0201 9674
+pep-0202 2276
+pep-0203 14147
+pep-0204 11030
+pep-0205 20340
+pep-0206 3256
+pep-0207 18802
+pep-0208 10099
+pep-0209 29438
+pep-0210 298
+pep-0211 6783
+pep-0212 4902
+pep-0213 8536
+pep-0214 13522
+pep-0215 4804
+pep-0216 5438
+pep-0217 1720
+pep-0218 8029
+pep-0219 8520
+pep-0220 745
+pep-0221 3978
+pep-0222 8830
+pep-0223 7504
+pep-0224 8866
+pep-0225 29809
+pep-0226 4469
+pep-0227 21474
+pep-0228 4663
+pep-0229 4214
+pep-0230 14446
+pep-0231 21675
+pep-0232 8003
+pep-0233 3051
+pep-0234 20856
+pep-0235 6657
+
+Traceback (most recent call last):
+  File "C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py", line 43, in <module>
+    add_document(uri, text)
+  File "C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\docfinder.py", line 115, in add_document
+    raise DuplicateURI(uri)
+DuplicateURI: pep-0235
+>>> 
+ RESTART: C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py 
+pep-0001 21093
+pep-0002 8338
+pep-0003 2233
+pep-0004 10523
+pep-0005 3099
+pep-0006 8439
+pep-0007 6840
+pep-0008 32509
+pep-0009 9011
+pep-0010 1989
+pep-0011 6259
+pep-0012 22407
+pep-0020 1537
+pep-0042 11386
+pep-0100 42745
+pep-0101 25522
+pep-0102 20843
+pep-0160 2253
+pep-0200 14252
+pep-0201 9674
+pep-0202 2276
+pep-0203 14147
+pep-0204 11030
+pep-0205 20340
+pep-0206 3256
+pep-0207 18802
+pep-0208 10099
+pep-0209 29438
+pep-0210 298
+pep-0211 6783
+pep-0212 4902
+pep-0213 8536
+pep-0214 13522
+pep-0215 4804
+pep-0216 5438
+pep-0217 1720
+pep-0218 8029
+pep-0219 8520
+pep-0220 745
+pep-0221 3978
+pep-0222 8830
+pep-0223 7504
+pep-0224 8866
+pep-0225 29809
+pep-0226 4469
+pep-0227 21474
+pep-0228 4663
+pep-0229 4214
+pep-0230 14446
+pep-0231 21675
+pep-0232 8003
+pep-0233 3051
+pep-0234 20856
+pep-0235 6657
+pep-0236 13914
+pep-0237 14330
+pep-0238 23422
+pep-0239 4782
+pep-0240 3077
+pep-0241 7703
+pep-0242 8974
+pep-0243 6702
+pep-0244 6335
+pep-0245 18731
+pep-0246 32205
+pep-0247 6400
+pep-0248 12098
+pep-0249 45244
+pep-0250 5401
+pep-0251 2560
+pep-0252 32627
+pep-0253 43135
+pep-0254 651
+pep-0255 20503
+pep-0256 10434
+pep-0257 11682
+pep-0258 35850
+pep-0259 3935
+pep-0260 2283
+pep-0261 10423
+pep-0262 12859
+pep-0263 8558
+pep-0264 4868
+pep-0265 7316
+pep-0266 19657
+pep-0267 10680
+pep-0268 8856
+pep-0269 7196
+pep-0270 2369
+pep-0271 1592
+pep-0272 9070
+pep-0273 8663
+pep-0274 5133
+pep-0275 12309
+pep-0276 16273
+pep-0277 4382
+pep-0278 9188
+pep-0279 8764
+pep-0280 19835
+pep-0281 4341
+pep-0282 22943
+pep-0283 11335
+pep-0284 10687
+pep-0285 17004
+pep-0286 3568
+pep-0287 32544
+pep-0288 5529
+pep-0289 10641
+pep-0290 13748
+pep-0291 6138
+pep-0292 8200
+pep-0293 15988
+pep-0294 3085
+pep-0295 3142
+pep-0296 16807
+pep-0297 3649
+pep-0298 8767
+pep-0299 3508
+pep-0301 14086
+pep-0302 28402
+pep-0303 7489
+pep-0304 13573
+pep-0305 14881
+pep-0306 3303
+pep-0307 34989
+pep-0308 17468
+pep-0309 10100
+pep-0310 8309
+pep-0311 9588
+pep-0312 5894
+pep-0313 4621
+pep-0314 9597
+pep-0315 4024
+pep-0316 15048
+pep-0317 14865
+pep-0318 30935
+pep-0319 15878
+pep-0320 6898
+pep-0321 4359
+pep-0322 5836
+pep-0323 19812
+pep-0324 18933
+pep-0325 10752
+pep-0326 20788
+pep-0327 40620
+pep-0328 10696
+pep-0329 9942
+pep-0330 9059
+pep-0331 8047
+pep-0332 2404
+pep-0333 75600
+pep-0334 13247
+pep-0335 17286
+pep-0336 2984
+pep-0337 5020
+pep-0338 13713
+pep-0339 22727
+pep-0340 22880
+pep-0341 3006
+pep-0342 26155
+pep-0343 37815
+pep-0344 21542
+pep-0345 16422
+pep-0346 44697
+pep-0347 10942
+pep-0348 19558
+pep-0349 5267
+pep-0350 25013
+pep-0351 5073
+pep-0352 11284
+pep-0353 9578
+pep-0354 8006
+pep-0355 20431
+pep-0356 5616
+pep-0357 8522
+pep-0358 10677
+pep-0359 18232
+pep-0360 3816
+pep-0361 8888
+pep-0362 12998
+pep-0363 8679
+pep-0364 10558
+pep-0365 4860
+pep-0366 5844
+pep-0367 19947
+pep-0368 34446
+pep-0369 8871
+pep-0370 8005
+pep-0371 17421
+pep-0372 12222
+pep-0373 1543
+pep-0374 54373
+pep-0375 1700
+pep-0376 23345
+pep-0377 9724
+pep-0378 9287
+pep-0379 5247
+pep-0380 17451
+pep-0381 11665
+pep-0382 8818
+pep-0383 8230
+pep-0384 13889
+pep-0385 19368
+pep-0386 18562
+pep-0387 4226
+pep-0389 12816
+pep-0390 7822
+pep-0391 27221
+pep-0392 1879
+pep-0393 18819
+pep-0394 9999
+pep-0395 11398
+pep-0396 10635
+pep-0397 18326
+pep-0398 2432
+pep-0399 8384
+pep-0400 11410
+pep-0401 4293
+pep-0402 28759
+pep-0403 10589
+pep-0404 27552
+pep-0444 70029
+pep-0628 3599
+pep-0666 4324
+pep-0754 6401
+pep-3000 6080
+pep-3001 4576
+pep-3002 4692
+pep-3003 5988
+pep-3099 7751
+pep-3100 17744
+pep-3101 34990
+pep-3102 6903
+pep-3103 25030
+pep-3104 21700
+pep-3105 4855
+pep-3106 11245
+pep-3107 11028
+pep-3108 30384
+pep-3109 7740
+pep-3110 8554
+pep-3111 5986
+pep-3112 4886
+pep-3113 10532
+pep-3114 8194
+pep-3115 13454
+pep-3116 21130
+pep-3117 8616
+pep-3118 35802
+pep-3119 37067
+pep-3120 3737
+pep-3121 6045
+pep-3122 10259
+pep-3123 4570
+pep-3124 39127
+pep-3125 7520
+pep-3126 11673
+pep-3127 20129
+pep-3128 16469
+pep-3129 3618
+pep-3130 7091
+pep-3131 11156
+pep-3132 5577
+pep-3133 16429
+pep-3134 21811
+pep-3135 7553
+pep-3136 15484
+pep-3137 12313
+pep-3138 11862
+pep-3139 4571
+pep-3140 6518
+pep-3141 18275
+pep-3142 3884
+pep-3143 18127
+pep-3144 15804
+pep-3145 5845
+pep-3146 68735
+pep-3147 22938
+pep-3148 17299
+pep-3149 12383
+pep-3150 31106
+pep-3151 34475
+pep-3152 5123
+pep-3153 12243
+pep-3154 5106
+pep-3155 3585
+pep-3333 81955
+README 494
+[(u'pep-0273',), (u'pep-0201',), (u'pep-0212',), (u'pep-0202',), (u'pep-3099',), (u'pep-0243',), (u'pep-0382',), (u'pep-0279',), (u'pep-0277',), (u'pep-0302',), (u'pep-0361',)]
+[u'pep-0273',
+ u'pep-0201',
+ u'pep-0212',
+ u'pep-0202',
+ u'pep-3099',
+ u'pep-0243',
+ u'pep-0382',
+ u'pep-0279',
+ u'pep-0277',
+ u'pep-0302']
+>>> 
+ RESTART: C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py 
+[(u'pep-0273',), (u'pep-0201',), (u'pep-0212',), (u'pep-0202',), (u'pep-3099',), (u'pep-0243',), (u'pep-0382',), (u'pep-0279',), (u'pep-0277',), (u'pep-0302',), (u'pep-0361',)]
+[u'pep-0273',
+ u'pep-0201',
+ u'pep-0212',
+ u'pep-0202',
+ u'pep-3099',
+ u'pep-0243',
+ u'pep-0382',
+ u'pep-0279',
+ u'pep-0277',
+ u'pep-0302']
+>>> 
+ RESTART: C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py 
+[(u'pep-0273',), (u'pep-0201',), (u'pep-0212',), (u'pep-0202',), (u'pep-3099',), (u'pep-0243',), (u'pep-0382',), (u'pep-0279',), (u'pep-0277',), (u'pep-0302',), (u'pep-0361',)]
+[u'pep-0273',
+ u'pep-0201',
+ u'pep-0212',
+ u'pep-0202',
+ u'pep-3099',
+ u'pep-0243',
+ u'pep-0382',
+ u'pep-0279',
+ u'pep-0277',
+ u'pep-0302']
+>>> 
+ RESTART: C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py 
+
+Traceback (most recent call last):
+  File "C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py", line 53, in <module>
+    pprint.pprint(search('zip', 'barry')[:10])
+  File "C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\docfinder.py", line 156, in search
+    c.execute(search_query, (terms,))
+NameError: global name 'search_query' is not defined
+>>> 
+ RESTART: C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py 
+
+Traceback (most recent call last):
+  File "C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py", line 53, in <module>
+    pprint.pprint(search('zip', 'barry')[:10])
+  File "C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\docfinder.py", line 156, in search
+    c.execute(query, (terms,))
+ProgrammingError: Incorrect number of bindings supplied. The current statement uses 2, and there are 1 supplied.
+>>> 
+ RESTART: C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py 
+[(u'pep-0273',), (u'pep-0201',), (u'pep-0274',), (u'pep-0401',), (u'pep-0251',), (u'pep-0202',), (u'pep-0010',), (u'pep-0212',), (u'pep-0202',), (u'pep-0291',), (u'pep-0351',), (u'pep-3099',), (u'pep-0243',), (u'pep-0382',), (u'pep-3149',), (u'pep-0292',), (u'pep-0232',), (u'pep-0361',), (u'pep-0279',), (u'pep-0277',), (u'pep-0302',), (u'pep-0201',), (u'pep-3147',), (u'pep-0230',), (u'pep-0009',), (u'pep-0200',), (u'pep-0396',), (u'pep-0364',), (u'pep-0008',), (u'pep-0214',), (u'pep-0361',)]
+[u'pep-0273',
+ u'pep-0201',
+ u'pep-0274',
+ u'pep-0401',
+ u'pep-0251',
+ u'pep-0202',
+ u'pep-0010',
+ u'pep-0212',
+ u'pep-0202',
+ u'pep-0291']
+>>> 
+ RESTART: C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py 
+[u'pep-0273',
+ u'pep-0201',
+ u'pep-0274',
+ u'pep-0401',
+ u'pep-0251',
+ u'pep-0202',
+ u'pep-0010',
+ u'pep-0212',
+ u'pep-0202',
+ u'pep-0291']
+>>> 
+ RESTART: C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py 
+
+Traceback (most recent call last):
+  File "C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py", line 53, in <module>
+    pprint.pprint(search('zip', 'barry')[:10])
+  File "C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\docfinder.py", line 157, in search
+    c.execute(query, terms)
+OperationalError: no such function: average
+>>> 
+ RESTART: C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py 
+[u'pep-0273',
+ u'pep-0201',
+ u'pep-0274',
+ u'pep-0401',
+ u'pep-0251',
+ u'pep-0010',
+ u'pep-0202',
+ u'pep-0212',
+ u'pep-0291',
+ u'pep-0351']
+>>> 
+ RESTART: C:\Users\sdipippo\Desktop\Python Programming\Intermediate Python ILT Apr 2017\test_docfinder.py 
+[u'pep-0201',
+ u'pep-0273',
+ u'pep-0274',
+ u'pep-0202',
+ u'pep-0401',
+ u'pep-0251',
+ u'pep-0010',
+ u'pep-0212',
+ u'pep-0291',
+ u'pep-0351']
 >>> 
