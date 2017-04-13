@@ -23,6 +23,7 @@ Wrapper Function
 
 Factory Function
     a function that creates and returns a function
+    Usually used to create wrapper functions
 
 Closure (ex. pow2.__closure__[0].cell_contents will yield '2')
     A place to stash the local variables
@@ -50,6 +51,16 @@ def make_pow(exponent):
 
 powers = [make_pow(i) for i in range(100)]
 # above makes 100 pow functions
+
+def make_caching(func):
+    'memoize'
+    def wrapper(x):
+        if x in cache:
+            return cache[x]
+        result = func(x)
+        cache[x] = result
+        return result
+    return wrapper
 
 
 ### Wrapper Functions ##############
@@ -168,3 +179,32 @@ def conjecture(x):
         return True
     x = collatz(x)
     return conjecture(x)
+
+cache = {}
+
+def caching_conjecture(x):
+    if x in cache:
+        return cache[x]
+    result = conjecture(x)
+    cache[x] = result
+    return result
+
+import time
+
+def hardwork(x):
+    print 'doing hard work!'
+    time.sleep(2)
+    return x + 1
+
+cache = {}
+
+def caching_hardwork(x):
+    if x in cache:
+        return cache[x]
+    result = hardwork(x)
+    cache[x] = result
+    return result
+
+
+
+    
