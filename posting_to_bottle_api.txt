@@ -1,0 +1,21 @@
+Python 2.7.12 (v2.7.12:d33e0cf91556, Jun 27 2016, 15:19:22) [MSC v.1500 32 bit (Intel)] on win32
+Type "copyright", "credits" or "license()" for more information.
+>>> from urllib import urlopen
+>>> data = {'text': 'Hello'}
+>>> url = 'http://localhost:9000/docfinder/v1/doc/greetings'
+>>> url
+'http://localhost:9000/docfinder/v1/doc/greetings'
+>>> from urllib import urlopen, urlencode
+>>> urlencode(data)
+'text=Hello'
+>>> urlopen(url, urlencode(data))
+<addinfourl at 50541592 whose fp = <socket._fileobject object at 0x0301C4F0>>
+>>> #We just posted the data urlopen(url, urlencode(data))
+>>> urlopen(url, urlencode(data))
+<addinfourl at 50541992 whose fp = <socket._fileobject object at 0x02FA0630>>
+>>> url = 'http://localhost:9000/docfinder/v1/document/greetings'
+>>> urlopen(url, urlencode(data))
+<addinfourl at 50541792 whose fp = <socket._fileobject object at 0x0301C4F0>>
+>>> urlopen(url, urlencode(data))
+<addinfourl at 50541832 whose fp = <socket._fileobject object at 0x02FA0630>>
+>>> 
