@@ -19,7 +19,7 @@ if 0:
     print list(normalize(['Hettinger', 'enumerates', 'AND']))
 
 # Test 2
-if 1:
+if 0:
     filename = 'pep-0238.txt'
     fullname = os.path.join(docdir, filename)
     with open(fullname) as f:
@@ -33,8 +33,8 @@ if 0:
 
 # Test 4
 if 0:
-    for filename in ['pep-0237.txt', 'pep-0236.txt', 'pep-0235.txt']:
-    # for filename in os.listdir(docdir):
+    #for filename in ['pep-0237.txt', 'pep-0236.txt', 'pep-0235.txt']:
+    for filename in os.listdir(docdir):
         fullname = os.path.join(docdir, filename)
         with open(fullname, 'rb') as f:
             text = f.read()
@@ -45,10 +45,12 @@ if 0:
 # Test 5
 if 0:
     print get_document('pep-0237')[:100]
+    print get_document('foo')[:100]
 
-if 0:
-    pprint.pprint(search('zip')[:10])
-    # pprint.pprint(search('zip', 'barry')[:10])
+#Test 6
+if 1:
+    #pprint.pprint(search('zip')[:10])
+    pprint.pprint(search('zip', 'barry')[:10])
 
 """
 $ sqlite3 pepsearch.db
